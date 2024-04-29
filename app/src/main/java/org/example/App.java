@@ -3,12 +3,33 @@
  */
 package org.example;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import org.example.model.Deck;
+import org.example.model.Inventory;
 
+import java.util.Scanner;
+
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Scanner scanner = new Scanner(System.in);
+        Inventory inventory = new Inventory();
+        Deck deck = new Deck();
+        inventory.print();
+        deck.print();
+
+        for (int i=0; i<3; i++) {
+            String command = scanner.nextLine();
+            String[] commands = command.split(" ");
+
+            if (commands[0].equals("pick")) {
+                inventory.pick(Integer.parseInt(commands[1]), deck);
+            } else if ((commands[0].equals("discard"))) {
+                deck.discard(Integer.parseInt(commands[1]), inventory);
+            } else {
+                System.out.println("Invalid command.");
+            }
+
+            inventory.print();
+            deck.print();
+        }
     }
 }
