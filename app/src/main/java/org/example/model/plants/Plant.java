@@ -1,4 +1,4 @@
-package org.example.model.card;
+package org.example.model.plants;
 
 public class Plant {
     private String name;
