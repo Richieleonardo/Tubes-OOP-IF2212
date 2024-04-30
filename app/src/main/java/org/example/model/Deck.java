@@ -1,6 +1,6 @@
 package org.example.model;
 
-import org.example.model.card.Plant;
+import org.example.model.plants.Plant;
 
 import java.util.ArrayList;
 import java.util.List;
