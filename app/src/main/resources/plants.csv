@@ -1,7 +1,0 @@
-id,name,cost,health,attack_damage,attack_speed,range,cooldown
-1,Sunflower,50,100,0,0,0,10
-2,Peashooter,100,100,25,4,-1,10
-3,Wall nut,50,1000,0,0,0,20
-4,Snow pea,175,100,25,4,-1,10
-5,Squash,50,100,5000,0,1,20
-6,Lilypad,25,100,0,0,0,10
