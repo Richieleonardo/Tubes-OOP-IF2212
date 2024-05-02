@@ -59,6 +59,9 @@ public class Plant {
 
     }
 
+    /*
+     * Untuk print name Plant di Inventory dan Deck
+     */
     @Override
     public String toString(){
         return name;

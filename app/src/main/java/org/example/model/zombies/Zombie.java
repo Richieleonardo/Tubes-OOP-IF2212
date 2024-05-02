@@ -1,8 +1,10 @@
 package org.example.model.zombies;
 
+
+
 public class Zombie {
-    private String name;
-    private int speed, health, attack_damage, attack_speed;
+    private final String name;
+    private final int speed, health, attack_damage, attack_speed;
     private boolean is_aquatic;
 
     /*
@@ -17,7 +19,35 @@ public class Zombie {
         this.is_aquatic = is_aquatic;
     }
 
+    /*
+     * Getter Zombie, setter ga perlu karena seharusnya final
+     */
     public String getName() {
-        return this.name;
+        return name;
     }
+
+    public int getSpeed(){
+        return speed;
+    }
+
+    public int getHealth(){
+        return health;
+    }
+
+    public int getAttack_Damage(){
+        return attack_damage;
+    }
+
+    public boolean IsAquatic(){
+        return is_aquatic;
+    }
+
+    /*
+     * Untuk mengembalikan nama zombie
+     */
+
+     public String toString(){
+        return name;
+     }
+
 }
