@@ -5,6 +5,9 @@ public class Zombie {
     private int speed, health, attack_damage, attack_speed;
     private boolean is_aquatic;
 
+    /*
+     * Constructor zombie
+     */
     public Zombie(String name, int health, int attack_damage, int attack_speed, boolean is_aquatic) {
         this.name = name;
         this.speed = 5;
