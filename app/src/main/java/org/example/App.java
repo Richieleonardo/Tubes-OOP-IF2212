@@ -3,18 +3,18 @@
  */
 package org.example;
 
-import org.example.model.Deck;
-import org.example.model.Inventory;
+//test frame
+import src.main.GamePanel;
 
-import java.util.Scanner;
+import javax.swing.*;
 
 public class App {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Inventory inventory = new Inventory();
-        Deck deck = new Deck();
-        inventory.print();
-        deck.print();
+//        Scanner scanner = new Scanner(System.in);
+//        Inventory inventory = new Inventory();
+//        Deck deck = new Deck();
+//        inventory.print();
+//        deck.print();
 
         // for (int i=0; i<3; i++) {
         //     String command = scanner.nextLine();
@@ -32,6 +32,20 @@ public class App {
         // }
         // inventory.print();
         // deck.print();
-        scanner.close();
+//        scanner.close();
+        JFrame window = new JFrame();
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setResizable(false);
+        window.setTitle("PVZ test");
+
+        GamePanel gamePanel = new GamePanel();
+        window.add(gamePanel);
+
+        window.pack();
+
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);
+
+        gamePanel.startGameThread();
     }
 }

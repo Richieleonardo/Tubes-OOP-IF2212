@@ -1,4 +1,4 @@
-package Entity;
+package src.Entity;
 
 import java.awt.image.BufferedImage;
 

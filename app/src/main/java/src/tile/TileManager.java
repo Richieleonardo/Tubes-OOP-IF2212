@@ -1,6 +1,7 @@
-package tile;
+package src.tile;
 
-import main.GamePanel;
+import src.main.*;
+
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -8,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Objects;
 
 
 public class TileManager {
@@ -21,28 +23,27 @@ public class TileManager {
         mapTileNum = new int[gp.getMaxScreenCol()][gp.getMaxScreenRow()];
 
         getTileImage();
-        loadMap("maps/map01.txt"); //Input map file here. Note : Untuk instantiasi tipe tile
+        loadMap(); //Input map file here. Note : Untuk instantiasi tipe tile
     }
 
-    public void getTileImage(){ //Load image method
-        try{
-            //Banyak jenis tiles
+    public void getTileImage() { // Load image method
+        try {
+            // Banyak jenis tiles
             tile[0] = new Tile();
-            tile[0].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/grass01.png"));
+            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass01.png"));
             tile[1] = new Tile();
-            tile[1].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/wall.png"));
+            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wall.png"));
             tile[2] = new Tile();
-            tile[2].image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("tiles/water01.png"));
-        }
-        catch(IOException e){
-            e.printStackTrace();;
+            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water01.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public void loadMap(String filepath){
+    public void loadMap(){
         try{
-            InputStream is = getClass().getClassLoader().getResourceAsStream(filepath);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            InputStream is = getClass().getResourceAsStream("/maps/map01.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(is)));
 
             int col = 0;
             int row = 0;
