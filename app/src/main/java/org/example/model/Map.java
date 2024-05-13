@@ -1,4 +1,4 @@
-package org.example.model.storage;
+package org.example.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
