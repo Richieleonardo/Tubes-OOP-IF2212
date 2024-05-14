@@ -9,7 +9,7 @@ public class Kernelpult extends Entity {
         super(gp);
 
         name = "Kernelpult";
-        down1 = setup("/objects/Kernelpult.png");
+        down1 = setup("/plant/Kernelpult.png");
         collision = true;
     }
 }

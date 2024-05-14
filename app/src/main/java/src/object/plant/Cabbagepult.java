@@ -10,7 +10,7 @@ public class Cabbagepult extends Entity {
         super(gp);
 
         name = "Cabbagepult";
-        down1 = setup("/objects/Cabbagepult.png");
+        down1 = setup("/plant/Cabbagepult.png");
         collision = true;
     }
 }

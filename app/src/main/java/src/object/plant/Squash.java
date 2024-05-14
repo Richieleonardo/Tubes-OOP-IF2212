@@ -9,6 +9,6 @@ public class Squash extends Entity {
         super(gp);
         name = "Squash";
 
-        down1 = setup("/objects/Squash.png");
+        down1 = setup("/plant/Squash.png");
     }
 }

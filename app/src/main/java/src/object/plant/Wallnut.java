@@ -9,7 +9,7 @@ public class Wallnut extends Entity {
         super(gp);
 
         name = "Wallnut";
-        down1 = setup("/objects/Wallnut.png");
+        down1 = setup("/plant/Wallnut.png");
         collision = true;
     }
 }

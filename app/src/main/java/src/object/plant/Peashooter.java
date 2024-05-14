@@ -9,7 +9,7 @@ public class Peashooter extends Entity {
         super(gp);
 
         name = "Peashooter";
-        down1 = setup("/objects/Peashooter.png");
+        down1 = setup("/plant/Peashooter.png");
         collision = true;
     }
 }

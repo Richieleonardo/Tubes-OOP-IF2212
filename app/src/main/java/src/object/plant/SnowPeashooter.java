@@ -9,7 +9,7 @@ public class SnowPeashooter extends Entity {
         super(gp);
 
         name = "SnowPeashooter";
-        down1 = setup("/objects/SnowPeashooter.png");
+        down1 = setup("/plant/SnowPeashooter.png");
         collision = true;
     }
 }

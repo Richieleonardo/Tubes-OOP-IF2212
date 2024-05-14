@@ -9,6 +9,6 @@ public class Threepeater extends Entity {
         super(gp);
 
         name = "Threepeater";
-        down1 = setup("/objects/Threepeater.png");
+        down1 = setup("/plant/Threepeater.png");
     }
 }

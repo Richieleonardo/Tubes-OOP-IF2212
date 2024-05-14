@@ -8,7 +8,7 @@ public class Repeater extends Entity {
     public Repeater(GamePanel gp){
         super(gp);
         name = "Repeater";
-        down1 = setup("/objects/Repeater.png");
+        down1 = setup("/plant/Repeater.png");
         collision = true;
     }
 }

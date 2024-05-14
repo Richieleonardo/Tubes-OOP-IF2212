@@ -9,7 +9,7 @@ public class Sunflower extends Entity {
         super(gp);
 
         name = "Sunflower";
-        down1 = setup("/objects/Squash.png");
+        down1 = setup("/plant/Squash.png");
         collision = true;
     }
 }
