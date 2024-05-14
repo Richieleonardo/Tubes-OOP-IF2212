@@ -1,13 +1,20 @@
 package src.object;
 
+import src.main.GamePanel;
+
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class Pea extends SuperObject{
-    public Pea(){
+    GamePanel gp;
+
+    public Pea(GamePanel gp){
+        this.gp = gp;
+
         name = "Pea";
         try{
             image = ImageIO.read(getClass().getResourceAsStream("/objects/Pea.png"));
+            image = uTool.scaledImage(image, gp.getTileSize(), gp.getTileSize());
         }
         catch(IOException e){
             e.printStackTrace();

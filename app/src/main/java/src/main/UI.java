@@ -21,7 +21,7 @@ public class UI {
     public UI(GamePanel gp){
         this.gp = gp;
         arial_40 = new Font("Arial", Font.PLAIN, 40);
-        Pea pea = new Pea();
+        Pea pea = new Pea(gp);
         peaImage = pea.image;
     }
 

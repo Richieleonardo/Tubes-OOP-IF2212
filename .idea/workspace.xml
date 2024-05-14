@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/Entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +89,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="src.main" />
     </key>
   </component>
   <component name="RunManager">
