@@ -1,25 +1,19 @@
 package src.object;
 
+import src.Entity.Entity;
 import src.main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class Cabbagepult extends SuperObject{
+public class Cabbagepult extends Entity {
 
-    GamePanel gp;
 
     public Cabbagepult(GamePanel gp){
-        this.gp = gp;
+        super(gp);
 
         name = "Cabbagepult";
-        try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/Cabbagepult.png"));
-            image = uTool.scaledImage(image, gp.getTileSize(), gp.getTileSize());
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
+        down1 = setup("/objects/Cabbagepult.png");
         collision = true;
     }
 }

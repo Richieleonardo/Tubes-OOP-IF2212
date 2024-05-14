@@ -1,27 +1,20 @@
 package src.object;
 
+import src.Entity.Entity;
 import src.main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class Kernel_pellet extends SuperObject{
+public class Kernel_pellet extends Entity {
 
-    GamePanel gp;
 
     public Kernel_pellet(GamePanel gp){
-        this.gp = gp;
+        super(gp);
 
         name = "Kernel_pellet";
+        down1 = setup("/objects/Kernel_pellet.png");
 
-        try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/Kernel_pellet.png"));
-            image = uTool.scaledImage(image, gp.getTileSize(), gp.getTileSize());
-        }
-        catch(
-                IOException e){
-            e.printStackTrace();
-        }
     }
 
 }

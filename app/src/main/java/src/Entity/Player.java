@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Player extends Entity{
-    GamePanel gp;
+
     KeyHandler keyH;
     public int hasPea = 0;
     
@@ -20,15 +20,23 @@ public class Player extends Entity{
 
     //Constructor
     public Player(GamePanel gp, KeyHandler keyH){
-        this.gp = gp;
+        super(gp);
         this.keyH = keyH;
-        
+
+        maxHealth = 6;
+        Health = maxHealth;
+
         screenX = gp.getScreenWidth()/2 - (gp.getTileSize()/2);
         screenY = gp.getScreenHeight()/2 - (gp.getTileSize()/2);
 
-        solidArea = new Rectangle(12, 0, 24, 48); //player 2
+        solidArea = new Rectangle(); //player 2
+        solidArea.x = 12;
+        solidArea.y = 0;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
+        solidArea.width = 24;
+        solidArea.height = 48;
+
         setDefaultValues();
         getPlayerImage();
     }
@@ -41,31 +49,18 @@ public class Player extends Entity{
     }
 
     public void getPlayerImage(){
-            up1 = setup("boy_up_1");
-            up2 = setup("boy_up_2");
-            down1 = setup("boy_down_1");
-            down2 = setup("boy_down_2");
-            left1 = setup("boy_left_1");
-            left2 = setup("boy_left_2");
-            right1 = setup("boy_right_1");
-            right2 = setup("boy_right_2");
+            up1 = setup("/player/boy_up_1.png");
+            up2 = setup("/player/boy_up_2.png");
+            down1 = setup("/player/boy_down_1.png");
+            down2 = setup("/player/boy_down_2.png");
+            left1 = setup("/player/boy_left_1.png");
+            left2 = setup("/player/boy_left_2.png");
+            right1 = setup("/player/boy_right_1.png");
+            right2 = setup("/player/boy_right_2.png");
 
     }
 
-    public BufferedImage setup(String imageName){
-        UtilityTool uTool = new UtilityTool();
-        BufferedImage Image = null;
 
-        try {
-            Image = ImageIO.read(getClass().getResourceAsStream("/player/" + imageName + ".png"));
-            Image = uTool.scaledImage(Image, gp.getTileSize(), gp.getTileSize());
-
-        }
-        catch(IOException e){
-            e.getStackTrace();
-        }
-        return Image;
-    }
 
     public void update(){
 
@@ -156,9 +151,6 @@ public class Player extends Entity{
     }
 
     public void draw(Graphics2D g2){
-
-//        g2.setColor(Color.white);
-//        g2.fillRect(worldX, worldY, gp.getTileSize(), gp.getTileSize());
         BufferedImage image = null;
 
         if(direction == "up"){

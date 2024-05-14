@@ -1,11 +1,15 @@
 package src.main;
 
+import src.Entity.Entity;
 import src.Entity.Player;
 import src.object.SuperObject;
 import src.tile.TileManager;
 
 import javax.swing.JPanel;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -50,10 +54,12 @@ public class GamePanel extends JPanel implements Runnable{
     //Collision checker
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public AssetSetter assetSetter = new AssetSetter(this);
-    public Player player = new Player(this, keyH);
 
-    //CREATING SUPER OBJECT
-    public SuperObject obj[] = new SuperObject[20];
+
+    //CREATING SUPER OBJECT -> ENTITY AND OBJECT
+    public Player player = new Player(this, keyH);
+    public Entity obj[] = new Entity[20];
+    ArrayList<Entity> entityList = new ArrayList<>(); //Creating one big entity list to sort the render layer
 
     //Constructor
     public GamePanel(){
@@ -124,15 +130,40 @@ public class GamePanel extends JPanel implements Runnable{
             drawStart = System.nanoTime();
         }
 
-        //Draw tile first then player
+        //TILE
         tileM.draw(g2);
-        for(int i = 0;i < obj.length; i++){
+        //UI
+        ui.draw(g2);
+
+        //ADD ENTITIES TO LIST
+        entityList.add(player);
+
+        for(int i = 0; i < obj.length; i++){
             if(obj[i] != null){
-                obj[i].draw(g2, this);
+                entityList.add(obj[i]);
             }
         }
-        player.draw(g2);
-        ui.draw(g2);
+
+        //SORT
+        Collections.sort(entityList, new Comparator<Entity>() {
+            @Override
+            public int compare(Entity e1, Entity e2) {
+
+                int result = Integer.compare(e1.worldY, e2.worldY);
+                return result;
+            }
+        });
+
+
+        //DRAW ENTITIES
+        for(int i = 0; i < entityList.size(); i++){
+            entityList.get(i).draw(g2);
+        }
+        //EMPTY ENTITY LIST
+        for(int i = 0; i < entityList.size(); i++){
+            entityList.remove(i);
+        }
+
 
         //DEBUG
         if(keyH.checkDrawTime == true){

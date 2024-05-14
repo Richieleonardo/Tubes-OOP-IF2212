@@ -1,24 +1,18 @@
 package src.object;
 
+import src.Entity.Entity;
 import src.main.GamePanel;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class Cabbage_pellet extends SuperObject{
+public class Cabbage_pellet extends Entity {
 
-    GamePanel gp;
 
     public Cabbage_pellet(GamePanel gp){
-        this.gp = gp;
+        super(gp);
         name = "Cabbage_pellet";
+        down1 = setup("/objects/Cabbage_pellet.png");
 
-        try{
-            image = ImageIO.read(getClass().getClassLoader().getResourceAsStream("objects/Cabbage_pellet.png"));
-            image = uTool.scaledImage(image, gp.getTileSize(), gp.getTileSize());
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
     }
 }
