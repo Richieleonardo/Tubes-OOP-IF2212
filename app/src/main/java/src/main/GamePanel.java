@@ -1,6 +1,7 @@
 package src.main;
 
 import src.Entity.Player;
+import src.object.SuperObject;
 import src.tile.TileManager;
 
 import javax.swing.JPanel;
@@ -18,13 +19,20 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenWidth = tileSize * maxScreenCol; // 768 pixels
     final int screenHeight = tileSize * maxScreenRow; // 576 pixels
 
+    // WORLD SETTINGS
+    public final int maxWorldCol = 31;
+    public final int maxWorldRow = 14;
+    public final int worldWidth = tileSize * maxWorldCol;
+    public final int worldHeight = tileSize * maxWorldRow;
+
     //Getter
     public int getTileSize(){
         return tileSize;
     }
     public int getMaxScreenCol() { return maxScreenCol; }
     public int getMaxScreenRow() { return maxScreenRow; }
-
+    public int getScreenWidth() { return screenWidth; }
+    public int getScreenHeight() { return screenHeight; }
     // FPS
     int FPS = 60;
 
@@ -34,7 +42,15 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyH = new KeyHandler();
     //Create game loop
     Thread gameThread;
-    Player player = new Player(this, keyH);
+
+
+    //Collision checker
+    public CollisionChecker collisionChecker = new CollisionChecker(this);
+    public AssetSetter assetSetter = new AssetSetter(this);
+    public Player player = new Player(this, keyH);
+
+    //CREATING SUPER OBJECT
+    public SuperObject obj[] = new SuperObject[20];
 
     //Constructor
     public GamePanel(){
@@ -45,6 +61,9 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true); //Panel "focused" to receive input
     }
 
+    public void setupGame(){
+        assetSetter.setObject();
+    }
     /*
      GAME LOOP
     */
@@ -96,6 +115,11 @@ public class GamePanel extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D) g;
         //Draw tile first then player
         tileM.draw(g2);
+        for(int i = 0;i < obj.length; i++){
+            if(obj[i] != null){
+                obj[i].draw(g2, this);
+            }
+        }
         player.draw(g2);
 
         g2.dispose();

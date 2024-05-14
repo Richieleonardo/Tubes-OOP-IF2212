@@ -5,29 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules/app/Tubes-OOP-IF2212.app.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/src/main/CollisionChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Cabbage_pellet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Cabbagepult.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Kernel_pellet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Kernelpult.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Pea.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Pea2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Peashooter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Repeater.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/SnowPea.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/SnowPeashooter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/SolidAreaCounter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Squash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/SunParticle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Sunflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Threepeater.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/objects/Wallnut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/tiles/SolidAreaCounter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/tiles/earth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/tiles/road00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/tiles/tree.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/maps/map01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/maps/map01.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/player/boy_down_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/player/boy_down_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/player/boy_down_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/player/boy_down_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/player/boy_left_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/player/boy_left_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/player/boy_left_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/player/boy_left_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/player/boy_right_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/player/boy_right_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/player/boy_right_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/player/boy_right_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/player/boy_up_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/player/boy_up_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/player/boy_up_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/player/boy_up_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/tiles/grass01.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/tiles/grass01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/tiles/wall.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/tiles/wall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/res/tiles/water01.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/tiles/water01.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/src/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/Entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/src/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/Entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/tile/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/tile/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +60,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -81,18 +91,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/code/Tubes_OOP/Tubes-OOP-IF2212&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/java/src/object"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\src\object" />
+      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\tiles" />
+      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\objects" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\src" />

@@ -11,19 +11,30 @@ import java.io.IOException;
 public class Player extends Entity{
     GamePanel gp;
     KeyHandler keyH;
+    public int hasPea = 0;
+    
+    
+    public final int screenX;
+    public final int screenY;
 
     //Constructor
     public Player(GamePanel gp, KeyHandler keyH){
         this.gp = gp;
         this.keyH = keyH;
+        
+        screenX = gp.getScreenWidth()/2 - (gp.getTileSize()/2);
+        screenY = gp.getScreenHeight()/2 - (gp.getTileSize()/2);
 
+        solidArea = new Rectangle(12, 0, 24, 48); //player 2
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
         setDefaultValues();
         getPlayerImage();
     }
 
     public void setDefaultValues(){ //Posisi awal player
-        x = 100;
-        y = 100;
+        worldX = gp.getTileSize() * 17;
+        worldY = gp.getTileSize() * 4;
         speed = 4;
         direction = "down";
     }
@@ -51,19 +62,41 @@ public class Player extends Entity{
                 keyH.leftPressed || keyH.rightPressed){
             if(keyH.upPressed){
                 direction = "up";
-                y -= speed;
             }
             else if (keyH.downPressed){
                 direction = "down";
-                y += speed;
             }
             else if (keyH.leftPressed) {
                 direction = "left";
-                x -= speed;
             }
             else if (keyH.rightPressed){
                 direction = "right";
-                x += speed;
+            }
+
+            //check tile collision
+            collisionOn = false;
+            gp.collisionChecker.checkTile(this);
+
+            //check object collision
+            int objIndex= gp.collisionChecker.checkObject(this, true);
+            pickUpObject(objIndex);
+
+            //if collisionOn = false player can move
+            if(collisionOn == false) {
+                switch (direction) {
+                    case "up":
+                        worldY -= speed;
+                        break;
+                    case "down":
+                        worldY += speed;
+                        break;
+                    case "left":
+                        worldX -= speed;
+                        break;
+                    case "right":
+                        worldX += speed;
+                        break;
+                }
             }
 
             //Image change every 20 frame
@@ -81,10 +114,40 @@ public class Player extends Entity{
 
     }
 
+    public void pickUpObject(int index){
+
+        if(index != 999){
+            String objectName = gp.obj[index].name;
+
+            switch(objectName){
+                case "Pea":
+                    hasPea++;
+                    gp.obj[index] = null;
+                    System.out.println("Has pea: "+hasPea);
+                    break;
+                case "Peashooter":
+                    if(hasPea > 0){
+                        gp.obj[index] = null;
+                        hasPea--;
+                    }
+                    System.out.println("Has pea: "+hasPea);
+                    break;
+                case "Pea2":
+                    gp.obj[index] = null;
+                    break;
+                case "SnowPea":
+                    gp.obj[index] = null;
+                    break;
+
+
+            }
+        }
+    }
+
     public void draw(Graphics2D g2){
 
 //        g2.setColor(Color.white);
-//        g2.fillRect(x, y, gp.getTileSize(), gp.getTileSize());
+//        g2.fillRect(worldX, worldY, gp.getTileSize(), gp.getTileSize());
         BufferedImage image = null;
 
         if(direction == "up"){
@@ -119,6 +182,6 @@ public class Player extends Entity{
                 image = right2;
             }
         }
-        g2.drawImage(image, x, y, gp.getTileSize(), gp.getTileSize(), null);
+        g2.drawImage(image, screenX, screenY, gp.getTileSize(), gp.getTileSize(), null);
     }
 }
