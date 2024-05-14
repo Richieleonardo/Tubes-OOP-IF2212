@@ -2,11 +2,12 @@ package src.object;
 
 import src.main.GamePanel;
 import src.main.UtilityTool;
+import src.Entity.Entity;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class SuperObject {
+public class SuperObject extends Entity{
 
     public BufferedImage image;
     public String name;
@@ -29,5 +30,12 @@ public class SuperObject {
         {
             g2.drawImage(image, screenX, screenY, null);
         }
+    }
+
+    public SuperObject(GamePanel gp){
+        super(gp);
+
+        name = "SuperObject";
+        down1 = setup("/objects/SuperObject.png");
     }
 }
