@@ -1,10 +1,7 @@
-package src.object;
+package src.object.plant;
 
 import src.Entity.Entity;
 import src.main.GamePanel;
-
-import javax.imageio.ImageIO;
-import java.io.IOException;
 
 public class Kernelpult extends Entity {
 

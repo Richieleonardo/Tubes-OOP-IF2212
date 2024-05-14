@@ -1,6 +1,6 @@
 package src.main;
 
-import src.object.Pea;
+import src.object.pellet.Pea;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

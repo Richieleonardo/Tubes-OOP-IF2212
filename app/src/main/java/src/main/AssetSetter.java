@@ -1,6 +1,10 @@
 package src.main;
 
 import src.object.*;
+import src.object.pellet.Cabbage_pellet;
+import src.object.pellet.Kernel_pellet;
+import src.object.plant.Cabbagepult;
+import src.object.plant.Kernelpult;
 
 public class AssetSetter {
     GamePanel gp;
