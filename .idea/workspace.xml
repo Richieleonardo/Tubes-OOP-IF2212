@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/src/object/Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/Entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/Entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/main/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/object/Cabbage_pellet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/object/Cabbage_pellet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/object/Cabbagepult.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/object/Cabbagepult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/object/Kernel_pellet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/object/Kernel_pellet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/object/Kernelpult.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/object/Kernelpult.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
