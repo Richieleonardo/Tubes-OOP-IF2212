@@ -5,6 +5,23 @@ import src.object.pellet.Cabbage_pellet;
 import src.object.pellet.Kernel_pellet;
 import src.object.plant.Cabbagepult;
 import src.object.plant.Kernelpult;
+import src.object.zombie.NormalZombie;
+
+/*
+ASSETSETTER DIGUNAKAN UNTUK MELETAKAN OBJECT PADA MAP
+UNTUK SEKARANG MASIH DALAM TESTING PURPOSE
+ */
+
+/*
+TODO : Coba test random spawn pada zombie, fokus pada koordinat worldY zombie.
+       Agar zombie bisa berada pas ditengah Tile, dikali dengan getTileSize()
+       Rand(1-6)+1 untuk 6 tiles.
+       Perlu Count Zombie untuk ngitung zombienya.
+       Zombie berhenti spawn pada detik 200.
+       Pake System.nanoTime() untuk hitung time. [1_000_000_000 nanoSecond] = 1 second
+
+       Tutorial : https://youtu.be/RXq8cyv_7Mc?si=RyHsIb0PsbNCpyHy
+ */
 
 public class AssetSetter {
     GamePanel gp;
@@ -14,19 +31,25 @@ public class AssetSetter {
     }
 
     public void setZombie(){
+        gp.zombie[0] = new NormalZombie(gp);
+        gp.zombie[0].worldX = 8 * gp.getTileSize();
+        gp.zombie[0].worldY = 6 * gp.getTileSize();
 
+        gp.zombie[1] = new NormalZombie(gp);
+        gp.zombie[1].worldX = 9 * gp.getTileSize();
+        gp.zombie[1].worldY = 6 * gp.getTileSize();
     }
 
     public void setPlant(){
 
-        gp.obj[2] = new Kernelpult(gp);
-        gp.obj[2].worldX = 17 * gp.getTileSize();
-        gp.obj[2].worldY = 8 * gp.getTileSize();
+        gp.plant[2] = new Kernelpult(gp);
+        gp.plant[2].worldX = 17 * gp.getTileSize();
+        gp.plant[2].worldY = 8 * gp.getTileSize();
 
         //mulai dari 6
-        gp.obj[6] = new Cabbagepult(gp);
-        gp.obj[6].worldX = 18 * gp.getTileSize();
-        gp.obj[6].worldY = 8 * gp.getTileSize();
+        gp.plant[6] = new Cabbagepult(gp);
+        gp.plant[6].worldX = 18 * gp.getTileSize();
+        gp.plant[6].worldY = 8 * gp.getTileSize();
     }
 
     public void setObject(){

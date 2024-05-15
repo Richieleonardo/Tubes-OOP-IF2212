@@ -8,7 +8,14 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-//Super class entity dalam game
+/*
+SUPER CLASS UNTUK SEMUA OBJECT YANG DIBUAT PADA PROGRAM
+
+TODO : IMPLEMENT abstract PLANT yang extend Entity.
+       IMPLEMENT abstract ZOMBIE yang extend Entity
+       Buat ArrayList baru di GamePanel untuk menyimpan Plant dan Zombie saja
+
+ */
 public class Entity {
     GamePanel gp;
 
@@ -34,11 +41,56 @@ public class Entity {
     public String name;
     public boolean collision = false;
 
+
+    //TickCounter
+    public int tickCounter;
+
     //CONSTRUCTOR
     public Entity(GamePanel gp){
         this.gp = gp;
     }
 
+    //SETACTION and UPDATE method for Entity
+    public void setAction(){}
+
+    public void update(){
+        setAction();
+
+        collisionOn = false;
+        gp.collisionChecker.checkTile(this);
+        gp.collisionChecker.checkObject(this, false);
+        gp.collisionChecker.checkEntity(this, gp.zombie);
+
+        //if collisionOn = false player can move
+        if(collisionOn == false) {
+            switch (direction) {
+                case "up":
+                    worldY -= speed;
+                    break;
+                case "down":
+                    worldY += speed;
+                    break;
+                case "left":
+                    worldX -= speed;
+                    break;
+                case "right":
+                    worldX += speed;
+                    break;
+            }
+        }
+
+        //Image change every 20 frame
+        spriteCounter++;
+        if(spriteCounter > 20){
+            if(spriteNum == 1){
+                spriteNum = 2;
+            }
+            else if(spriteNum == 2){
+                spriteNum = 1;
+            }
+            spriteCounter = 0;
+        }
+    }
     public BufferedImage setup(String imagePath){
         UtilityTool uTool = new UtilityTool();
         BufferedImage Image = null;

@@ -58,7 +58,11 @@ public class GamePanel extends JPanel implements Runnable{
 
     //CREATING SUPER OBJECT -> ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
-    public Entity obj[] = new Entity[20];
+    public Entity obj[] = new Entity[10];
+    public Entity plant[] = new Entity[10]; //TYPE masih ENTITY, TODO : buat type Plant yang extends Entity
+    public Entity zombie[] = new Entity[10]; //TYPE masih ENTITY, TODO : buat type Zombie yang extends Entity
+
+    //TODO : gatau perlu ditambah ato ga, perlu ide....
     ArrayList<Entity> entityList = new ArrayList<>(); //Creating one big entity list to sort the render layer
 
     //Constructor
@@ -73,6 +77,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame(){
         assetSetter.setObject();
         assetSetter.setPlant();
+        assetSetter.setZombie();
     }
     /*
      GAME LOOP
@@ -115,8 +120,16 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread.start();
     }
 
-    public void update(){
+    public void update(){ //update the draw method
+        //PLAYER
         player.update();
+
+        //ZOMBIE
+        for(int i = 0; i < zombie.length; i++){
+            if(zombie[i] != null){
+                zombie[i].update();
+            }
+        }
     }
 
     public void paintComponent(Graphics g){
@@ -139,9 +152,24 @@ public class GamePanel extends JPanel implements Runnable{
         //ADD ENTITIES TO LIST
         entityList.add(player);
 
+            //ENTITIES object
         for(int i = 0; i < obj.length; i++){
             if(obj[i] != null){
                 entityList.add(obj[i]);
+            }
+        }
+
+            //ENTITIES plant
+        for(int i = 0; i < plant.length; i++){
+            if(plant[i] != null){
+                entityList.add(plant[i]);
+            }
+        }
+
+            //ENTITIES zombie
+        for(int i = 0; i < zombie.length; i++){
+            if(zombie[i] != null){
+                entityList.add(zombie[i]);
             }
         }
 

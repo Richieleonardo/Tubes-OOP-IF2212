@@ -9,6 +9,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+
+
 public class Player extends Entity{
 
     KeyHandler keyH;
@@ -86,6 +88,10 @@ public class Player extends Entity{
             //check object collision
             int objIndex= gp.collisionChecker.checkObject(this, true);
             pickUpObject(objIndex);
+
+            //check zombie collision
+            int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
+
 
             //if collisionOn = false player can move
             if(collisionOn == false) {
