@@ -1,14 +1,13 @@
 package src.object.plant;
 
-import src.Entity.Entity;
 import src.main.GamePanel;
 
-public class Threepeater extends Entity {
+public class Threepeater extends Plant {
 
     public Threepeater(GamePanel gp){
-        super(gp);
+        super(gp, "Threepeater", 325, 300, 60, 0, -1, 15);
 
-        name = "Threepeater";
+        //name = "Threepeater";
         down1 = setup("/plant/Threepeater.png");
     }
 }

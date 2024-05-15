@@ -1,15 +1,13 @@
 package src.object.plant;
 
-import src.Entity.Entity;
 import src.main.GamePanel;
 
-public class Cabbagepult extends Entity {
-
+public class Cabbagepult extends Plant {
 
     public Cabbagepult(GamePanel gp){
-        super(gp);
+        super(gp, "Cabbagepult", 100, 300, 40, 3, -1, 5);
 
-        name = "Cabbagepult";
+        //name = "Cabbagepult";
         down1 = setup("/plant/Cabbagepult.png");
         collision = true;
     }

@@ -1,14 +1,13 @@
 package src.object.plant;
 
-import src.Entity.Entity;
 import src.main.GamePanel;
 
-public class Wallnut extends Entity {
+public class Wallnut extends Plant {
 
     public Wallnut(GamePanel gp){
-        super(gp);
+        super(gp, "Wall nut", 50, 1000, 0, 0, 0, 20);
 
-        name = "Wallnut";
+        //name = "Wallnut";
         down1 = setup("/plant/Wallnut.png");
         collision = true;
     }

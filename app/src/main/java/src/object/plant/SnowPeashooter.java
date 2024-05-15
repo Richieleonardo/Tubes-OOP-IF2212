@@ -1,14 +1,13 @@
 package src.object.plant;
 
-import src.Entity.Entity;
 import src.main.GamePanel;
 
-public class SnowPeashooter extends Entity {
+public class SnowPeashooter extends Plant {
 
     public SnowPeashooter(GamePanel gp){
-        super(gp);
+        super(gp, "SnowPeashooter", 175, 100, 20, 4, -1, 10);
 
-        name = "SnowPeashooter";
+        //name = "SnowPeashooter";
         down1 = setup("/plant/SnowPeashooter.png");
         collision = true;
     }
