@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/src/object/zombie/Zombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/Entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/Entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/main/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/main/CollisionChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/maps/mapdebug.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/maps/mapdebug.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +26,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Tubes-OOP-IF2212" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -59,7 +52,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Richieleonardo/Tubes-OOP-IF2212.git&quot;,
-    &quot;accountId&quot;: &quot;eb67a8b2-e441-4444-8833-87471886945c&quot;
+    &quot;accountId&quot;: &quot;19487a37-4dbf-4ccb-a2d3-ebcf60fea660&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -79,7 +72,8 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/resources/zombie"
+    "last_opened_file_path": "C:/gradle-8.7",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="RecentsManager">
