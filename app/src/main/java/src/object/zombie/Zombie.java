@@ -64,11 +64,16 @@ public abstract class Zombie extends Entity {
             canAttack = false;
             if(gp.plant[i].Health <= 0){
                 gp.plant[i] = null;
-//                collisionOn = false;
                 canAttack = true;
             }
         }
     }
+
+    //Method zombie loncat
+    public void jump(){
+        this.worldX -= 48;
+    }
+
     public void update(){
 //        System.out.println("Zombie health : " + this.Health);
         gp.collisionChecker.checkTile(this);
