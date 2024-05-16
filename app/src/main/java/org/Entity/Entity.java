@@ -31,6 +31,7 @@ public class Entity {
     //ENTITY STATUS
     public int maxHealth;
     public int Health;
+    public int attack_damage;
 
     public Rectangle solidArea = new Rectangle(0,0,48,48);
     public int solidAreaDefaultX, solidAreaDefaultY;
@@ -42,6 +43,10 @@ public class Entity {
     public boolean collision = false;
 
     public int type; // 1 plant, 2 zombie
+
+//    //PROJECTILE TEST (for now)
+    public boolean alive;
+//    public Projectile projectile;
 
     //TickCounter
     public int tickCounter;

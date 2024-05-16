@@ -62,7 +62,8 @@ public class GamePanel extends JPanel implements Runnable{
     public Entity zombie[] = new Entity[10]; //TYPE masih ENTITY, TODO : buat type Zombie yang extends Entity
 
     //TODO : gatau perlu ditambah ato ga, perlu ide....
-    ArrayList<Entity> entityList = new ArrayList<>(); //Creating one big entity list to sort the render layer
+    public ArrayList<Entity> projectileList = new ArrayList<>();
+    public ArrayList<Entity> entityList = new ArrayList<>(); //Creating one big entity list to sort the render layer
 
     //Constructor
     public GamePanel(){
@@ -135,7 +136,18 @@ public class GamePanel extends JPanel implements Runnable{
             if(plant[i] != null){
                 plant[i].update();
             }
+        }
 
+        //PROJECTILE
+        for(int i = 0; i < projectileList.size(); i++){
+            if(projectileList.get(i) != null){
+                if(projectileList.get(i).alive){
+                    projectileList.get(i).update();
+                }
+            }
+            if(projectileList.get(i).alive == false){
+                projectileList.remove(i);
+            }
         }
     }
 
@@ -177,6 +189,13 @@ public class GamePanel extends JPanel implements Runnable{
         for(int i = 0; i < zombie.length; i++){
             if(zombie[i] != null){
                 entityList.add(zombie[i]);
+            }
+        }
+
+        //ADD PROJECTILE TO LIST
+        for(int i = 0; i < projectileList.size(); i++){
+            if(projectileList.get(i) != null){
+                entityList.add(projectileList.get(i));
             }
         }
 
