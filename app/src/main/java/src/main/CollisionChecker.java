@@ -111,9 +111,9 @@ public class CollisionChecker {
     public int checkEntity(Entity entity, Entity[] target){
 
         int index = 999;
-
+        entity.collisionOn = false;
         for(int i = 0; i < target.length; i++){
-            if(target[i] != null && target[i] != entity){
+            if(target[i] != null ){
                 //Get entity's solid area position
                 entity.solidArea.x = entity.worldX + entity.solidArea.x;
                 entity.solidArea.y = entity.worldY + entity.solidArea.y;

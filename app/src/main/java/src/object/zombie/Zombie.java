@@ -64,7 +64,7 @@ public abstract class Zombie extends Entity {
             canAttack = false;
             if(gp.plant[i].Health <= 0){
                 gp.plant[i] = null;
-                collisionOn = false;
+//                collisionOn = false;
                 canAttack = true;
             }
         }

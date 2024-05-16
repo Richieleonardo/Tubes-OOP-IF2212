@@ -36,9 +36,9 @@ public class AssetSetter {
         gp.zombie[0].worldX = 27 * gp.getTileSize();
         gp.zombie[0].worldY = 8 * gp.getTileSize();
 
-//        gp.zombie[1] = new NormalZombie(gp);
-//        gp.zombie[1].worldX = 24 * gp.getTileSize();
-//        gp.zombie[1].worldY = 8 * gp.getTileSize();
+        gp.zombie[1] = new NormalZombie(gp);
+        gp.zombie[1].worldX = 24 * gp.getTileSize();
+        gp.zombie[1].worldY = 8 * gp.getTileSize();
 
     }
 
