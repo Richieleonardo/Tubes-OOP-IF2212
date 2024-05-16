@@ -9,7 +9,7 @@ speed = 1
 public class NormalZombie extends Zombie {
 
     public NormalZombie(GamePanel gp) {
-        super(gp, "NormalZombie", 100, 1, 100, 3);
+        super(gp, "Normal Zombie", 125, 1, 100, 1,false);
         direction = "left";
         getImage();
     }
