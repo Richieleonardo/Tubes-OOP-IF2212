@@ -33,28 +33,24 @@ public class AssetSetter {
 
     public void setZombie(){
         gp.zombie[0] = new NormalZombie(gp);
-        gp.zombie[0].worldX = 8 * gp.getTileSize();
-        gp.zombie[0].worldY = 6 * gp.getTileSize();
+        gp.zombie[0].worldX = 27 * gp.getTileSize();
+        gp.zombie[0].worldY = 8 * gp.getTileSize();
 
-        gp.zombie[1] = new NormalZombie(gp);
-        gp.zombie[1].worldX = 9 * gp.getTileSize();
-        gp.zombie[1].worldY = 6 * gp.getTileSize();
+//        gp.zombie[1] = new NormalZombie(gp);
+//        gp.zombie[1].worldX = 24 * gp.getTileSize();
+//        gp.zombie[1].worldY = 8 * gp.getTileSize();
 
-        gp.zombie[2] = new Cat(gp);
-        gp.zombie[2].worldX = 20 * gp.getTileSize();
-        gp.zombie[2].worldY = 10 * gp.getTileSize();
     }
 
     public void setPlant(){
 
-        gp.plant[2] = new Kernelpult(gp);
-        gp.plant[2].worldX = 17 * gp.getTileSize();
-        gp.plant[2].worldY = 8 * gp.getTileSize();
+        gp.plant[0] = new Kernelpult(gp);
+        gp.plant[0].worldX = 17 * gp.getTileSize();
+        gp.plant[0].worldY = 8 * gp.getTileSize();
 
-        //mulai dari 6
-        gp.plant[6] = new Cabbagepult(gp);
-        gp.plant[6].worldX = 18 * gp.getTileSize();
-        gp.plant[6].worldY = 8 * gp.getTileSize();
+        gp.plant[1] = new Cabbagepult(gp);
+        gp.plant[1].worldX = 18 * gp.getTileSize();
+        gp.plant[1].worldY = 8 * gp.getTileSize();
     }
 
     public void setObject(){

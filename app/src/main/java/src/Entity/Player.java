@@ -65,7 +65,7 @@ public class Player extends Entity{
 
 
     public void update(){
-
+//        System.out.println(Health);
         if(keyH.upPressed || keyH.downPressed ||
                 keyH.leftPressed || keyH.rightPressed){
             if(keyH.upPressed){
@@ -91,7 +91,7 @@ public class Player extends Entity{
 
             //check zombie collision
             int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
-
+            contactZombie(zombieIndex);
 
             //if collisionOn = false player can move
             if(collisionOn == false) {
@@ -153,6 +153,13 @@ public class Player extends Entity{
 
 
             }
+        }
+    }
+
+    //Test damage
+    public void contactZombie(int i){
+        if(i != 999){
+            Health -= 1;
         }
     }
 

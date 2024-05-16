@@ -130,6 +130,14 @@ public class GamePanel extends JPanel implements Runnable{
                 zombie[i].update();
             }
         }
+
+        //PLANT
+        for(int i = 0; i < plant.length; i++){
+            if(plant[i] != null){
+                plant[i].update();
+            }
+
+        }
     }
 
     public void paintComponent(Graphics g){
@@ -189,9 +197,7 @@ public class GamePanel extends JPanel implements Runnable{
             entityList.get(i).draw(g2);
         }
         //EMPTY ENTITY LIST
-        for(int i = 0; i < entityList.size(); i++){
-            entityList.remove(i);
-        }
+        entityList.clear();
 
 
         //DEBUG

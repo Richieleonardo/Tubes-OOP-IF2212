@@ -17,7 +17,7 @@ TODO : IMPLEMENT abstract PLANT yang extend Entity.
 
  */
 public class Entity {
-    GamePanel gp;
+    public GamePanel gp;
 
     public int worldX ,worldY;
     public int speed;
@@ -41,6 +41,7 @@ public class Entity {
     public String name;
     public boolean collision = false;
 
+    public int type; // 1 plant, 2 zombie
 
     //TickCounter
     public int tickCounter;
@@ -60,6 +61,7 @@ public class Entity {
         gp.collisionChecker.checkTile(this);
         gp.collisionChecker.checkObject(this, false);
         gp.collisionChecker.checkEntity(this, gp.zombie);
+        gp.collisionChecker.checkEntity(this, gp.plant);
 
         //if collisionOn = false player can move
         if(collisionOn == false) {

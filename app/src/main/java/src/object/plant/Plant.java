@@ -16,7 +16,8 @@ public abstract class Plant extends Entity {
         super(gp);
         this.name = name;
         this.cost = cost;
-        this.health = health;
+        this.maxHealth = health;
+        Health = maxHealth;
         this.attack_damage = attack_damage;
         this.attack_speed = attack_speed;
         this.range = range;
@@ -64,6 +65,16 @@ public abstract class Plant extends Entity {
     }
 
     public void die() {
+    }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+    }
+
+    public void contactZombie(int i){
+        if(i != 999){
+            Health -= 1;
+        }
     }
 
     public String toString() {
