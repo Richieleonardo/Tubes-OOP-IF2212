@@ -5,7 +5,7 @@ import src.main.GamePanel;
 public class SnowPeashooter extends Plant {
 
     public SnowPeashooter(GamePanel gp){
-        super(gp, "SnowPeashooter", 175, 100, 25, 4, -1, 10);
+        super(gp, "SnowPeashooter", 175, 100, 25, 4, -1, 10, false);
 
         //name = "SnowPeashooter";
         down1 = setup("/plant/SnowPeashooter.png");

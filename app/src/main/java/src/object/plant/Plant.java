@@ -10,9 +10,9 @@ public abstract class Plant extends Entity {
     private int attack_speed;
     private int range;
     private int cooldown;
-    private boolean isAquatic = false;
+    private boolean isAquatic;
 
-    public Plant(GamePanel gp, String name, int cost, int health, int attack_damage, int attack_speed, int range, int cooldown) {
+    public Plant(GamePanel gp, String name, int cost, int health, int attack_damage, int attack_speed, int range, int cooldown, boolean isAquatic) {
         super(gp);
         this.name = name;
         this.cost = cost;
@@ -22,6 +22,7 @@ public abstract class Plant extends Entity {
         this.attack_speed = attack_speed;
         this.range = range;
         this.cooldown = cooldown;
+        this.isAquatic = isAquatic;
     }
 
     public String getName() {
