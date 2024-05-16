@@ -1,0 +1,578 @@
+Index: app/src/main/java/org/object/zombie/Zombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.object.zombie;\r\n\r\nimport org.Entity.Entity;\r\nimport org.main.GamePanel;\r\n\r\npublic abstract class Zombie extends Entity {\r\n\r\n    private int attack_damage;\r\n    private int attack_speed;\r\n    private boolean isAquatic = false;\r\n\r\n    //Check if zombie can attack or not\r\n    public boolean canAttack = true;\r\n    public int attack_counter = 0;\r\n\r\n    public Zombie(GamePanel gp, String name, int health, int speed, int attack_damage, int attack_speed) {\r\n        super(gp);\r\n        this.name = name;\r\n        this.maxHealth = health;\r\n        this.speed = speed;\r\n        Health = maxHealth;\r\n        this.attack_damage = attack_damage;\r\n        this.attack_speed = attack_speed;\r\n    }\r\n\r\n    public String getName() {\r\n        return this.name;\r\n    }\r\n\r\n    public int getHealth() {\r\n        return this.Health;\r\n    }\r\n\r\n    public void setHealth(int health){\r\n        this.Health = health;\r\n    }\r\n\r\n    public int getAttackDamage() {\r\n        return this.attack_damage;\r\n    }\r\n\r\n    public int getAttack_Speed() {\r\n        return this.attack_speed;\r\n    }\r\n\r\n    public boolean getIsAquatic(){\r\n        return isAquatic;\r\n    }\r\n\r\n    public void setIsAquatic(boolean isAquatic){\r\n        this.isAquatic = isAquatic;\r\n    }\r\n\r\n    public void die() {\r\n    }\r\n\r\n    public String toString() {\r\n        return this.name;\r\n    }\r\n\r\n    public void attackPlant(int i){\r\n        if(i != 999 && canAttack){\r\n            gp.plant[i].Health -= attack_damage;\r\n            canAttack = false;\r\n            if(gp.plant[i].Health <= 0){\r\n                gp.plant[i] = null;\r\n                canAttack = true;\r\n            }\r\n        }\r\n    }\r\n\r\n    //Method zombie loncat\r\n    public void jump(){\r\n        this.worldX -= 48;\r\n    }\r\n\r\n    public void update(){\r\n        System.out.println(\"Zombie health : \" + this.Health);\r\n        gp.collisionChecker.checkTile(this);\r\n        collisionOn = false;\r\n        //Implement collision with plant\r\n        int Index = gp.collisionChecker.checkEntity(this, gp.plant);\r\n        if(canAttack){\r\n            attackPlant(Index);\r\n        }\r\n        else{\r\n            attack_counter++;\r\n            if(attack_counter == (60*attack_speed)){\r\n                canAttack = true;\r\n                attack_counter = 0;\r\n            }\r\n        }\r\n\r\n\r\n\r\n        //if collisionOn = false player can move\r\n        if(collisionOn == false) {\r\n            switch (direction) {\r\n                case \"up\":\r\n                    worldY -= speed;\r\n                    break;\r\n                case \"down\":\r\n                    worldY += speed;\r\n                    break;\r\n                case \"left\":\r\n                    worldX -= speed;\r\n                    break;\r\n                case \"right\":\r\n                    worldX += speed;\r\n                    break;\r\n            }\r\n        }\r\n    }\r\n\r\n    public void getImage(){}\r\n    public void setAction(){}\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/Zombie.java b/app/src/main/java/org/object/zombie/Zombie.java
+--- a/app/src/main/java/org/object/zombie/Zombie.java	(revision e621dc72e3336dbb4ec43c0c28ee22371e5ce9e1)
++++ b/app/src/main/java/org/object/zombie/Zombie.java	(date 1715882340799)
+@@ -13,7 +13,7 @@
+     public boolean canAttack = true;
+     public int attack_counter = 0;
+ 
+-    public Zombie(GamePanel gp, String name, int health, int speed, int attack_damage, int attack_speed) {
++    public Zombie(GamePanel gp, String name, int health, int speed, int attack_damage, int attack_speed, boolean isAquatic) {
+         super(gp);
+         this.name = name;
+         this.maxHealth = health;
+@@ -21,6 +21,7 @@
+         Health = maxHealth;
+         this.attack_damage = attack_damage;
+         this.attack_speed = attack_speed;
++        this.isAquatic = isAquatic;
+     }
+ 
+     public String getName() {
+Index: app/src/main/java/org/object/zombie/NormalZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.object.zombie;\r\n\r\nimport org.main.GamePanel;\r\n\r\n/*\r\nmaxHealth = 100\r\nspeed = 1\r\n */\r\npublic class NormalZombie extends Zombie {\r\n\r\n    public NormalZombie(GamePanel gp) {\r\n        super(gp, \"NormalZombie\", 125, 1, 100, 3);\r\n        direction = \"left\";\r\n        getImage();\r\n    }\r\n\r\n    public void getImage(){\r\n        up1 = setup(\"/zombie/NormalZombie.png\");\r\n        up2 = setup(\"/zombie/NormalZombie.png\");\r\n        down1 = setup(\"/zombie/NormalZombie.png\");\r\n        down2 = setup(\"/zombie/NormalZombie.png\");\r\n        left1 = setup(\"/zombie/NormalZombie.png\");\r\n        left2 = setup(\"/zombie/NormalZombie.png\");\r\n        right1 = setup(\"/zombie/NormalZombie.png\");\r\n        right2 = setup(\"/zombie/NormalZombie.png\");\r\n    }\r\n\r\n    public void setAction(){\r\n//        tickCounter++;\r\n//\r\n//        if(tickCounter == 120){\r\n//            Random random = new Random();\r\n//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100\r\n//\r\n//            if(i <= 25){\r\n//                direction = \"up\";\r\n//            }\r\n//            if(i > 25 && i <= 50){\r\n//                direction = \"down\";\r\n//            }\r\n//            if(i > 50 && i <= 75){\r\n//                direction = \"left\";\r\n//            }\r\n//            if(i > 75 && i <= 100){\r\n//                direction = \"right\";\r\n//            }\r\n//\r\n//            tickCounter = 0;\r\n//        }\r\n\r\n//        direction = \"left\";\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/NormalZombie.java b/app/src/main/java/org/object/zombie/NormalZombie.java
+--- a/app/src/main/java/org/object/zombie/NormalZombie.java	(revision e621dc72e3336dbb4ec43c0c28ee22371e5ce9e1)
++++ b/app/src/main/java/org/object/zombie/NormalZombie.java	(date 1715882475082)
+@@ -9,7 +9,7 @@
+ public class NormalZombie extends Zombie {
+ 
+     public NormalZombie(GamePanel gp) {
+-        super(gp, "NormalZombie", 125, 1, 100, 3);
++        super(gp, "Normal Zombie", 125, 1, 100, 1,false);
+         direction = "left";
+         getImage();
+     }
+@@ -26,6 +26,7 @@
+     }
+ 
+     public void setAction(){
++
+ //        tickCounter++;
+ //
+ //        if(tickCounter == 120){
+Index: app/src/main/java/org/object/zombie/DolphinRiderZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/DolphinRiderZombie.java b/app/src/main/java/org/object/zombie/DolphinRiderZombie.java
+new file mode 100644
+--- /dev/null	(date 1715882340794)
++++ b/app/src/main/java/org/object/zombie/DolphinRiderZombie.java	(date 1715882340794)
+@@ -0,0 +1,34 @@
++package org.object.zombie;
++
++import org.main.GamePanel;
++
++import java.util.Random;
++
++public class DolphinRiderZombie extends Zombie {
++    public DolphinRiderZombie(GamePanel gp) {
++        super(gp, "Dolphin Rider Zombie", 175, 5, 100, 1, true);
++        direction = "left";
++        getImage();
++    }
++    public void getImage() {
++
++//        left1 = setup("/zombie/");
++
++
++    }
++    public void setAction(){
++
++//        tickCounter++;
++//
++//        if(tickCounter == 120){
++//            Random random = new Random();
++//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
++//
++//            if(i <= 25){
++//                direction = "left";
++//                tickCounter = 0;
++//            }
++//            tickCounter = 0;        }
++    }
++}
++
+Index: app/src/main/java/org/object/zombie/PoleVaultingZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/PoleVaultingZombie.java b/app/src/main/java/org/object/zombie/PoleVaultingZombie.java
+new file mode 100644
+--- /dev/null	(date 1715882340797)
++++ b/app/src/main/java/org/object/zombie/PoleVaultingZombie.java	(date 1715882340797)
+@@ -0,0 +1,34 @@
++package org.object.zombie;
++
++import org.main.GamePanel;
++
++import java.util.Random;
++
++public class PoleVaultingZombie extends Zombie {
++    public PoleVaultingZombie(GamePanel gp) {
++        super(gp, "Pole Vaulting Zombie", 175, 5, 100, 1, false);
++        direction = "left";
++        getImage();
++    }
++    public void getImage() {
++
++//        left1 = setup("/zombie/ConeHeadZombie.png");
++//        left2 = setup("/zombie/ConeHeadZombie.png");
++// belum ada png
++    }
++    public void setAction(){
++
++//        tickCounter++;
++//
++//        if(tickCounter == 120){
++//            Random random = new Random();
++//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
++//
++//            if(i <= 25){
++//                direction = "left";
++//                tickCounter = 0;
++//            }
++//            tickCounter = 0;        }
++    }
++}
++
+Index: app/src/main/java/org/object/zombie/DuckyTubeZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/DuckyTubeZombie.java b/app/src/main/java/org/object/zombie/DuckyTubeZombie.java
+new file mode 100644
+--- /dev/null	(date 1715882340795)
++++ b/app/src/main/java/org/object/zombie/DuckyTubeZombie.java	(date 1715882340795)
+@@ -0,0 +1,34 @@
++package org.object.zombie;
++
++import org.main.GamePanel;
++
++import java.util.Random;
++
++public class DuckyTubeZombie extends Zombie {
++    public DuckyTubeZombie(GamePanel gp) {
++        super(gp, "Ducky Tube Zombie", 100, 5, 100, 1, true);
++        direction = "left";
++        getImage();
++    }
++    public void getImage() {
++
++//        left1 = setup("/zombie/ConeHeadZombie.png");
++
++
++    }
++    public void setAction(){
++
++//        tickCounter++;
++//
++//        if(tickCounter == 120){
++//            Random random = new Random();
++//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
++//
++//            if(i <= 25){
++//                direction = "left";
++//                tickCounter = 0;
++//            }
++//            tickCounter = 0;        }
++    }
++}
++
+Index: app/src/main/java/org/object/zombie/FootballZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/FootballZombie.java b/app/src/main/java/org/object/zombie/FootballZombie.java
+new file mode 100644
+--- /dev/null	(date 1715882340795)
++++ b/app/src/main/java/org/object/zombie/FootballZombie.java	(date 1715882340795)
+@@ -0,0 +1,40 @@
++package org.object.zombie;
++
++import org.main.GamePanel;
++
++import java.util.Random;
++
++public class FootballZombie extends Zombie {
++    public FootballZombie(GamePanel gp) {
++        super(gp, "Football Zombie", 275, 5, 125, 1, false);
++        direction = "left";
++        getImage();
++    }
++    public void getImage() {
++
++        up1 = setup("/zombie/FootballZombie.png");
++        up2 = setup("/zombie/FootballZombie.png");
++        down1 = setup("/zombie/FootballZombie.png");
++        down2 = setup("/zombie/FootballZombie.png");
++        left1 = setup("/zombie/FootballZombie.png");
++        left2 = setup("/zombie/FootballZombie.png");
++        right1 = setup("/zombie/FootballZombie.png");
++        right2 = setup("/zombie/FootballZombie.png");
++
++    }
++    public void setAction(){
++
++//        tickCounter++;
++//
++//        if(tickCounter == 120){
++//            Random random = new Random();
++//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
++//
++//            if(i <= 25){
++//                direction = "left";
++//                tickCounter = 0;
++//            }
++//            tickCounter = 0;        }
++    }
++}
++
+Index: app/src/main/java/org/object/zombie/SnorkelZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/SnorkelZombie.java b/app/src/main/java/org/object/zombie/SnorkelZombie.java
+new file mode 100644
+--- /dev/null	(date 1715882340798)
++++ b/app/src/main/java/org/object/zombie/SnorkelZombie.java	(date 1715882340798)
+@@ -0,0 +1,34 @@
++package org.object.zombie;
++
++import org.main.GamePanel;
++
++import java.util.Random;
++
++public class SnorkelZombie extends Zombie {
++    public SnorkelZombie(GamePanel gp) {
++        super(gp, "Snorkel Zombie", 100, 5, 100, 1, true);
++        direction = "left";
++        getImage();
++    }
++    public void getImage() {
++
++//        left1 = setup("/zombie/ConeHeadZombie.png");
++
++
++    }
++    public void setAction(){
++
++//        tickCounter++;
++//
++//        if(tickCounter == 120){
++//            Random random = new Random();
++//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
++//
++//            if(i <= 25){
++//                direction = "left";
++//                tickCounter = 0;
++//            }
++//            tickCounter = 0;        }
++    }
++}
++
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"temurin-21\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision e621dc72e3336dbb4ec43c0c28ee22371e5ce9e1)
++++ b/.idea/misc.xml	(date 1715882340790)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="temurin-21" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="temurin-21" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"2c32ce8e-17b5-40ee-909d-db089b58558b\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/app/src/main/java/org/Entity/Projectile.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/org/main/CollisionChecker.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/org/main/CollisionChecker.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/org/object/pellet/Cabbage_pellet.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/org/object/pellet/Cabbage_pellet.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/org/object/plant/Cabbagepult.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/org/object/plant/Cabbagepult.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand />\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Richieleonardo&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/Richieleonardo/Tubes-OOP-IF2212.git&quot;,\r\n    &quot;accountId&quot;: &quot;eb67a8b2-e441-4444-8833-87471886945c&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 5\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2gOXEYGjlzL1AKwkKn7gkgQENK2\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/resources/zombie\",\r\n    \"settings.editor.selected.configurable\": \"reference.settingsdialog.project.gradle\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"E:\\code\\Tubes_OOP\\Tubes-OOP-IF2212\\app\\src\\main\\resources\\zombie\" />\r\n      <recent name=\"E:\\code\\Tubes_OOP\\Tubes-OOP-IF2212\\app\\src\\main\\resources\\objects\" />\r\n      <recent name=\"E:\\code\\Tubes_OOP\\Tubes-OOP-IF2212\\app\\src\\main\\java\\src\\object\" />\r\n      <recent name=\"E:\\code\\Tubes_OOP\\Tubes-OOP-IF2212\\app\\src\\main\\resources\\tiles\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"E:\\code\\Tubes_OOP\\Tubes-OOP-IF2212\\app\\src\\main\\resources\\plant\" />\r\n      <recent name=\"E:\\code\\Tubes_OOP\\Tubes-OOP-IF2212\\app\\src\\main\\java\" />\r\n      <recent name=\"E:\\code\\Tubes_OOP\\Tubes-OOP-IF2212\\app\\src\\main\\java\\src\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"src.main\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"App\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"src.main.App\" />\r\n      <module name=\"Tubes-OOP-IF2212.app.main\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"src.main.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.App\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"2c32ce8e-17b5-40ee-909d-db089b58558b\" name=\"Changes\" comment=\"\" />\r\n      <created>1715569486742</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1715569486742</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision e621dc72e3336dbb4ec43c0c28ee22371e5ce9e1)
++++ b/.idea/workspace.xml	(date 1715882476460)
+@@ -4,15 +4,20 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Projectile.java" afterDir="false" />
++    <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="zombie constructors n stuff">
++      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/BucketHeadZombie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ConeHeadZombie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/FootballZombie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ScreenDoorZombie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_1.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/CollisionChecker.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/Cabbage_pellet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/Cabbage_pellet.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Cabbagepult.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Cabbagepult.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" afterDir="false" />
+     </list>
+@@ -61,6 +66,9 @@
+     &quot;accountId&quot;: &quot;eb67a8b2-e441-4444-8833-87471886945c&quot;
+   }
+ }</component>
++  <component name="ProblemsViewState">
++    <option name="selectedTabId" value="CurrentFile" />
++  </component>
+   <component name="ProjectColorInfo">{
+   &quot;customColor&quot;: &quot;&quot;,
+   &quot;associatedIndex&quot;: 5
+@@ -70,18 +78,18 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "main",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/resources/zombie",
+-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/resources/zombie&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\zombie" />
+@@ -129,4 +137,8 @@
+     </task>
+     <servers />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="zombie constructors n stuff" />
++    <option name="LAST_COMMIT_MESSAGE" value="zombie constructors n stuff" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: app/src/main/java/org/object/zombie/ScreenDoorZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/ScreenDoorZombie.java b/app/src/main/java/org/object/zombie/ScreenDoorZombie.java
+new file mode 100644
+--- /dev/null	(date 1715882340797)
++++ b/app/src/main/java/org/object/zombie/ScreenDoorZombie.java	(date 1715882340797)
+@@ -0,0 +1,38 @@
++package org.object.zombie;
++
++import org.main.GamePanel;
++
++public class ScreenDoorZombie extends Zombie {
++    public ScreenDoorZombie(GamePanel gp) {
++        super(gp, "Screen Door Zombie", 325, 5, 100, 1, false);
++        direction = "left";
++        getImage();
++    }
++    public void getImage() {
++
++        up1 = setup("/zombie/ScreenDoorZombie.png");
++        up2 = setup("/zombie/ScreenDoorZombie.png");
++        down1 = setup("/zombie/ScreenDoorZombie.png");
++        down2 = setup("/zombie/ScreenDoorZombie.png");
++        left1 = setup("/zombie/ScreenDoorZombie.png");
++        left2 = setup("/zombie/ScreenDoorZombie.png");
++        right1 = setup("/zombie/ScreenDoorZombie.png");
++        right2 = setup("/zombie/ScreenDoorZombie.png");
++
++    }
++    public void setAction(){
++
++//        tickCounter++;
++//
++//        if(tickCounter == 120){
++//            Random random = new Random();
++//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
++//
++//            if(i <= 25){
++//                direction = "left";
++//                tickCounter = 0;
++//            }
++//            tickCounter = 0;        }
++    }
++}
++
+Index: app/src/main/java/org/object/zombie/YetiZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/YetiZombie.java b/app/src/main/java/org/object/zombie/YetiZombie.java
+new file mode 100644
+--- /dev/null	(date 1715882340798)
++++ b/app/src/main/java/org/object/zombie/YetiZombie.java	(date 1715882340798)
+@@ -0,0 +1,35 @@
++package org.object.zombie;
++
++import org.main.GamePanel;
++
++import java.util.Random;
++
++public class YetiZombie extends Zombie {
++    public YetiZombie(GamePanel gp) {
++        super(gp, "Yeti Zombie", 400, 5, 200, 1, false);
++        direction = "left";
++        getImage();
++    }
++    public void getImage() {
++
++        left1 = setup("/zombie/YetiZombie_Left.png");
++        left2 = setup("/zombie/YetiZombie_Left.png");
++        right1 = setup("/zombie/YetiZombie_Right.png");
++        right2 = setup("/zombie/YetiZombie_Right.png");
++    }
++    public void setAction(){
++
++//        tickCounter++;
++//
++//        if(tickCounter == 120){
++//            Random random = new Random();
++//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
++//
++//            if(i <= 25){
++//                direction = "left";
++//                tickCounter = 0;
++//            }
++//            tickCounter = 0;        }
++    }
++}
++
+Index: app/src/main/java/org/object/zombie/BucketHeadZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/BucketHeadZombie.java b/app/src/main/java/org/object/zombie/BucketHeadZombie.java
+new file mode 100644
+--- /dev/null	(date 1715882340793)
++++ b/app/src/main/java/org/object/zombie/BucketHeadZombie.java	(date 1715882340793)
+@@ -0,0 +1,40 @@
++package org.object.zombie;
++
++import org.main.GamePanel;
++
++import java.util.Random;
++
++public class BucketHeadZombie extends Zombie {
++    public BucketHeadZombie(GamePanel gp) {
++        super(gp, "Bucket Head Zombie", 300, 5, 100, 1, false);
++        direction = "left";
++        getImage();
++    }
++    public void getImage() {
++
++        up1 = setup("/zombie/BucketHeadZombie.png");
++        up2 = setup("/zombie/BucketHeadZombie.png");
++        down1 = setup("/zombie/BucketHeadZombie.png");
++        down2 = setup("/zombie/BucketHeadZombie.png");
++        left1 = setup("/zombie/BucketHeadZombie.png");
++        left2 = setup("/zombie/BucketHeadZombie.png");
++        right1 = setup("/zombie/BucketHeadZombie.png");
++        right2 = setup("/zombie/BucketHeadZombie.png");
++
++    }
++    public void setAction(){
++
++//        tickCounter++;
++//
++//        if(tickCounter == 120){
++//            Random random = new Random();
++//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
++//
++//            if(i <= 25){
++//                direction = "left";
++//                tickCounter = 0;
++//            }
++//            tickCounter = 0;        }
++    }
++}
++
+Index: app/src/main/java/org/object/zombie/ConeHeadZombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/ConeHeadZombie.java b/app/src/main/java/org/object/zombie/ConeHeadZombie.java
+new file mode 100644
+--- /dev/null	(date 1715882340794)
++++ b/app/src/main/java/org/object/zombie/ConeHeadZombie.java	(date 1715882340794)
+@@ -0,0 +1,38 @@
++package org.object.zombie;
++
++import org.main.GamePanel;
++
++import java.util.Random;
++
++public class ConeHeadZombie extends Zombie {
++    public ConeHeadZombie(GamePanel gp) {
++        super(gp, "Cone Head Zombie", 250, 5, 100, 1, false);
++        direction = "left";
++        getImage();
++}
++    public void getImage() {
++        up1 = setup("/zombie/ConeHeadZombie.png");
++        up2 =  setup("/zombie/ConeHeadZombie.png");
++        down1 = setup("/zombie/ConeHeadZombie.png");
++        down2 = setup("/zombie/ConeHeadZombie.png");
++        left1 = setup("/zombie/ConeHeadZombie.png");
++        left2 = setup("/zombie/ConeHeadZombie.png");
++        right1 = setup("/zombie/ConeHeadZombie.png");
++        right2 = setup("/zombie/ConeHeadZombie.png");
++    }
++    public void setAction(){
++
++//        tickCounter++;
++//
++//        if(tickCounter == 120){
++//            Random random = new Random();
++//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
++//
++//            if(i <= 25){
++//                direction = "left";
++//                tickCounter = 0;
++//            }
++//            tickCounter = 0;        }
++    }
++}
++

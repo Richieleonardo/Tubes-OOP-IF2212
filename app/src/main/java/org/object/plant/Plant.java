@@ -13,8 +13,11 @@ public abstract class Plant extends Entity {
     private int cooldown;
     private boolean isAquatic;
 
+
     //Projectile
     public Projectile projectile;
+    public boolean canAttack = true;
+    public int attack_counter  = 0;
 
     public Plant(GamePanel gp, String name, int cost, int health, int attack_damage, int attack_speed, int range, int cooldown, boolean isAquatic) {
         super(gp);
@@ -79,6 +82,8 @@ public abstract class Plant extends Entity {
 
     public void update(){
         System.out.println(name + "Health : " + Health);
+
+
     }
 
     public void attackZombie(int i){

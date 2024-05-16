@@ -1,0 +1,154 @@
+Index: app/src/main/java/org/object/plant/Cabbagepult.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.object.plant;\r\n\r\nimport org.Entity.Entity;\r\nimport org.Entity.Projectile;\r\nimport org.main.GamePanel;\r\nimport org.object.pellet.Cabbage_pellet;\r\n\r\npublic class Cabbagepult extends Plant {\r\n\r\n\r\n\r\n    public Cabbagepult(GamePanel gp){\r\n        super(gp, \"Cabbagepult\", 100, 300, 40, 3, -1, 5, false);\r\n\r\n        //name = \"Cabbagepult\";\r\n        down1 = setup(\"/plant/Cabbagepult.png\");\r\n        collision = true;\r\n        projectile = new Cabbage_pellet(gp);\r\n    }\r\n\r\n    public void update(){\r\n        //PROJECTILE GENERATE ONLY WHEN THE OTHER IS NOT ALIVE\r\n        if(projectile.alive == false){\r\n            projectile.set(worldX, worldY, direction, true, this);\r\n\r\n            //ADD PROJECTILE TO LIST\r\n            gp.projectileList.add(projectile);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/plant/Cabbagepult.java b/app/src/main/java/org/object/plant/Cabbagepult.java
+--- a/app/src/main/java/org/object/plant/Cabbagepult.java	
++++ b/app/src/main/java/org/object/plant/Cabbagepult.java	
+@@ -4,6 +4,7 @@
+ import org.Entity.Projectile;
+ import org.main.GamePanel;
+ import org.object.pellet.Cabbage_pellet;
++import org.object.zombie.Zombie;
+ 
+ public class Cabbagepult extends Plant {
+ 
+@@ -19,12 +20,43 @@
+     }
+ 
+     public void update(){
+-        //PROJECTILE GENERATE ONLY WHEN THE OTHER IS NOT ALIVE
+-        if(projectile.alive == false){
+-            projectile.set(worldX, worldY, direction, true, this);
++        System.out.println(name + " Health: " + Health);
++//      PROJECTILE GENERATE ONLY WHEN THE OTHER IS NOT ALIVE
++        if(canAttack){
++            if(getRange() == -1){
++                if(projectile.alive == false){
++                    projectile.set(worldX, worldY, direction, true, this);
++
++                    //ADD PROJECTILE TO LIST
++                    gp.projectileList.add(projectile);
++                }
++            }
++            else{
++                for(Entity zombie : gp.zombie){
++                    if(zombie != null){
++                        if(zombie.worldY == this.worldY){
++                            int distance = zombie.worldX - worldX;
++                            if(distance <= getRange()) {
++                                if(projectile.alive == false){
++                                    projectile.set(worldX, worldY, direction, true, this);
+ 
+-            //ADD PROJECTILE TO LIST
+-            gp.projectileList.add(projectile);
+-        }
++                                    //ADD PROJECTILE TO LIST
++                                    gp.projectileList.add(projectile);
++                                }
++                            }
++                        }
++                    }
++                }
++            }
++            canAttack = false;
++        }
++        else{
++            attack_counter++;
++            if(attack_counter == 60*getAttack_Speed()){
++                canAttack = true;
++                attack_counter = 0;
++            }
++        }
++
+     }
+ }
+Index: app/src/main/java/org/object/zombie/Zombie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.object.zombie;\r\n\r\nimport org.Entity.Entity;\r\nimport org.main.GamePanel;\r\n\r\npublic abstract class Zombie extends Entity {\r\n\r\n    private int attack_damage;\r\n    private int attack_speed;\r\n    private boolean isAquatic = false;\r\n\r\n    //Check if zombie can attack or not\r\n    public boolean canAttack = true;\r\n    public int attack_counter = 0;\r\n\r\n    public Zombie(GamePanel gp, String name, int health, int speed, int attack_damage, int attack_speed) {\r\n        super(gp);\r\n        this.name = name;\r\n        this.maxHealth = health;\r\n        this.speed = speed;\r\n        Health = maxHealth;\r\n        this.attack_damage = attack_damage;\r\n        this.attack_speed = attack_speed;\r\n    }\r\n\r\n    public String getName() {\r\n        return this.name;\r\n    }\r\n\r\n    public int getHealth() {\r\n        return this.Health;\r\n    }\r\n\r\n    public void setHealth(int health){\r\n        this.Health = health;\r\n    }\r\n\r\n    public int getAttackDamage() {\r\n        return this.attack_damage;\r\n    }\r\n\r\n    public int getAttack_Speed() {\r\n        return this.attack_speed;\r\n    }\r\n\r\n    public boolean getIsAquatic(){\r\n        return isAquatic;\r\n    }\r\n\r\n    public void setIsAquatic(boolean isAquatic){\r\n        this.isAquatic = isAquatic;\r\n    }\r\n\r\n    public void die() {\r\n    }\r\n\r\n    public String toString() {\r\n        return this.name;\r\n    }\r\n\r\n    public void attackPlant(int i){\r\n        if(i != 999 && canAttack){\r\n            gp.plant[i].Health -= attack_damage;\r\n            canAttack = false;\r\n            if(gp.plant[i].Health <= 0){\r\n                gp.plant[i] = null;\r\n                canAttack = true;\r\n            }\r\n        }\r\n    }\r\n\r\n    //Method zombie loncat\r\n    public void jump(){\r\n        this.worldX -= 48;\r\n    }\r\n\r\n    public void update(){\r\n        System.out.println(\"Zombie health : \" + this.Health);\r\n        gp.collisionChecker.checkTile(this);\r\n        collisionOn = false;\r\n        //Implement collision with plant\r\n        int Index = gp.collisionChecker.checkEntity(this, gp.plant);\r\n        if(canAttack){\r\n            attackPlant(Index);\r\n        }\r\n        else{\r\n            attack_counter++;\r\n            if(attack_counter == (60*attack_speed)){\r\n                canAttack = true;\r\n                attack_counter = 0;\r\n            }\r\n        }\r\n\r\n\r\n\r\n        //if collisionOn = false player can move\r\n        if(collisionOn == false) {\r\n            switch (direction) {\r\n                case \"up\":\r\n                    worldY -= speed;\r\n                    break;\r\n                case \"down\":\r\n                    worldY += speed;\r\n                    break;\r\n                case \"left\":\r\n                    worldX -= speed;\r\n                    break;\r\n                case \"right\":\r\n                    worldX += speed;\r\n                    break;\r\n            }\r\n        }\r\n    }\r\n\r\n    public void getImage(){}\r\n    public void setAction(){}\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/zombie/Zombie.java b/app/src/main/java/org/object/zombie/Zombie.java
+--- a/app/src/main/java/org/object/zombie/Zombie.java	
++++ b/app/src/main/java/org/object/zombie/Zombie.java	
+@@ -69,10 +69,6 @@
+         }
+     }
+ 
+-    //Method zombie loncat
+-    public void jump(){
+-        this.worldX -= 48;
+-    }
+ 
+     public void update(){
+         System.out.println("Zombie health : " + this.Health);
+Index: app/src/main/java/org/object/plant/Plant.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.object.plant;\r\n\r\nimport org.Entity.Entity;\r\nimport org.Entity.Projectile;\r\nimport org.main.GamePanel;\r\n\r\npublic abstract class Plant extends Entity {\r\n    private int cost;\r\n    private int health;\r\n    private int attack_damage;\r\n    private int attack_speed;\r\n    private int range;\r\n    private int cooldown;\r\n    private boolean isAquatic;\r\n\r\n    //Projectile\r\n    public Projectile projectile;\r\n\r\n    public Plant(GamePanel gp, String name, int cost, int health, int attack_damage, int attack_speed, int range, int cooldown, boolean isAquatic) {\r\n        super(gp);\r\n        this.name = name;\r\n        this.cost = cost;\r\n        this.maxHealth = health;\r\n        Health = maxHealth;\r\n        this.attack_damage = attack_damage;\r\n        this.attack_speed = attack_speed;\r\n        if(range == -1){\r\n            this.range = range;\r\n        }\r\n        else{\r\n            this.range = range * 48;\r\n        }\r\n        this.cooldown = cooldown;\r\n        this.isAquatic = isAquatic;\r\n    }\r\n\r\n    public String getName() {\r\n        return this.name;\r\n    }\r\n\r\n    public int getCost() {\r\n        return this.cost;\r\n    }\r\n\r\n    public int getHealth() {\r\n        return this.health;\r\n    }\r\n\r\n    public void setHealth(int health){\r\n        this.health = health;\r\n    }\r\n\r\n    public int getAttackDamage() {\r\n        return this.attack_damage;\r\n    }\r\n\r\n    public int getAttack_Speed() {\r\n        return this.attack_speed;\r\n    }\r\n\r\n    public int getRange() {\r\n        return this.range;\r\n    }\r\n\r\n    public int getCooldown() {\r\n        return this.cooldown;\r\n    }\r\n\r\n    public boolean getIsAquatic(){\r\n        return isAquatic;\r\n    }\r\n\r\n    public void setIsAquatic(boolean isAquatic){\r\n        this.isAquatic = isAquatic;\r\n    }\r\n\r\n    public void die() {\r\n    }\r\n\r\n    public void update(){\r\n        System.out.println(name + \"Health : \" + Health);\r\n    }\r\n\r\n    public void attackZombie(int i){\r\n        if(i != 999){\r\n            gp.zombie[i].Health -= attack_damage;\r\n\r\n            if(gp.zombie[i].Health <= 0){\r\n                gp.zombie[i] = null;\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n    public String toString() {\r\n        return this.name;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/plant/Plant.java b/app/src/main/java/org/object/plant/Plant.java
+--- a/app/src/main/java/org/object/plant/Plant.java	
++++ b/app/src/main/java/org/object/plant/Plant.java	
+@@ -13,8 +13,11 @@
+     private int cooldown;
+     private boolean isAquatic;
+ 
++
+     //Projectile
+     public Projectile projectile;
++    public boolean canAttack = true;
++    public int attack_counter  = 0;
+ 
+     public Plant(GamePanel gp, String name, int cost, int health, int attack_damage, int attack_speed, int range, int cooldown, boolean isAquatic) {
+         super(gp);
+@@ -79,6 +82,8 @@
+ 
+     public void update(){
+         System.out.println(name + "Health : " + Health);
++
++
+     }
+ 
+     public void attackZombie(int i){
+Index: app/src/main/java/org/main/AssetSetter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.main;\r\n\r\nimport org.object.Door;\r\nimport org.object.pellet.Kernel_pellet;\r\nimport org.object.zombie.NormalZombie;\r\nimport org.object.*;\r\nimport org.object.pellet.Cabbage_pellet;\r\nimport org.object.plant.Cabbagepult;\r\nimport org.object.plant.Kernelpult;\r\n\r\n/*\r\nASSETSETTER DIGUNAKAN UNTUK MELETAKAN OBJECT PADA MAP\r\nUNTUK SEKARANG MASIH DALAM TESTING PURPOSE\r\n */\r\n\r\n/*\r\nTODO : Coba test random spawn pada zombie, fokus pada koordinat worldY zombie.\r\n       Agar zombie bisa berada pas ditengah Tile, dikali dengan getTileSize()\r\n       Rand(1-6)+1 untuk 6 tiles.\r\n       Perlu Count Zombie untuk ngitung zombienya.\r\n       Zombie berhenti spawn pada detik 200.\r\n       Pake System.nanoTime() untuk hitung time. [1_000_000_000 nanoSecond] = 1 second\r\n\r\n       Tutorial : https://youtu.be/RXq8cyv_7Mc?si=RyHsIb0PsbNCpyHy\r\n */\r\n\r\npublic class AssetSetter {\r\n    GamePanel gp;\r\n\r\n    public AssetSetter(GamePanel gp){\r\n        this.gp = gp;\r\n    }\r\n\r\n    public void setZombie(){\r\n        gp.zombie[0] = new NormalZombie(gp);\r\n        gp.zombie[0].worldX = 27 * gp.getTileSize();\r\n        gp.zombie[0].worldY = 8 * gp.getTileSize();\r\n\r\n//        gp.zombie[1] = new NormalZombie(gp);\r\n//        gp.zombie[1].worldX = 24 * gp.getTileSize();\r\n//        gp.zombie[1].worldY = 8 * gp.getTileSize();\r\n\r\n    }\r\n\r\n    public void setPlant(){\r\n\r\n        gp.plant[0] = new Kernelpult(gp);\r\n        gp.plant[0].worldX = 17 * gp.getTileSize();\r\n        gp.plant[0].worldY = 8 * gp.getTileSize();\r\n\r\n        gp.plant[1] = new Cabbagepult(gp);\r\n        gp.plant[1].worldX = 18 * gp.getTileSize();\r\n        gp.plant[1].worldY = 8 * gp.getTileSize();\r\n    }\r\n\r\n    public void setObject(){\r\n\r\n        gp.obj[7] = new Cabbage_pellet(gp);\r\n        gp.obj[7].worldX = 18 * gp.getTileSize();\r\n        gp.obj[7].worldY = 7 * gp.getTileSize();\r\n\r\n        gp.obj[8] = new Door(gp);\r\n        gp.obj[8].worldX = 20 * gp.getTileSize();\r\n        gp.obj[8].worldY = 10 * gp.getTileSize();\r\n\r\n        gp.obj[5] = new Kernel_pellet(gp);\r\n        gp.obj[5].worldX = 17 * gp.getTileSize();\r\n        gp.obj[5].worldY = 7 * gp.getTileSize();\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/main/AssetSetter.java b/app/src/main/java/org/main/AssetSetter.java
+--- a/app/src/main/java/org/main/AssetSetter.java	
++++ b/app/src/main/java/org/main/AssetSetter.java	
+@@ -2,6 +2,7 @@
+ 
+ import org.object.Door;
+ import org.object.pellet.Kernel_pellet;
++import org.object.plant.Peashooter;
+ import org.object.zombie.NormalZombie;
+ import org.object.*;
+ import org.object.pellet.Cabbage_pellet;
+@@ -44,12 +45,12 @@
+ 
+     public void setPlant(){
+ 
+-        gp.plant[0] = new Kernelpult(gp);
+-        gp.plant[0].worldX = 17 * gp.getTileSize();
++        gp.plant[0] = new Peashooter(gp);
++        gp.plant[0].worldX = 18 * gp.getTileSize();
+         gp.plant[0].worldY = 8 * gp.getTileSize();
+ 
+         gp.plant[1] = new Cabbagepult(gp);
+-        gp.plant[1].worldX = 18 * gp.getTileSize();
++        gp.plant[1].worldX = 17 * gp.getTileSize();
+         gp.plant[1].worldY = 8 * gp.getTileSize();
+     }
+ 

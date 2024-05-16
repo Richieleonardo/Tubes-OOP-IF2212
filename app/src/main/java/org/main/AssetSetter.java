@@ -2,6 +2,7 @@ package org.main;
 
 import org.object.Door;
 import org.object.pellet.Kernel_pellet;
+import org.object.plant.Peashooter;
 import org.object.zombie.NormalZombie;
 import org.object.*;
 import org.object.pellet.Cabbage_pellet;
@@ -44,12 +45,12 @@ public class AssetSetter {
 
     public void setPlant(){
 
-        gp.plant[0] = new Kernelpult(gp);
-        gp.plant[0].worldX = 17 * gp.getTileSize();
+        gp.plant[0] = new Peashooter(gp);
+        gp.plant[0].worldX = 18 * gp.getTileSize();
         gp.plant[0].worldY = 8 * gp.getTileSize();
 
         gp.plant[1] = new Cabbagepult(gp);
-        gp.plant[1].worldX = 18 * gp.getTileSize();
+        gp.plant[1].worldX = 17 * gp.getTileSize();
         gp.plant[1].worldY = 8 * gp.getTileSize();
     }
 
