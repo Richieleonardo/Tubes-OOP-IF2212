@@ -13,7 +13,7 @@ SUPER CLASS UNTUK SEMUA OBJECT YANG DIBUAT PADA PROGRAM
 
 TODO : IMPLEMENT abstract PLANT yang extend Entity.
        IMPLEMENT abstract ZOMBIE yang extend Entity
-       Buat ArrayList baru di GamePanel untuk menyimpan Plant dan Zombie saja
+       Buat ArrayList baru di GamePanel untuk menyimpan Plant dan Zombie saja.
 
  */
 public class Entity {
@@ -91,6 +91,7 @@ public class Entity {
             spriteCounter = 0;
         }
     }
+
     public BufferedImage setup(String imagePath){
         UtilityTool uTool = new UtilityTool();
         BufferedImage Image = null;

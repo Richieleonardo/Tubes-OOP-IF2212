@@ -4,13 +4,12 @@ import src.Entity.Entity;
 import src.main.GamePanel;
 
 public abstract class Plant extends Entity {
-    private final String name;
-    private final int cost;
+    private int cost;
     private int health;
-    private final int attack_damage;
-    private final int attack_speed;
-    private final int range;
-    private final int cooldown;
+    private int attack_damage;
+    private int attack_speed;
+    private int range;
+    private int cooldown;
     private boolean isAquatic = false;
 
     public Plant(GamePanel gp, String name, int cost, int health, int attack_damage, int attack_speed, int range, int cooldown) {

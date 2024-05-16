@@ -2,29 +2,30 @@ package src.object.zombie;
 
 import src.Entity.Entity;
 import src.main.GamePanel;
+
 import java.util.Random;
 
-/*
-maxHealth = 100
-speed = 1
- */
-public class NormalZombie extends Zombie {
+public class Cat extends Entity {
 
-    public NormalZombie(GamePanel gp) {
-        super(gp, "NormalZombie", 100, 1, 5, 10);
+    public Cat(GamePanel gp) {
+        super(gp);
+        name = "Cat";
+        speed = 1;
+        maxHealth = 100;
+        Health = maxHealth;
 
         getImage();
     }
 
     public void getImage(){
-        up1 = setup("/zombie/NormalZombie.png");
-        up2 = setup("/zombie/NormalZombie.png");
-        down1 = setup("/zombie/NormalZombie.png");
-        down2 = setup("/zombie/NormalZombie.png");
-        left1 = setup("/zombie/NormalZombie.png");
-        left2 = setup("/zombie/NormalZombie.png");
-        right1 = setup("/zombie/NormalZombie.png");
-        right2 = setup("/zombie/NormalZombie.png");;
+        up1 = setup("/objects/Cat_Orange.png");
+        up2 = setup("/objects/Cat_Orange.png");
+        down1 = setup("/objects/Cat_Orange.png");
+        down2 = setup("/objects/Cat_Orange.png");
+        left1 = setup("/objects/Cat_Orange.png");
+        left2 = setup("/objects/Cat_Orange.png");
+        right1 = setup("/objects/Cat_Orange.png");
+        right2 = setup("/objects/Cat_Orange.png");;
     }
 
     public void setAction(){

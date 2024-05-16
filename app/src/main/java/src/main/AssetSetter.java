@@ -5,6 +5,7 @@ import src.object.pellet.Cabbage_pellet;
 import src.object.pellet.Kernel_pellet;
 import src.object.plant.Cabbagepult;
 import src.object.plant.Kernelpult;
+import src.object.zombie.Cat;
 import src.object.zombie.NormalZombie;
 
 /*
@@ -38,6 +39,10 @@ public class AssetSetter {
         gp.zombie[1] = new NormalZombie(gp);
         gp.zombie[1].worldX = 9 * gp.getTileSize();
         gp.zombie[1].worldY = 6 * gp.getTileSize();
+
+        gp.zombie[2] = new Cat(gp);
+        gp.zombie[2].worldX = 20 * gp.getTileSize();
+        gp.zombie[2].worldY = 10 * gp.getTileSize();
     }
 
     public void setPlant(){

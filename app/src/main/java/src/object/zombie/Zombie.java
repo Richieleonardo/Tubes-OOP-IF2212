@@ -4,19 +4,20 @@ import src.Entity.Entity;
 import src.main.GamePanel;
 
 public abstract class Zombie extends Entity {
-    private final String name;
+
     private int health;
-    private final int attack_damage;
-    private final int attack_speed;
+    private int attack_damage;
+    private int attack_speed;
     private boolean isAquatic = false;
 
-    public Zombie(GamePanel gp, String name, int health, int attack_damage, int attack_speed, boolean isAquatic) {
+    public Zombie(GamePanel gp, String name, int health, int speed, int attack_damage, int attack_speed) {
         super(gp);
         this.name = name;
-        this.health = health;
+        this.maxHealth = health;
+        this.speed = speed;
+        Health = maxHealth;
         this.attack_damage = attack_damage;
         this.attack_speed = attack_speed;
-        this.isAquatic = isAquatic;
     }
 
     public String getName() {
@@ -53,4 +54,8 @@ public abstract class Zombie extends Entity {
     public String toString() {
         return this.name;
     }
+
+    public void getImage(){}
+    public void setAction(){}
 }
+
