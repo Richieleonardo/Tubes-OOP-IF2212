@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class PoleVaultingZombie extends Zombie implements Jump{
     public PoleVaultingZombie(GamePanel gp) {
-        super(gp, "Pole Vaulting Zombie", 175, 5, 100, 1, false);
+        super(gp, "Pole Vaulting Zombie", 175, 5, 100, 1);
         direction = "left";
         getImage();
     }

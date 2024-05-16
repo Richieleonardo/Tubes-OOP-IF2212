@@ -15,10 +15,7 @@ public class NormalZombie extends Zombie {
     }
 
     public void getImage(){
-        up1 = setup("/zombie/NormalZombie.png");
-        up2 = setup("/zombie/NormalZombie.png");
-        down1 = setup("/zombie/NormalZombie.png");
-        down2 = setup("/zombie/NormalZombie.png");
+
         left1 = setup("/zombie/NormalZombie.png");
         left2 = setup("/zombie/NormalZombie.png");
         right1 = setup("/zombie/NormalZombie.png");

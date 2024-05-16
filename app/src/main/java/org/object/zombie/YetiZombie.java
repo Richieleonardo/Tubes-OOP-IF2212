@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class YetiZombie extends Zombie implements Escape{
     public YetiZombie(GamePanel gp) {
-        super(gp, "Yeti Zombie", 400, 5, 200, 1, false);
+        super(gp, "Yeti Zombie", 400, 5, 200, 1);
         direction = "left";
         getImage();
     }

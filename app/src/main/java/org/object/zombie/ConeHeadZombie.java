@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class ConeHeadZombie extends Zombie {
     public ConeHeadZombie(GamePanel gp) {
-        super(gp, "Cone Head Zombie", 250, 5, 100, 1, false);
+        super(gp, "Cone Head Zombie", 250, 5, 100, 1);
         direction = "left";
         getImage();
 }

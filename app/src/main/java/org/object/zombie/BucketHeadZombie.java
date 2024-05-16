@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class BucketHeadZombie extends Zombie {
     public BucketHeadZombie(GamePanel gp) {
-        super(gp, "Bucket Head Zombie", 300, 5, 100, 1, false);
+        super(gp, "Bucket Head Zombie", 300, 5, 100, 1);
         direction = "left";
         getImage();
     }

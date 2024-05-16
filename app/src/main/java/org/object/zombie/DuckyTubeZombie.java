@@ -6,8 +6,9 @@ import java.util.Random;
 
 public class DuckyTubeZombie extends Zombie {
     public DuckyTubeZombie(GamePanel gp) {
-        super(gp, "Ducky Tube Zombie", 100, 5, 100, 1, true);
+        super(gp, "Ducky Tube Zombie", 100, 5, 100, 1);
         direction = "left";
+        setIsAquatic(true);
         getImage();
     }
     public void getImage() {
