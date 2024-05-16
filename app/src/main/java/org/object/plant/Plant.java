@@ -1,6 +1,7 @@
 package org.object.plant;
 
 import org.Entity.Entity;
+import org.Entity.Projectile;
 import org.main.GamePanel;
 
 public abstract class Plant extends Entity {
@@ -12,6 +13,9 @@ public abstract class Plant extends Entity {
     private int cooldown;
     private boolean isAquatic;
 
+    //Projectile
+    public Projectile projectile;
+
     public Plant(GamePanel gp, String name, int cost, int health, int attack_damage, int attack_speed, int range, int cooldown, boolean isAquatic) {
         super(gp);
         this.name = name;
@@ -20,7 +24,12 @@ public abstract class Plant extends Entity {
         Health = maxHealth;
         this.attack_damage = attack_damage;
         this.attack_speed = attack_speed;
-        this.range = range;
+        if(range == -1){
+            this.range = range;
+        }
+        else{
+            this.range = range * 48;
+        }
         this.cooldown = cooldown;
         this.isAquatic = isAquatic;
     }
@@ -72,9 +81,13 @@ public abstract class Plant extends Entity {
         System.out.println(name + "Health : " + Health);
     }
 
-    public void contactZombie(int i){
+    public void attackZombie(int i){
         if(i != 999){
-            Health -= 1;
+            gp.zombie[i].Health -= attack_damage;
+
+            if(gp.zombie[i].Health <= 0){
+                gp.zombie[i] = null;
+            }
         }
     }
 

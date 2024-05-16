@@ -13,7 +13,7 @@ public abstract class Zombie extends Entity {
     public boolean canAttack = true;
     public int attack_counter = 0;
 
-    public Zombie(GamePanel gp, String name, int health, int speed, int attack_damage, int attack_speed, boolean isAquatic) {
+    public Zombie(GamePanel gp, String name, int health, int speed, int attack_damage, int attack_speed) {
         super(gp);
         this.name = name;
         this.maxHealth = health;
@@ -21,7 +21,6 @@ public abstract class Zombie extends Entity {
         Health = maxHealth;
         this.attack_damage = attack_damage;
         this.attack_speed = attack_speed;
-        this.isAquatic = isAquatic;
     }
 
     public String getName() {
@@ -71,9 +70,9 @@ public abstract class Zombie extends Entity {
     }
 
     public void update(){
-//        System.out.println("Zombie health : " + this.Health);
+        System.out.println("Zombie health : " + this.Health);
         gp.collisionChecker.checkTile(this);
-
+        collisionOn = false;
         //Implement collision with plant
         int Index = gp.collisionChecker.checkEntity(this, gp.plant);
         if(canAttack){
