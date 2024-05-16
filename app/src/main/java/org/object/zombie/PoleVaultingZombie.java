@@ -4,7 +4,7 @@ import org.main.GamePanel;
 
 import java.util.Random;
 
-public class PoleVaultingZombie extends Zombie {
+public class PoleVaultingZombie extends Zombie implements Jump{
     public PoleVaultingZombie(GamePanel gp) {
         super(gp, "Pole Vaulting Zombie", 175, 5, 100, 1, false);
         direction = "left";
@@ -12,8 +12,8 @@ public class PoleVaultingZombie extends Zombie {
     }
     public void getImage() {
 
-//        left1 = setup("/zombie/ConeHeadZombie.png");
-//        left2 = setup("/zombie/ConeHeadZombie.png");
+//        left1 = setup("/zombie/.png");
+//        left2 = setup("/zombie/.png");
 // belum ada png
     }
     public void setAction(){
@@ -29,6 +29,10 @@ public class PoleVaultingZombie extends Zombie {
 //                tickCounter = 0;
 //            }
 //            tickCounter = 0;        }
+    }
+    public void jump(){
+        this.worldX -=48;
+        //    super.attackPlant();
     }
 }
 

@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="zombie constructors n stuff">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/BucketHeadZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ConeHeadZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/FootballZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ScreenDoorZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/BucketHeadZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/BucketHeadZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ConeHeadZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ConeHeadZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/FootballZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/FootballZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Jump.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Jump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ScreenDoorZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ScreenDoorZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,6 +132,15 @@
       <option name="presentableId" value="Default" />
       <updated>1715569486742</updated>
     </task>
+    <task id="LOCAL-00001" summary="zombie constructors n stuff">
+      <option name="closed" value="true" />
+      <created>1715881887419</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715881887419</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

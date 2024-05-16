@@ -10,10 +10,7 @@ public class ScreenDoorZombie extends Zombie {
     }
     public void getImage() {
 
-        up1 = setup("/zombie/ScreenDoorZombie.png");
-        up2 = setup("/zombie/ScreenDoorZombie.png");
-        down1 = setup("/zombie/ScreenDoorZombie.png");
-        down2 = setup("/zombie/ScreenDoorZombie.png");
+
         left1 = setup("/zombie/ScreenDoorZombie.png");
         left2 = setup("/zombie/ScreenDoorZombie.png");
         right1 = setup("/zombie/ScreenDoorZombie.png");

@@ -4,7 +4,7 @@ import org.main.GamePanel;
 
 import java.util.Random;
 
-public class DolphinRiderZombie extends Zombie {
+public class DolphinRiderZombie extends Zombie implements Jump {
     public DolphinRiderZombie(GamePanel gp) {
         super(gp, "Dolphin Rider Zombie", 175, 5, 100, 1, true);
         direction = "left";
@@ -29,6 +29,10 @@ public class DolphinRiderZombie extends Zombie {
 //                tickCounter = 0;
 //            }
 //            tickCounter = 0;        }
+    }
+    public void jump(){
+        this.worldX -=48;
+    //    super.attackPlant();
     }
 }
 

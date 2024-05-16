@@ -70,11 +70,6 @@ public abstract class Zombie extends Entity {
         }
     }
 
-    //Method zombie loncat
-    public void jump(){
-        this.worldX -= 48;
-    }
-
     public void update(){
 //        System.out.println("Zombie health : " + this.Health);
         gp.collisionChecker.checkTile(this);

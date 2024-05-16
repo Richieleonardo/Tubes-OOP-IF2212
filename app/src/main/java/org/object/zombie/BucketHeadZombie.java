@@ -12,10 +12,6 @@ public class BucketHeadZombie extends Zombie {
     }
     public void getImage() {
 
-        up1 = setup("/zombie/BucketHeadZombie.png");
-        up2 = setup("/zombie/BucketHeadZombie.png");
-        down1 = setup("/zombie/BucketHeadZombie.png");
-        down2 = setup("/zombie/BucketHeadZombie.png");
         left1 = setup("/zombie/BucketHeadZombie.png");
         left2 = setup("/zombie/BucketHeadZombie.png");
         right1 = setup("/zombie/BucketHeadZombie.png");

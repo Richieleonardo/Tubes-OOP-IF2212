@@ -12,10 +12,7 @@ public class FootballZombie extends Zombie {
     }
     public void getImage() {
 
-        up1 = setup("/zombie/FootballZombie.png");
-        up2 = setup("/zombie/FootballZombie.png");
-        down1 = setup("/zombie/FootballZombie.png");
-        down2 = setup("/zombie/FootballZombie.png");
+
         left1 = setup("/zombie/FootballZombie.png");
         left2 = setup("/zombie/FootballZombie.png");
         right1 = setup("/zombie/FootballZombie.png");

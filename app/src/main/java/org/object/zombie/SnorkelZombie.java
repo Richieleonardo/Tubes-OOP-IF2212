@@ -12,7 +12,7 @@ public class SnorkelZombie extends Zombie {
     }
     public void getImage() {
 
-//        left1 = setup("/zombie/ConeHeadZombie.png");
+//        left1 = setup("/zombie/SnorkelZombie.png");
 
 
     }

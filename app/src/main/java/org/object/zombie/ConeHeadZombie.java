@@ -11,10 +11,7 @@ public class ConeHeadZombie extends Zombie {
         getImage();
 }
     public void getImage() {
-        up1 = setup("/zombie/ConeHeadZombie.png");
-        up2 =  setup("/zombie/ConeHeadZombie.png");
-        down1 = setup("/zombie/ConeHeadZombie.png");
-        down2 = setup("/zombie/ConeHeadZombie.png");
+
         left1 = setup("/zombie/ConeHeadZombie.png");
         left2 = setup("/zombie/ConeHeadZombie.png");
         right1 = setup("/zombie/ConeHeadZombie.png");
