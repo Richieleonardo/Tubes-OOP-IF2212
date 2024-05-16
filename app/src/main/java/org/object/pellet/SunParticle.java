@@ -9,7 +9,7 @@ public class SunParticle extends Entity {
         super(gp);
 
         name = "SunParticle";
-        down1 = setup("/plant/Squash.png");
+        down1 = setup("/objects/SunParticle.png");
     }
 }
 

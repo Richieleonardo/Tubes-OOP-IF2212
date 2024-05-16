@@ -1,6 +1,6 @@
 package org.main;
 
-import org.object.pellet.Pea;
+import org.object.pellet.SunParticle;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -10,7 +10,7 @@ public class UI {
 
     GamePanel gp;
     Font arial_40;
-    BufferedImage peaImage;
+    BufferedImage sunImage;
     public boolean messageOn = false;
 //    public String message = "";
 
@@ -21,8 +21,8 @@ public class UI {
     public UI(GamePanel gp){
         this.gp = gp;
         arial_40 = new Font("Arial", Font.PLAIN, 40);
-        Pea pea = new Pea(gp);
-        peaImage = pea.image;
+        SunParticle sun = new SunParticle(gp);
+        sunImage = sun.image;
     }
 
 //    public void showMessage(String text){
@@ -54,8 +54,8 @@ public class UI {
         else{
             g2.setFont(arial_40);
             g2.setColor(Color.white);
-            g2.drawImage(peaImage, gp.getTileSize()/2, gp.getTileSize()/2, gp.getTileSize(), gp.getTileSize(), null);
-            g2.drawString("x " + gp.player.hasPea, 70, 54);
+            g2.drawImage(sunImage, gp.getTileSize()/2, gp.getTileSize()/2, gp.getTileSize(), gp.getTileSize(), null);
+            g2.drawString("x " + gp.player.hasSun, 70, 54);
 
             //TIME
             playTime += (double)1/60;

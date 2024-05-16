@@ -31,7 +31,7 @@ public class Entity {
     //ENTITY STATUS
     public int maxHealth;
     public int Health;
-    public int attack_damage;
+
 
     public Rectangle solidArea = new Rectangle(0,0,48,48);
     public int solidAreaDefaultX, solidAreaDefaultY;

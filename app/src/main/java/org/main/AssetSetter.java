@@ -34,8 +34,8 @@ public class AssetSetter {
 
     public void setZombie(){
         gp.zombie[0] = new NormalZombie(gp);
-        gp.zombie[0].worldX = 27 * gp.getTileSize();
-        gp.zombie[0].worldY = 8 * gp.getTileSize();
+        gp.zombie[0].worldX = 24 * gp.getTileSize();
+        gp.zombie[0].worldY = 7 * gp.getTileSize();
 
 //        gp.zombie[1] = new NormalZombie(gp);
 //        gp.zombie[1].worldX = 24 * gp.getTileSize();
@@ -47,11 +47,11 @@ public class AssetSetter {
 
         gp.plant[0] = new Peashooter(gp);
         gp.plant[0].worldX = 18 * gp.getTileSize();
-        gp.plant[0].worldY = 8 * gp.getTileSize();
+        gp.plant[0].worldY = 7 * gp.getTileSize();
 
         gp.plant[1] = new Cabbagepult(gp);
         gp.plant[1].worldX = 17 * gp.getTileSize();
-        gp.plant[1].worldY = 8 * gp.getTileSize();
+        gp.plant[1].worldY = 7 * gp.getTileSize();
     }
 
     public void setObject(){
@@ -60,13 +60,13 @@ public class AssetSetter {
         gp.obj[7].worldX = 18 * gp.getTileSize();
         gp.obj[7].worldY = 7 * gp.getTileSize();
 
-        gp.obj[8] = new Door(gp);
-        gp.obj[8].worldX = 20 * gp.getTileSize();
-        gp.obj[8].worldY = 10 * gp.getTileSize();
+//        gp.obj[8] = new Door(gp);
+//        gp.obj[8].worldX = 20 * gp.getTileSize();
+//        gp.obj[8].worldY = 10 * gp.getTileSize();
 
-        gp.obj[5] = new Kernel_pellet(gp);
-        gp.obj[5].worldX = 17 * gp.getTileSize();
-        gp.obj[5].worldY = 7 * gp.getTileSize();
+//        gp.obj[5] = new Kernel_pellet(gp);
+//        gp.obj[5].worldX = 17 * gp.getTileSize();
+//        gp.obj[5].worldY = 7 * gp.getTileSize();
 
 
     }

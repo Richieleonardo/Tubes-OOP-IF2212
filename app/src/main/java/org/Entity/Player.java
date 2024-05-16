@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 public class Player extends Entity{
 
     KeyHandler keyH;
-    public int hasPea = 0;
+    public static int hasSun = 0;
     
     
     public final int screenX;
@@ -129,16 +129,16 @@ public class Player extends Entity{
 
             switch(objectName){
                 case "Pea":
-                    hasPea++;
+                    hasSun++;
                     gp.obj[index] = null;
-                    System.out.println("Has pea: "+hasPea);
+                    System.out.println("Has pea: "+hasSun);
                     break;
                 case "Peashooter":
-                    if(hasPea > 0){
+                    if(hasSun > 0){
                         gp.obj[index] = null;
-                        hasPea--;
+                        hasSun--;
                     }
-                    System.out.println("Has pea: "+hasPea);
+                    System.out.println("Has pea: "+hasSun);
                     break;
                 case "Pea2":
                     gp.obj[index] = null;
