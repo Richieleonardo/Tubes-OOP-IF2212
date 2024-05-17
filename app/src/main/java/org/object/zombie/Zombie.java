@@ -88,6 +88,7 @@ public abstract class Zombie extends Entity {
                 canAttack = true;
                 attack_counter = 0;
             }
+            updateSlow();
         }
 
 
