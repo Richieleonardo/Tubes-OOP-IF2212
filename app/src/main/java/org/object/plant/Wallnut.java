@@ -11,4 +11,9 @@ public class Wallnut extends Plant {
         down1 = setup("/plant/Wallnut.png");
         collision = true;
     }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+
+    }
 }

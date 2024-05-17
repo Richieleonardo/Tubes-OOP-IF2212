@@ -12,4 +12,9 @@ public class Lilypad extends Plant {
         //down1 = setup("/plant/Lilypad.png");
         //collision = true;
     }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+
+    }
 }

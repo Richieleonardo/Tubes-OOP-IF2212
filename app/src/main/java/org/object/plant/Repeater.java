@@ -1,6 +1,7 @@
 package org.object.plant;
 
 import org.main.GamePanel;
+import org.object.pellet.Pea2;
 
 public class Repeater extends Plant {
 
@@ -10,5 +11,12 @@ public class Repeater extends Plant {
         //name = "Repeater";
         down1 = setup("/plant/Repeater.png");
         collision = true;
+        projectile = new Pea2(gp);
+    }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+        Shoot();
+
     }
 }
