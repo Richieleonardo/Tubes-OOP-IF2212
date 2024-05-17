@@ -2,6 +2,7 @@ package org.object.pellet;
 
 import org.Entity.Projectile;
 import org.main.GamePanel;
+import org.object.zombie.Zombie;
 
 import java.awt.*;
 
@@ -20,7 +21,6 @@ public class SnowPea extends Projectile{
         maxHealth = 99999;
         Health = maxHealth;
         alive = false;
-
 //        solidArea = new Rectangle();
 //        solidArea.x = 9;
 //        solidArea.y = 9;
@@ -30,5 +30,11 @@ public class SnowPea extends Projectile{
 //        solidAreaDefaultX = 9;
 //        solidAreaDefaultY = 9;
 //        collision = true;
+    }
+    public void hit(Zombie zombie){
+        if (zombie != null) {
+            zombie.applySlow(180, 50); // Slow for 3 seconds (180 frames), 50% slow
+            this.alive = false; // Projectile disappears after hitting
+        }
     }
 }
