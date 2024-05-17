@@ -7,7 +7,7 @@ import org.object.zombie.Zombie;
 public class Projectile extends Entity{
 
     Plant user;
-    int distance;
+
     public Projectile(GamePanel gp){
         super(gp);
         direction = "left";
@@ -33,7 +33,7 @@ public class Projectile extends Entity{
             user.attackZombie(zombieIndex);
             alive = false;
         }
-        worldX += speed;
+        worldX += this.speed;
 
         Health--;
         if(Health <= 0){

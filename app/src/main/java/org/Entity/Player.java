@@ -40,8 +40,8 @@ public class Player extends Entity{
     }
 
     public void setDefaultValues(){ //Posisi awal player
-        worldX = gp.getTileSize() * 17;
-        worldY = gp.getTileSize() * 4;
+        worldX = gp.getTileSize() * 18;
+        worldY = gp.getTileSize() * 8;
         speed = 4;
         direction = "down";
     }
@@ -79,15 +79,15 @@ public class Player extends Entity{
 
             //check tile collision
             collisionOn = false;
-            gp.collisionChecker.checkTile(this);
+//            gp.collisionChecker.checkTile(this);
 
             //check object collision
-            int objIndex= gp.collisionChecker.checkObject(this, true);
-            pickUpObject(objIndex);
+//            int objIndex= gp.collisionChecker.checkObject(this, true);
+//            pickUpObject(objIndex);
 
             //check zombie collision
-            int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
-            contactZombie(zombieIndex);
+//            int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
+//            contactZombie(zombieIndex);
 
             //if collisionOn = false player can move
             if(collisionOn == false) {
@@ -122,42 +122,6 @@ public class Player extends Entity{
 
     }
 
-    public void pickUpObject(int index){
-
-        if(index != 999){
-            String objectName = gp.obj[index].name;
-
-            switch(objectName){
-                case "Pea":
-                    hasSun++;
-                    gp.obj[index] = null;
-                    System.out.println("Has pea: "+hasSun);
-                    break;
-                case "Peashooter":
-                    if(hasSun > 0){
-                        gp.obj[index] = null;
-                        hasSun--;
-                    }
-                    System.out.println("Has pea: "+hasSun);
-                    break;
-                case "Pea2":
-                    gp.obj[index] = null;
-                    break;
-                case "SnowPea":
-                    gp.obj[index] = null;
-                    break;
-
-
-            }
-        }
-    }
-
-    //Test damage
-    public void contactZombie(int i){
-        if(i != 999){
-            Health -= 1;
-        }
-    }
 
     public void draw(Graphics2D g2){
         BufferedImage image = null;

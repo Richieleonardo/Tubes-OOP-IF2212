@@ -43,7 +43,7 @@ public class GamePanel extends JPanel implements Runnable{
     //Instantiate tile manager
     TileManager tileM = new TileManager(this);
     // Instantiate key handler
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
     //Create game loop
     Thread gameThread;
 
@@ -65,6 +65,12 @@ public class GamePanel extends JPanel implements Runnable{
     public ArrayList<Entity> projectileList = new ArrayList<>();
     public ArrayList<Entity> entityList = new ArrayList<>(); //Creating one big entity list to sort the render layer
 
+    //GAME STATE
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
+    public final int inventoryState = 3; //Later use
+
     //Constructor
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); //Frame
@@ -78,6 +84,7 @@ public class GamePanel extends JPanel implements Runnable{
         assetSetter.setObject();
         assetSetter.setPlant();
         assetSetter.setZombie();
+        gameState = playState;
     }
     /*
      GAME LOOP
@@ -121,34 +128,46 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void update(){ //update the draw method
-        //PLAYER
-        player.update();
 
-        //ZOMBIE
-        for(int i = 0; i < zombie.length; i++){
-            if(zombie[i] != null){
-                zombie[i].update();
-            }
-        }
+        if(gameState == playState){
+            //PLAYER
+            player.update();
 
-        //PLANT
-        for(int i = 0; i < plant.length; i++){
-            if(plant[i] != null){
-                plant[i].update();
-            }
-        }
 
-        //PROJECTILE
-        for(int i = 0; i < projectileList.size(); i++){
-            if(projectileList.get(i) != null){
-                if(projectileList.get(i).alive){
-                    projectileList.get(i).update();
+            //ZOMBIE
+            for(int i = 0; i < zombie.length; i++){
+                if(zombie[i] != null){
+                    zombie[i].update();
                 }
             }
-            if(projectileList.get(i).alive == false){
-                projectileList.remove(i);
+
+            //PLANT
+            for(int i = 0; i < plant.length; i++){
+                if(plant[i] != null){
+                    plant[i].update();
+                }
+            }
+
+            //PROJECTILE
+            for(int i = 0; i < projectileList.size(); i++){
+                if(projectileList.get(i) != null){
+                    if(projectileList.get(i).alive){
+                        projectileList.get(i).update();
+                    }
+                }
+                if(projectileList.get(i).alive == false){
+                    projectileList.remove(i);
+                }
             }
         }
+
+        if(gameState == pauseState){
+
+        }
+
+
+
+
     }
 
     public void paintComponent(Graphics g){

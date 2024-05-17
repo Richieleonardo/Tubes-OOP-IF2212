@@ -111,8 +111,8 @@ public abstract class Plant extends Entity {
             canAttack = false;
         }
         else{
-            attack_counter++;
-            if(attack_counter == 60*getAttack_Speed()){
+            attack_counter++; //HITUNG FRAME (60FRAME = 1 detik)
+            if(attack_counter == 60*getAttack_Speed()){ //ATTACK setiap 3 detik
                 canAttack = true;
                 attack_counter = 0;
             }
