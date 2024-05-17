@@ -1,6 +1,7 @@
 package org.object.plant;
 
 import org.main.GamePanel;
+import org.object.pellet.SnowPea;
 
 public class SnowPeashooter extends Plant {
 
@@ -10,5 +11,12 @@ public class SnowPeashooter extends Plant {
         //name = "SnowPeashooter";
         down1 = setup("/plant/SnowPeashooter.png");
         collision = true;
+        projectile = new SnowPea(gp);
+    }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+        Shoot();
+
     }
 }

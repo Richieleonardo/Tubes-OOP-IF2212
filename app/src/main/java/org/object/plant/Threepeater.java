@@ -1,6 +1,7 @@
 package org.object.plant;
 
 import org.main.GamePanel;
+import org.object.pellet.Pea2;
 
 public class Threepeater extends Plant {
 
@@ -9,5 +10,12 @@ public class Threepeater extends Plant {
 
         //name = "Threepeater";
         down1 = setup("/plant/Threepeater.png");
+        projectile = new Pea2(gp);
+    }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+        Shoot();
+
     }
 }
