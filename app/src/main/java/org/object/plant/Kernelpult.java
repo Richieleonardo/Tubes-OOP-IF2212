@@ -1,6 +1,7 @@
 package org.object.plant;
 
 import org.main.GamePanel;
+import org.object.pellet.Kernel_pellet;
 
 public class Kernelpult extends Plant {
 
@@ -10,5 +11,12 @@ public class Kernelpult extends Plant {
         //name = "Kernelpult";
         down1 = setup("/plant/Kernelpult.png");
         collision = true;
+        projectile = new Kernel_pellet(gp);
+    }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+        Shoot();
+
     }
 }

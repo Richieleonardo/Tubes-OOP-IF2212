@@ -1,6 +1,8 @@
 package org.object.plant;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
+import org.object.pellet.Pea;
 
 public class Peashooter extends Plant {
 
@@ -10,6 +12,13 @@ public class Peashooter extends Plant {
         //name = "Peashooter";
         down1 = setup("/plant/Peashooter.png");
         collision = true;
+        projectile = new Pea(gp);
+    }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+        Shoot();
+
     }
 
 }

@@ -10,4 +10,9 @@ public class Squash extends Plant {
 
         down1 = setup("/plant/Squash.png");
     }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+
+    }
 }
