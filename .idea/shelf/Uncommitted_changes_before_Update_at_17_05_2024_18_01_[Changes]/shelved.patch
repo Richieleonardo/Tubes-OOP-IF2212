@@ -1,0 +1,110 @@
+Index: app/src/main/java/org/object/plant/Cabbagepult.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.object.plant;\r\n\r\nimport org.Entity.Entity;\r\nimport org.Entity.Projectile;\r\nimport org.main.GamePanel;\r\nimport org.object.pellet.Cabbage_pellet;\r\nimport org.object.zombie.Zombie;\r\n\r\npublic class Cabbagepult extends Plant {\r\n\r\n\r\n\r\n    public Cabbagepult(GamePanel gp){\r\n        super(gp, \"Cabbagepult\", 100, 300, 40, 3, -1, 5, false);\r\n\r\n        //name = \"Cabbagepult\";\r\n        down1 = setup(\"/plant/Cabbagepult.png\");\r\n        collision = true;\r\n        projectile = new Cabbage_pellet(gp);\r\n    }\r\n\r\n    public void update(){\r\n        System.out.println(name + \" Health: \" + Health);\r\n        Shoot();\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/plant/Cabbagepult.java b/app/src/main/java/org/object/plant/Cabbagepult.java
+--- a/app/src/main/java/org/object/plant/Cabbagepult.java	(revision 5e40bc14775fb288250919ab729da1ed1feacc4e)
++++ b/app/src/main/java/org/object/plant/Cabbagepult.java	(date 1715943655264)
+@@ -21,7 +21,42 @@
+ 
+     public void update(){
+         System.out.println(name + " Health: " + Health);
+-        Shoot();
++//      PROJECTILE GENERATE ONLY WHEN THE OTHER IS NOT ALIVE
++        if(canAttack){
++            if(getRange() == -1){
++                if(projectile.alive == false){
++                    projectile.set(worldX, worldY, direction, true, this);
++
++                    //ADD PROJECTILE TO LIST
++                    gp.projectileList.add(projectile);
++                }
++            }
++            else{
++                for(Entity zombie : gp.zombie){
++                    if(zombie != null){
++                        if(zombie.worldY == this.worldY){
++                            int distance = zombie.worldX - worldX;
++                            if(distance <= getRange()) {
++                                if(projectile.alive == false){
++                                    projectile.set(worldX, worldY, direction, true, this);
++
++                                    //ADD PROJECTILE TO LIST
++                                    gp.projectileList.add(projectile);
++                                }
++                            }
++                        }
++                    }
++                }
++            }
++            canAttack = false;
++        }
++        else{
++            attack_counter++;
++            if(attack_counter == 60*getAttack_Speed()){
++                canAttack = true;
++                attack_counter = 0;
++            }
++        }
+ 
+     }
+ }
+Index: app/src/main/java/org/object/plant/Plant.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.object.plant;\r\n\r\nimport org.Entity.Entity;\r\nimport org.Entity.Projectile;\r\nimport org.main.GamePanel;\r\n\r\npublic abstract class Plant extends Entity {\r\n    private int cost;\r\n    private int health;\r\n    private int attack_damage;\r\n    private int attack_speed;\r\n    private int range;\r\n    private int cooldown;\r\n    private boolean isAquatic;\r\n\r\n\r\n    //Projectile\r\n    public Projectile projectile;\r\n    public boolean canAttack = true;\r\n    public int attack_counter  = 0;\r\n\r\n    public Plant(GamePanel gp, String name, int cost, int health, int attack_damage, int attack_speed, int range, int cooldown, boolean isAquatic) {\r\n        super(gp);\r\n        this.name = name;\r\n        this.cost = cost;\r\n        this.maxHealth = health;\r\n        Health = maxHealth;\r\n        this.attack_damage = attack_damage;\r\n        this.attack_speed = attack_speed;\r\n        if(range == -1){\r\n            this.range = range;\r\n        }\r\n        else{\r\n            this.range = range * 48;\r\n        }\r\n        this.cooldown = cooldown;\r\n        this.isAquatic = isAquatic;\r\n    }\r\n\r\n    public String getName() {\r\n        return this.name;\r\n    }\r\n\r\n    public int getCost() {\r\n        return this.cost;\r\n    }\r\n\r\n    public int getHealth() {\r\n        return this.health;\r\n    }\r\n\r\n    public void setHealth(int health){\r\n        this.health = health;\r\n    }\r\n\r\n    public int getAttackDamage() {\r\n        return this.attack_damage;\r\n    }\r\n\r\n    public int getAttack_Speed() {\r\n        return this.attack_speed;\r\n    }\r\n\r\n    public int getRange() {\r\n        return this.range;\r\n    }\r\n\r\n    public int getCooldown() {\r\n        return this.cooldown;\r\n    }\r\n\r\n    public boolean getIsAquatic(){\r\n        return isAquatic;\r\n    }\r\n\r\n    public void setIsAquatic(boolean isAquatic){\r\n        this.isAquatic = isAquatic;\r\n    }\r\n\r\n    public void die() {\r\n    }\r\n\r\n    public void Shoot(){\r\n        //      PROJECTILE GENERATE ONLY WHEN THE OTHER IS NOT ALIVE\r\n        if(canAttack){\r\n            if(getRange() == -1){\r\n                if(projectile.alive == false){\r\n                    projectile.set(worldX, worldY, direction, true, this);\r\n\r\n                    //ADD PROJECTILE TO LIST\r\n                    gp.projectileList.add(projectile);\r\n                }\r\n            }\r\n            else{\r\n                for(Entity zombie : gp.zombie){\r\n                    if(zombie != null){\r\n                        if(zombie.worldY == this.worldY){\r\n                            int distance = zombie.worldX - worldX;\r\n                            if(distance <= getRange()) {\r\n                                if(projectile.alive == false){\r\n                                    projectile.set(worldX, worldY, direction, true, this);\r\n\r\n                                    //ADD PROJECTILE TO LIST\r\n                                    gp.projectileList.add(projectile);\r\n                                }\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n            canAttack = false;\r\n        }\r\n        else{\r\n            attack_counter++; //HITUNG FRAME (60FRAME = 1 detik)\r\n            if(attack_counter == 60*getAttack_Speed()){ //ATTACK setiap 3 detik\r\n                canAttack = true;\r\n                attack_counter = 0;\r\n            }\r\n        }\r\n    }\r\n\r\n    public void update(){\r\n        System.out.println(name + \"Health : \" + Health);\r\n\r\n\r\n    }\r\n\r\n    public void attackZombie(int i){\r\n        if(i != 999){\r\n            gp.zombie[i].Health -= attack_damage;\r\n\r\n            if(gp.zombie[i].Health <= 0){\r\n                gp.zombie[i] = null;\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n    public String toString() {\r\n        return this.name;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/org/object/plant/Plant.java b/app/src/main/java/org/object/plant/Plant.java
+--- a/app/src/main/java/org/object/plant/Plant.java	(revision 5e40bc14775fb288250919ab729da1ed1feacc4e)
++++ b/app/src/main/java/org/object/plant/Plant.java	(date 1715943642419)
+@@ -80,45 +80,6 @@
+     public void die() {
+     }
+ 
+-    public void Shoot(){
+-        //      PROJECTILE GENERATE ONLY WHEN THE OTHER IS NOT ALIVE
+-        if(canAttack){
+-            if(getRange() == -1){
+-                if(projectile.alive == false){
+-                    projectile.set(worldX, worldY, direction, true, this);
+-
+-                    //ADD PROJECTILE TO LIST
+-                    gp.projectileList.add(projectile);
+-                }
+-            }
+-            else{
+-                for(Entity zombie : gp.zombie){
+-                    if(zombie != null){
+-                        if(zombie.worldY == this.worldY){
+-                            int distance = zombie.worldX - worldX;
+-                            if(distance <= getRange()) {
+-                                if(projectile.alive == false){
+-                                    projectile.set(worldX, worldY, direction, true, this);
+-
+-                                    //ADD PROJECTILE TO LIST
+-                                    gp.projectileList.add(projectile);
+-                                }
+-                            }
+-                        }
+-                    }
+-                }
+-            }
+-            canAttack = false;
+-        }
+-        else{
+-            attack_counter++; //HITUNG FRAME (60FRAME = 1 detik)
+-            if(attack_counter == 60*getAttack_Speed()){ //ATTACK setiap 3 detik
+-                canAttack = true;
+-                attack_counter = 0;
+-            }
+-        }
+-    }
+-
+     public void update(){
+         System.out.println(name + "Health : " + Health);
+ 

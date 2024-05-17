@@ -61,10 +61,10 @@ public class TileManager {
             InputStream is = getClass().getResourceAsStream("/maps/mapdebug.txt");
             BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(is)));
 
-            int col = 0;
-            int row = 0;
+            int col = 0; //0
+            int row = 0; //0
 
-            while(col < gp.maxWorldCol && row < gp.maxWorldRow){
+            while(col < gp.maxWorldCol && row < gp.maxWorldRow){ //maxWorldCol,maxWorldRow (Untuk camera setting)
                 String line = br.readLine();
 
                 while(col < gp.maxWorldCol){
@@ -95,7 +95,7 @@ public class TileManager {
         int col = 0;
         int row = 0;
 
-        while(col < gp.maxWorldCol && row < gp.maxWorldRow){
+        while(col < gp.maxWorldCol && row < gp.maxWorldRow){ //maxWorldCol, maxWorldRow for camera settings
 
             int tileNum = mapTileNum[col][row];
 
@@ -115,7 +115,7 @@ public class TileManager {
             col++;
 
 
-            if(col == gp.maxWorldCol){
+            if(col == gp.maxWorldCol ){
                 col = 0;
                 row++;
 
