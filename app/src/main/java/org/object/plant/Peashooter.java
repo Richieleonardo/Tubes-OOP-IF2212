@@ -11,5 +11,6 @@ public class Peashooter extends Plant {
         down1 = setup("/plant/Peashooter.png");
         collision = true;
     }
+
 }
 

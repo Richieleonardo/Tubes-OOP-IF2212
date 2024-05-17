@@ -16,7 +16,7 @@ public class Inventory{
         this.plants = new ArrayList<>();
         
         //Test 
-        this.plants.add(new Peashooter());
+//        this.plants.add(new Peashooter());
         this.plants.add(new Wallnut());
         this.plants.add(new Squash());
         this.plants.add(new Snowpea());
