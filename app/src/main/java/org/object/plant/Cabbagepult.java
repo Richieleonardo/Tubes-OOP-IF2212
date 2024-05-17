@@ -18,4 +18,10 @@ public class Cabbagepult extends Plant {
         collision = true;
         projectile = new Cabbage_pellet(gp);
     }
+
+    public void update(){
+        System.out.println(name + "Health : " + Health);
+        Shoot();
+
+    }
 }
