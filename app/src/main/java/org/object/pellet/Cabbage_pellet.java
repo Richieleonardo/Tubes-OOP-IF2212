@@ -14,7 +14,7 @@ public class Cabbage_pellet extends Projectile {
 
         //Projectile status
         speed = 2;
-        maxHealth = 99999;
+        maxHealth = 999; //Yang -1 assign healthnya tinggi aja, ini lifetime projectilenya 999 health = 999 frame (60 frame = 1 detik)
         Health = maxHealth;
         alive = false;
 
