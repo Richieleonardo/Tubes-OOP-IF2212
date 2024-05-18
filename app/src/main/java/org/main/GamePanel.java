@@ -9,6 +9,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import org.object.pellet.SnowPea;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -127,48 +128,54 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread.start();
     }
 
-    public void update(){ //update the draw method
-
-        if(gameState == playState){
-            //PLAYER
+    public void update() {
+        if (gameState == playState) {
+            // PLAYER
             player.update();
 
-
-            //ZOMBIE
-            for(int i = 0; i < zombie.length; i++){
-                if(zombie[i] != null){
+            // ZOMBIE
+            for (int i = 0; i < zombie.length; i++) {
+                if (zombie[i] != null) {
                     zombie[i].update();
                 }
             }
 
-            //PLANT
-            for(int i = 0; i < plant.length; i++){
-                if(plant[i] != null){
+            // PLANT
+            for (int i = 0; i < plant.length; i++) {
+                if (plant[i] != null) {
                     plant[i].update();
                 }
             }
 
-            //PROJECTILE
-            for(int i = 0; i < projectileList.size(); i++){
-                if(projectileList.get(i) != null){
-                    if(projectileList.get(i).alive){
+            // PROJECTILE
+            for (int i = 0; i < projectileList.size(); i++) {
+                if (projectileList.get(i) != null) {
+                    if (projectileList.get(i).alive) {
                         projectileList.get(i).update();
+
+                        // Check for collisions between SnowPea and zombies
+                        if (projectileList.get(i) instanceof SnowPea) {
+                            SnowPea snowPea = (SnowPea) projectileList.get(i);
+                            for (int j = 0; j < zombie.length; j++) {
+                                if (zombie[j] != null && snowPea.solidArea.intersects(zombie[j].solidArea)) {
+                                    snowPea.slow(zombie[j]);
+                                }
+                            }
+                        }
                     }
                 }
-                if(projectileList.get(i).alive == false){
+                if (!projectileList.get(i).alive) {
                     projectileList.remove(i);
+                    i--; // Adjust index after removal
                 }
             }
         }
 
-        if(gameState == pauseState){
-
+        if (gameState == pauseState) {
+            // Handle pause state if necessary
         }
-
-
-
-
     }
+
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);

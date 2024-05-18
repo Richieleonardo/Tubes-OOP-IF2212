@@ -32,6 +32,9 @@ public class Entity {
     public int maxHealth;
     public int Health;
 
+    private boolean isSlowed = false;
+    private int slowCounter = 0;
+    private int originalSpeed;
 
     public Rectangle solidArea = new Rectangle(0,0,48,48);
     public int solidAreaDefaultX, solidAreaDefaultY;
@@ -159,6 +162,27 @@ public class Entity {
                 }
             }
             g2.drawImage(image, screenX, screenY, null);
+        }
+    }
+    // Method to apply slow effect
+    public void applySlow(int duration, int slowPercentage) {
+        if (!isSlowed) {
+            System.out.println("Applying slow to zombie: " + this.name);
+            originalSpeed = this.speed;
+            this.speed = this.speed * (100 - slowPercentage) / 100;
+            isSlowed = true;
+            slowCounter = duration;
+        }
+    }
+
+    // Method to update the slow effect
+    public void updateSlow() {
+        if (isSlowed) {
+            slowCounter--;
+            if (slowCounter <= 0) {
+                this.speed = originalSpeed;
+                isSlowed = false;
+            }
         }
     }
 

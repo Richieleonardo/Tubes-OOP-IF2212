@@ -13,7 +13,6 @@ public abstract class Plant extends Entity {
     private int cooldown;
     private boolean isAquatic;
 
-
     //Projectile
     public Projectile projectile;
     public boolean canAttack = true;

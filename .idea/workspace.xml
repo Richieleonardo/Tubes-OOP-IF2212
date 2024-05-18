@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="Pindahin kode attack ke method Shoot di class Plant">
+    <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="update slow">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_09__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_09__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_43__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_43__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_43__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Projectile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/AssetSetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/SnowPea.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/SnowPea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Kernelpult.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Kernelpult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/tile/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +51,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -53,12 +64,12 @@
     &quot;assignee&quot;: &quot;Richieleonardo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Richieleonardo/Tubes-OOP-IF2212.git&quot;,
-    &quot;accountId&quot;: &quot;eb67a8b2-e441-4444-8833-87471886945c&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Richieleonardo/Tubes-OOP-IF2212.git",
+    "accountId": "32c1475c-f765-4046-a641-e3d3337eeb4e"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -67,16 +78,18 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2gOXEYGjlzL1AKwkKn7gkgQENK2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Gradle.TUBESSSS:app [:app:App.main()].executor&quot;: &quot;Debug&quot;,
     &quot;Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;harry&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/resources/zombie&quot;,
@@ -100,8 +113,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.main.App" />
+    <configuration name="org.main.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.main.App" />
       <module name="Tubes-OOP-IF2212.app.main" />
       <extension name="coverage">
         <pattern>
@@ -115,7 +128,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.org.main.App" />
       </list>
     </recent_temporary>
   </component>
@@ -152,13 +165,31 @@
       <option name="project" value="LOCAL" />
       <updated>1715936397511</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add slow method in projectile snowpea and class zombie">
+      <option name="closed" value="true" />
+      <created>1715954551524</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715954551524</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update slow">
+      <option name="closed" value="true" />
+      <created>1715955525708</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715955525708</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="zombie constructors n stuff" />
     <MESSAGE value="jump n escape" />
     <MESSAGE value="Pindahin kode attack ke method Shoot di class Plant" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pindahin kode attack ke method Shoot di class Plant" />
+    <MESSAGE value="Add slow method in projectile snowpea and class zombie" />
+    <MESSAGE value="update slow" />
+    <option name="LAST_COMMIT_MESSAGE" value="update slow" />
   </component>
 </project>

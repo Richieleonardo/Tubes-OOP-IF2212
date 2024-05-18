@@ -2,9 +2,12 @@ package org.main;
 
 import org.object.Door;
 import org.object.pellet.Kernel_pellet;
+import org.object.pellet.SnowPea;
 import org.object.plant.Peashooter;
+import org.object.plant.SnowPeashooter;
 import org.object.zombie.NormalZombie;
 import org.object.*;
+import org.object.pellet.Pea;
 import org.object.pellet.Cabbage_pellet;
 import org.object.plant.Cabbagepult;
 import org.object.plant.Kernelpult;
@@ -45,7 +48,7 @@ public class AssetSetter {
 
     public void setPlant(){
 
-        gp.plant[0] = new Peashooter(gp);
+        gp.plant[0] = new SnowPeashooter(gp);
         gp.plant[0].worldX = 18 * gp.getTileSize();
         gp.plant[0].worldY = 7 * gp.getTileSize();
 
@@ -60,6 +63,9 @@ public class AssetSetter {
         gp.obj[7].worldX = 18 * gp.getTileSize();
         gp.obj[7].worldY = 7 * gp.getTileSize();
 
+        gp.obj[8] = new SnowPea(gp);
+        gp.obj[8].worldX = 17 * gp.getTileSize();
+        gp.obj[8].worldY = 7 * gp.getTileSize();
 //        gp.obj[8] = new Door(gp);
 //        gp.obj[8].worldX = 20 * gp.getTileSize();
 //        gp.obj[8].worldY = 10 * gp.getTileSize();

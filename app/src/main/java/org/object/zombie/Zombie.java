@@ -13,10 +13,6 @@ public abstract class Zombie extends Entity {
     public boolean canAttack = true;
     public int attack_counter = 0;
 
-    private boolean isSlowed = false;
-    private int slowCounter = 0;
-    private int originalSpeed;
-
     public Zombie(GamePanel gp, String name, int health, int speed, int attack_damage, int attack_speed) {
         super(gp);
         this.name = name;
@@ -75,6 +71,7 @@ public abstract class Zombie extends Entity {
 
     public void update(){
         System.out.println("Zombie health : " + this.Health);
+        System.out.println(this.speed);
         gp.collisionChecker.checkTile(this);
         collisionOn = false;
         //Implement collision with plant
@@ -111,26 +108,7 @@ public abstract class Zombie extends Entity {
             }
         }
     }
-    // Method to apply slow effect
-    public void applySlow(int duration, int slowPercentage) {
-        if (!isSlowed) {
-            originalSpeed = this.speed;
-            this.speed = this.speed * (100 - slowPercentage) / 100;
-            isSlowed = true;
-            slowCounter = duration;
-        }
-    }
 
-    // Method to update the slow effect
-    public void updateSlow() {
-        if (isSlowed) {
-            slowCounter--;
-            if (slowCounter <= 0) {
-                this.speed = originalSpeed;
-                isSlowed = false;
-            }
-        }
-    }
     public void getImage(){}
     public void setAction(){}
 }

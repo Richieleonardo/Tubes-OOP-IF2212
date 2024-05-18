@@ -1,8 +1,9 @@
 package org.object.pellet;
 
+import org.Entity.Entity;
 import org.Entity.Projectile;
+import org.main.CollisionChecker;
 import org.main.GamePanel;
-import org.object.zombie.Zombie;
 
 import java.awt.*;
 
@@ -31,10 +32,9 @@ public class SnowPea extends Projectile{
 //        solidAreaDefaultY = 9;
 //        collision = true;
     }
-    public void hit(Zombie zombie){
+    public void slow(Entity zombie) {
         if (zombie != null) {
             zombie.applySlow(180, 50); // Slow for 3 seconds (180 frames), 50% slow
-            this.alive = false; // Projectile disappears after hitting
         }
     }
 }
