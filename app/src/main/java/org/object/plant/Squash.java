@@ -1,6 +1,8 @@
 package org.object.plant;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
+import org.object.pellet.Squash_proj;
 
 public class Squash extends Plant {
 
@@ -9,6 +11,9 @@ public class Squash extends Plant {
         //name = "Squash";
 
         down1 = setup("/plant/Squash.png");
+        collision = true;
+        projectile = new Squash_proj(gp);
+
     }
 
     @Override
@@ -18,6 +23,14 @@ public class Squash extends Plant {
 
     public void update(){
         System.out.println(name + "Health : " + Health);
-
+        Shoot();
+        int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
+        if(zombieIndex != 999){
+            attackZombie(zombieIndex);
+            alive = false;
+            worldX += 48;
+        }
     }
+
+
 }

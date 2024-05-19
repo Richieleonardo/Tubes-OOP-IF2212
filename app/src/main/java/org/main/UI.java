@@ -364,8 +364,8 @@ public class UI {
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
 
         //TITLE NAME
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
-        String text = "Plant VS Zombie";
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,80F));
+        String text = "Michael VS Lalapan";
         int x = getXforCenteredText(text);
         int y = gp.getTileSize()*3;
 

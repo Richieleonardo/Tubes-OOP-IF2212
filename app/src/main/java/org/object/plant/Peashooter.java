@@ -3,6 +3,7 @@ package org.object.plant;
 import org.Entity.Entity;
 import org.main.GamePanel;
 import org.object.pellet.Pea;
+import org.object.pellet.Squash_proj;
 
 public class Peashooter extends Plant {
 

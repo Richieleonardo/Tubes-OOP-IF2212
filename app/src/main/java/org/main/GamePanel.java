@@ -4,12 +4,8 @@ import org.Entity.Entity;
 import org.Entity.Player;
 import org.Entity.Projectile;
 import org.checkerframework.checker.units.qual.N;
-import org.object.plant.Cabbagepult;
-import org.object.plant.Peashooter;
-import org.object.plant.Plant;
-import org.object.plant.Sunflower;
-import org.object.zombie.NormalZombie;
-import org.object.zombie.Zombie;
+import org.object.plant.*;
+import org.object.zombie.*;
 import org.tile.TileManager;
 
 import javax.swing.JPanel;
@@ -94,9 +90,15 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame(){
 //        assetSetter.setObject();
 //        assetSetter.setPlant(plant);
-        assetSetter.setPlant(new Sunflower(this), 15, 7);
-        assetSetter.setPlant(new Peashooter(this), 18, 7);
+        assetSetter.setPlant(new Sunflower(this), 15, 6);
+        assetSetter.setPlant(new Threepeater(this), 18, 7);
+//        assetSetter.setPlant(new Cabbagepult(this), 17, 7);
+//        assetSetter.setPlant(new Peashooter(this), 18, 7);
+        assetSetter.setPlant(new Repeater(this), 15,7);
+        assetSetter.setPlant(new Squash(this),16, 7);
+        assetSetter.setPlant(new Wallnut(this), 22, 7);
         assetSetter.setZombie(new NormalZombie(this), 24, 7);
+//        assetSetter.setZombie(new ConeHeadZombie(this), 24, 6);
         gameState = titleState;
     }
     /*
@@ -181,6 +183,9 @@ public class GamePanel extends JPanel implements Runnable{
         if(gameState == inventoryState){
 
         }
+
+
+
 
     }
 
