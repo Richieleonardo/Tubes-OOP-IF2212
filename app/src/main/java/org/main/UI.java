@@ -117,7 +117,6 @@ public class UI {
         String text2 = "* Gunakan WASD untuk memindahkan kursor";
         String text3 = "* Ketika ingin menambahkan atau menghapus tanaman";
         String text4 = "  dari deck tekan tombol \"Enter\" di keyboard";
-        g2.setFont(new Font("arial_40", Font.BOLD, 26));
         Font header1 = new Font("Arial", Font.BOLD, 26);
         Font header2 = new Font("Arial", Font.PLAIN, 20);
         g2.setFont(header1);
@@ -126,6 +125,16 @@ public class UI {
         g2.drawString(text2, gp.getTileSize(), gp.getTileSize()*7 + 30);
         g2.drawString(text3, gp.getTileSize(), gp.getTileSize()*8);
         g2.drawString(text4, gp.getTileSize(), gp.getTileSize()*8 + 20);
+    }
+
+    public void drawHeader1(String text, int x, int y){
+        Font header1 = new Font("Arial", Font.BOLD, 26);
+        g2.drawString(text, x, y);
+    }
+
+    public void drawHeader2(String text, int x, int y){
+        Font header2 = new Font("Arial", Font.PLAIN, 20);
+        g2.drawString(text, x, y);
     }
 
 
