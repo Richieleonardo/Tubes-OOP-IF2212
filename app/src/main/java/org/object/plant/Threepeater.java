@@ -14,6 +14,11 @@ public class Threepeater extends Plant {
         projectile = new Pea2(gp);
     }
 
+    @Override
+    public Plant clone(){
+        return new Threepeater(gp);
+    }
+
     public void update(){
         System.out.println(name + "Health : " + Health);
         Shoot();

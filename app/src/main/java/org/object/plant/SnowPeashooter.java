@@ -14,6 +14,11 @@ public class SnowPeashooter extends Plant {
         projectile = new SnowPea(gp);
     }
 
+    @Override
+    public Plant clone(){
+        return new SnowPeashooter(gp);
+    }
+
     public void update(){
         System.out.println(name + "Health : " + Health);
         Shoot();

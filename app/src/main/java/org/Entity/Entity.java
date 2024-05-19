@@ -42,7 +42,7 @@ public class Entity {
     public String name;
     public boolean collision = false;
 
-    public int type; // 1 plant, 2 zombie
+//    public int type; // 1 plant, 2 zombie
 
 //    //PROJECTILE TEST (for now)
     public boolean alive;
@@ -64,27 +64,27 @@ public class Entity {
 
         collisionOn = false;
         gp.collisionChecker.checkTile(this);
-        gp.collisionChecker.checkObject(this, false);
+//        gp.collisionChecker.checkObject(this, false);
         gp.collisionChecker.checkEntity(this, gp.zombie);
         gp.collisionChecker.checkEntity(this, gp.plant);
 
-        //if collisionOn = false player can move
-        if(collisionOn == false) {
-            switch (direction) {
-                case "up":
-                    worldY -= speed;
-                    break;
-                case "down":
-                    worldY += speed;
-                    break;
-                case "left":
-                    worldX -= speed;
-                    break;
-                case "right":
-                    worldX += speed;
-                    break;
-            }
-        }
+//        //if collisionOn = false player can move
+//        if(collisionOn == false) {
+//            switch (direction) {
+//                case "up":
+//                    worldY -= speed;
+//                    break;
+//                case "down":
+//                    worldY += speed;
+//                    break;
+//                case "left":
+//                    worldX -= speed;
+//                    break;
+//                case "right":
+//                    worldX += speed;
+//                    break;
+//            }
+//        }
 
         //Image change every 20 frame
         spriteCounter++;
@@ -97,6 +97,8 @@ public class Entity {
             }
             spriteCounter = 0;
         }
+
+
     }
 
     public BufferedImage setup(String imagePath){
@@ -116,7 +118,7 @@ public class Entity {
 
     public void draw(Graphics2D g2){
 
-        BufferedImage image = null;
+        BufferedImage image = down1;
 
         int screenX = worldX - gp.player.worldX + gp.player.screenX;
         int screenY = worldY - gp.player.worldY + gp.player.screenY;
@@ -159,6 +161,7 @@ public class Entity {
                 }
             }
             g2.drawImage(image, screenX, screenY, null);
+
         }
     }
 

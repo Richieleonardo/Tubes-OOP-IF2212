@@ -11,6 +11,11 @@ public class Squash extends Plant {
         down1 = setup("/plant/Squash.png");
     }
 
+    @Override
+    public Plant clone(){
+        return new Squash(gp);
+    }
+
     public void update(){
         System.out.println(name + "Health : " + Health);
 
