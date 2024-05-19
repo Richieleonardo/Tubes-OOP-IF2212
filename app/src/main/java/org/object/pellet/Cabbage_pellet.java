@@ -2,11 +2,12 @@ package org.object.pellet;
 
 import org.Entity.Projectile;
 import org.main.GamePanel;
+import org.object.plant.Plant;
 
 public class Cabbage_pellet extends Projectile {
 
     GamePanel gp;
-
+    Plant user;
 
     public Cabbage_pellet(GamePanel gp){
         super(gp);

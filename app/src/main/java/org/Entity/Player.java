@@ -2,17 +2,27 @@ package org.Entity;
 
 import org.main.GamePanel;
 import org.main.KeyHandler;
+import org.object.plant.Cabbagepult;
+import org.object.plant.Peashooter;
+import org.object.plant.SnowPeashooter;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 
 public class Player extends Entity{
 
     KeyHandler keyH;
     public static int hasSun = 0;
-    
-    
+
+    Graphics2D g2;
+    public ArrayList<Entity> deck = new ArrayList<>();
+    public final int deckSize = 6;
+    //CURSOR PLACEMENT IN MAP
+    public int worldCursorCol = 16;
+    public int worldCursorRow = 7;
+
     public final int screenX;
     public final int screenY;
 
@@ -46,6 +56,7 @@ public class Player extends Entity{
         direction = "down";
     }
 
+
     public void getPlayerImage(){
             up1 = setup("/player/boy_up_1.png");
             up2 = setup("/player/boy_up_2.png");
@@ -58,7 +69,56 @@ public class Player extends Entity{
 
     }
 
+    public void selectPlant(){
+        int itemIndex = gp.ui.getPlantIndexOnInventory();
 
+        if(itemIndex < gp.ui.inventory.size()){
+            Entity selectedItem = gp.ui.inventory.get(itemIndex);
+            if(!deck.contains(selectedItem)){
+                if (deck.size() < 6) {
+                    deck.add(selectedItem);
+                }
+                else{
+                    System.out.println("Can't put plants");
+                }
+            }
+            else{
+                deck.remove(selectedItem);
+            }
+        }
+    }
+
+    public void putPlant(){
+        int plantIndex = gp.ui.getPlantIndexOnDeck();
+
+        //GET TILE
+        int worldTileX = worldCursorCol/gp.getTileSize();
+        int worldTileY = worldCursorRow/gp.getTileSize();
+        int tileNum = gp.tileM.mapTileNum[worldTileX][worldTileY];
+
+        if(plantIndex < deck.size()){
+            Entity selectedPlant = deck.get(plantIndex);
+
+        }
+
+//        if(!(tileNum == 2)){
+//
+//        }
+
+
+        // CURSOR
+        int cursorX = (gp.getTileSize() * worldCursorCol);
+        int cursorY = (gp.getTileSize() * worldCursorRow);
+        int cursorWidth = gp.getTileSize();
+        int cursorHeight = gp.getTileSize();
+
+        //DRAW CURSOR
+        g2.setColor(Color.white);
+        g2.setStroke(new BasicStroke(3));
+        if(gp.gameState == gp.playState){
+            g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
+        }
+    }
 
     public void update(){
 //        System.out.println(Health);
@@ -79,13 +139,13 @@ public class Player extends Entity{
 
             //check tile collision
             collisionOn = false;
-//            gp.collisionChecker.checkTile(this);
+            gp.collisionChecker.checkTile(this);
 
-            //check object collision
+//            check object collision
 //            int objIndex= gp.collisionChecker.checkObject(this, true);
 //            pickUpObject(objIndex);
-
-            //check zombie collision
+//
+//            check zombie collision
 //            int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
 //            contactZombie(zombieIndex);
 

@@ -4,6 +4,9 @@ import org.Entity.Entity;
 import org.Entity.Projectile;
 import org.main.GamePanel;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
 public abstract class Plant extends Entity {
     private int cost;
     private int health;
@@ -19,6 +22,7 @@ public abstract class Plant extends Entity {
     public boolean canAttack = true;
     public int attack_counter  = 0;
 
+
     public Plant(GamePanel gp, String name, int cost, int health, int attack_damage, int attack_speed, int range, int cooldown, boolean isAquatic) {
         super(gp);
         this.name = name;
@@ -28,7 +32,7 @@ public abstract class Plant extends Entity {
         this.attack_damage = attack_damage;
         this.attack_speed = attack_speed;
         if(range == -1){
-            this.range = range;
+            this.range = 9 * 48;
         }
         else{
             this.range = range * 48;
@@ -36,6 +40,10 @@ public abstract class Plant extends Entity {
         this.cooldown = cooldown;
         this.isAquatic = isAquatic;
     }
+
+
+    //Clone plant object
+    public abstract Plant clone();
 
     public String getName() {
         return this.name;
@@ -83,26 +91,16 @@ public abstract class Plant extends Entity {
     public void Shoot(){
         //      PROJECTILE GENERATE ONLY WHEN THE OTHER IS NOT ALIVE
         if(canAttack){
-            if(getRange() == -1){
-                if(projectile.alive == false){
-                    projectile.set(worldX, worldY, direction, true, this);
+            for(Entity zombie : gp.zombie){
+                if(zombie != null){
+                    if(zombie.worldY == this.worldY){
+                        int distance = zombie.worldX - worldX;
+                        if(distance <= getRange() || getRange() == -1){
+                            if(projectile.alive == false){
+                                projectile.set(worldX, worldY, direction, true, this);
 
-                    //ADD PROJECTILE TO LIST
-                    gp.projectileList.add(projectile);
-                }
-            }
-            else{
-                for(Entity zombie : gp.zombie){
-                    if(zombie != null){
-                        if(zombie.worldY == this.worldY){
-                            int distance = zombie.worldX - worldX;
-                            if(distance <= getRange()) {
-                                if(projectile.alive == false){
-                                    projectile.set(worldX, worldY, direction, true, this);
-
-                                    //ADD PROJECTILE TO LIST
-                                    gp.projectileList.add(projectile);
-                                }
+                                //ADD PROJECTILE TO LIST
+                                gp.projectileList.add(projectile);
                             }
                         }
                     }
@@ -119,6 +117,7 @@ public abstract class Plant extends Entity {
         }
     }
 
+
     public void update(){
         System.out.println(name + "Health : " + Health);
 
@@ -127,14 +126,13 @@ public abstract class Plant extends Entity {
 
     public void attackZombie(int i){
         if(i != 999){
-            gp.zombie[i].Health -= attack_damage;
+            gp.zombie.get(i).Health -= attack_damage;
 
-            if(gp.zombie[i].Health <= 0){
-                gp.zombie[i] = null;
+            if(gp.zombie.get(i).Health <= 0){
+                gp.zombie.set(i, null);
             }
         }
     }
-
 
     public String toString() {
         return this.name;

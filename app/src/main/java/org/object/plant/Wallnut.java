@@ -12,6 +12,11 @@ public class Wallnut extends Plant {
         collision = true;
     }
 
+    @Override
+    public Plant clone(){
+        return new Wallnut(gp);
+    }
+
     public void update(){
         System.out.println(name + "Health : " + Health);
 

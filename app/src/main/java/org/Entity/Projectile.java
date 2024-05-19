@@ -23,11 +23,10 @@ public class Projectile extends Entity{
         this.Health = this.maxHealth;
     }
 
+
+
     public void update(){
         //Check zombie collision
-        for(Entity zombie : gp.zombie){
-
-        }
         int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
         if(zombieIndex != 999){
             user.attackZombie(zombieIndex);

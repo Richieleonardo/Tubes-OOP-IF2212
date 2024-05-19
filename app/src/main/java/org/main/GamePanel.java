@@ -2,6 +2,13 @@ package org.main;
 
 import org.Entity.Entity;
 import org.Entity.Player;
+import org.Entity.Projectile;
+import org.checkerframework.checker.units.qual.N;
+import org.object.plant.Cabbagepult;
+import org.object.plant.Peashooter;
+import org.object.plant.Plant;
+import org.object.zombie.NormalZombie;
+import org.object.zombie.Zombie;
 import org.tile.TileManager;
 
 import javax.swing.JPanel;
@@ -41,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60; //Game tick
 
     //Instantiate tile manager
-    TileManager tileM = new TileManager(this);
+    public TileManager tileM = new TileManager(this);
     // Instantiate key handler
     KeyHandler keyH = new KeyHandler(this);
     //Create game loop
@@ -57,9 +64,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     //CREATING SUPER OBJECT -> ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
-    public Entity obj[] = new Entity[10];
-    public Entity plant[] = new Entity[10]; //TYPE masih ENTITY, TODO : buat type Plant yang extends Entity
-    public Entity zombie[] = new Entity[10]; //TYPE masih ENTITY, TODO : buat type Zombie yang extends Entity
+    public ArrayList<Entity> obj= new ArrayList<>();
+    public ArrayList<Entity> plant = new ArrayList<>(); //TYPE masih ENTITY, TODO : buat type Plant yang extends Entity
+    public ArrayList<Entity> zombie = new ArrayList<>(); //TYPE masih ENTITY, TODO : buat type Zombie yang extends Entity
 
     //TODO : gatau perlu ditambah ato ga, perlu ide....
     public ArrayList<Entity> projectileList = new ArrayList<>();
@@ -81,9 +88,11 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void setupGame(){
-        assetSetter.setObject();
-        assetSetter.setPlant();
-        assetSetter.setZombie();
+//        assetSetter.setObject();
+//        assetSetter.setPlant(plant);
+//        assetSetter.setPlant(new Cabbagepult(this), 17, 7);
+        assetSetter.setPlant(new Peashooter(this), 18, 7);
+        assetSetter.setZombie(new NormalZombie(this), 24, 7);
         gameState = playState;
     }
     /*
@@ -135,16 +144,19 @@ public class GamePanel extends JPanel implements Runnable{
 
 
             //ZOMBIE
-            for(int i = 0; i < zombie.length; i++){
-                if(zombie[i] != null){
-                    zombie[i].update();
+            for(int i = 0; i < zombie.size(); i++){
+                if(zombie.get(i) != null){
+                    Zombie enemy = (Zombie) zombie.get(i);
+                    enemy.update();
+//                    zombie.get(i).update();
                 }
             }
 
             //PLANT
-            for(int i = 0; i < plant.length; i++){
-                if(plant[i] != null){
-                    plant[i].update();
+            for(int i = 0; i < plant.size(); i++){
+                if(plant.get(i) != null){
+                    Plant tanaman = (Plant) plant.get(i);
+                    tanaman.update();
                 }
             }
 
@@ -152,7 +164,8 @@ public class GamePanel extends JPanel implements Runnable{
             for(int i = 0; i < projectileList.size(); i++){
                 if(projectileList.get(i) != null){
                     if(projectileList.get(i).alive){
-                        projectileList.get(i).update();
+                        Projectile pellet = (Projectile) projectileList.get(i);
+                        pellet.update();
                     }
                 }
                 if(projectileList.get(i).alive == false){
@@ -161,7 +174,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
-        if(gameState == pauseState){
+        if(gameState == inventoryState){
 
         }
 
@@ -184,30 +197,29 @@ public class GamePanel extends JPanel implements Runnable{
 
         //TILE
         tileM.draw(g2);
-        //UI
-        ui.draw(g2);
+
 
         //ADD ENTITIES TO LIST
         entityList.add(player);
 
-            //ENTITIES object
-        for(int i = 0; i < obj.length; i++){
-            if(obj[i] != null){
-                entityList.add(obj[i]);
-            }
-        }
+//            //ENTITIES object
+//        for(int i = 0; i < obj.length; i++){
+//            if(obj[i] != null){
+//                entityList.add(obj[i]);
+//            }
+//        }
 
             //ENTITIES plant
-        for(int i = 0; i < plant.length; i++){
-            if(plant[i] != null){
-                entityList.add(plant[i]);
+        for(Entity plant : plant){
+            if(plant != null){
+                entityList.add(plant);
             }
         }
 
             //ENTITIES zombie
-        for(int i = 0; i < zombie.length; i++){
-            if(zombie[i] != null){
-                entityList.add(zombie[i]);
+        for(int i = 0; i < zombie.size(); i++){
+            if(zombie.get(i) != null){
+                entityList.add(zombie.get(i));
             }
         }
 
@@ -236,6 +248,11 @@ public class GamePanel extends JPanel implements Runnable{
         //EMPTY ENTITY LIST
         entityList.clear();
 
+        //UI
+        ui.draw(g2);
+
+        //DEBUG
+//        g2.drawRect((28+ player.screenX), (12 + player.screenY), 10, 40);
 
         //DEBUG
         if(keyH.checkDrawTime == true){

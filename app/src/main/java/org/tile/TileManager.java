@@ -50,6 +50,7 @@ public class TileManager {
             tile[index].image = ImageIO.read(getClass().getResourceAsStream(imagePath));
             tile[index].image = uTool.scaledImage(tile[index].image, gp.getTileSize(), gp.getTileSize());
             tile[index].collision = collision;
+//            tile[index].canPutLilypad = canPutLilypad;
         }
         catch(IOException e){
             e.printStackTrace();

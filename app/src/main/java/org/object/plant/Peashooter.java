@@ -15,6 +15,11 @@ public class Peashooter extends Plant {
         projectile = new Pea(gp);
     }
 
+    @Override
+    public Plant clone(){
+        return new Peashooter(gp);
+    }
+
     public void update(){
         System.out.println(name + "Health : " + Health);
         Shoot();

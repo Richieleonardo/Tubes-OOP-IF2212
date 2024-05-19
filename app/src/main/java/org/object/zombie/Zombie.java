@@ -3,6 +3,9 @@ package org.object.zombie;
 import org.Entity.Entity;
 import org.main.GamePanel;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
 public abstract class Zombie extends Entity {
 
     private int attack_damage;
@@ -25,6 +28,13 @@ public abstract class Zombie extends Entity {
         Health = maxHealth;
         this.attack_damage = attack_damage;
         this.attack_speed = attack_speed;
+        solidArea = new Rectangle();
+        solidArea.x = 9;
+        solidArea.y = 0;
+        solidArea.width = 9;
+        solidArea.height = 40;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
     }
 
     public String getName() {
@@ -64,19 +74,21 @@ public abstract class Zombie extends Entity {
 
     public void attackPlant(int i){
         if(i != 999 && canAttack){
-            gp.plant[i].Health -= attack_damage;
+            gp.plant.get(i).Health -= attack_damage;
             canAttack = false;
-            if(gp.plant[i].Health <= 0){
-                gp.plant[i] = null;
+            if(gp.plant.get(i).Health <= 0){
+                gp.plant.set(i, null);
                 canAttack = true;
             }
         }
     }
 
+    @Override
     public void update(){
+
         System.out.println("Zombie health : " + this.Health);
-        gp.collisionChecker.checkTile(this);
         collisionOn = false;
+        gp.collisionChecker.checkTile(this);
         //Implement collision with plant
         int Index = gp.collisionChecker.checkEntity(this, gp.plant);
         if(canAttack){
@@ -91,26 +103,12 @@ public abstract class Zombie extends Entity {
             updateSlow();
         }
 
-
-
         //if collisionOn = false player can move
         if(collisionOn == false) {
-            switch (direction) {
-                case "up":
-                    worldY -= speed;
-                    break;
-                case "down":
-                    worldY += speed;
-                    break;
-                case "left":
-                    worldX -= speed;
-                    break;
-                case "right":
-                    worldX += speed;
-                    break;
-            }
+            worldX -= speed;
         }
     }
+
     // Method to apply slow effect
     public void applySlow(int duration, int slowPercentage) {
         if (!isSlowed) {
@@ -131,6 +129,7 @@ public abstract class Zombie extends Entity {
             }
         }
     }
+
     public void getImage(){}
     public void setAction(){}
 }

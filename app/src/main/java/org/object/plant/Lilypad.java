@@ -8,9 +8,14 @@ public class Lilypad extends Plant {
         super(gp, "Lilypad",25,100,0,0,0,10, true);
 
         //belum ada png
-        //name = "Lilypad";
-        //down1 = setup("/plant/Lilypad.png");
-        //collision = true;
+        name = "Lilypad";
+        down1 = setup("/plant/Lilypad.png");
+        collision = true;
+    }
+
+    @Override
+    public Plant clone(){
+        return new Lilypad(gp);
     }
 
     public void update(){

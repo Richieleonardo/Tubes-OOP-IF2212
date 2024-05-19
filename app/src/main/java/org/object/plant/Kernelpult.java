@@ -14,6 +14,11 @@ public class Kernelpult extends Plant {
         projectile = new Kernel_pellet(gp);
     }
 
+    @Override
+    public Plant clone(){
+        return new Kernelpult(gp);
+    }
+
     public void update(){
         System.out.println(name + "Health : " + Health);
         Shoot();

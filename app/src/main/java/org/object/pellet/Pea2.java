@@ -16,7 +16,7 @@ public class Pea2 extends Projectile{
         name = "Pea2";
         down1 = setup("/objects/Pea2.png");
 
-        speed = 2;
+        speed = 1;
         maxHealth = 99999;
         Health = maxHealth;
         alive = false;
