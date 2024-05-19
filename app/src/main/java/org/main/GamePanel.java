@@ -74,9 +74,12 @@ public class GamePanel extends JPanel implements Runnable{
 
     //GAME STATE
     public int gameState;
+    public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
     public final int inventoryState = 3; //Later use
+    public final int ListPlantState = 4;
+    public final int ListZombiesState = 5;
 
     //Constructor
     public GamePanel(){
@@ -93,7 +96,7 @@ public class GamePanel extends JPanel implements Runnable{
 //        assetSetter.setPlant(new Cabbagepult(this), 17, 7);
         assetSetter.setPlant(new Peashooter(this), 18, 7);
         assetSetter.setZombie(new NormalZombie(this), 24, 7);
-        gameState = playState;
+        gameState = titleState;
     }
     /*
      GAME LOOP
@@ -195,12 +198,16 @@ public class GamePanel extends JPanel implements Runnable{
             drawStart = System.nanoTime();
         }
 
-        //TILE
-        tileM.draw(g2);
+        //TITLE SCREEN
+        if(gameState == titleState){
+            ui.draw(g2);
+        }else{
+            //TILE
+            tileM.draw(g2);
 
 
-        //ADD ENTITIES TO LIST
-        entityList.add(player);
+            //ADD ENTITIES TO LIST
+            entityList.add(player);
 
 //            //ENTITIES object
 //        for(int i = 0; i < obj.length; i++){
@@ -210,46 +217,48 @@ public class GamePanel extends JPanel implements Runnable{
 //        }
 
             //ENTITIES plant
-        for(Entity plant : plant){
-            if(plant != null){
-                entityList.add(plant);
+            for(Entity plant : plant){
+                if(plant != null){
+                    entityList.add(plant);
+                }
             }
-        }
 
             //ENTITIES zombie
-        for(int i = 0; i < zombie.size(); i++){
-            if(zombie.get(i) != null){
-                entityList.add(zombie.get(i));
+            for(int i = 0; i < zombie.size(); i++){
+                if(zombie.get(i) != null){
+                    entityList.add(zombie.get(i));
+                }
             }
+
+            //ADD PROJECTILE TO LIST
+            for(int i = 0; i < projectileList.size(); i++){
+                if(projectileList.get(i) != null){
+                    entityList.add(projectileList.get(i));
+                }
+            }
+
+            //SORT
+            Collections.sort(entityList, new Comparator<Entity>() {
+                @Override
+                public int compare(Entity e1, Entity e2) {
+
+                    int result = Integer.compare(e1.worldY, e2.worldY);
+                    return result;
+                }
+            });
+
+
+            //DRAW ENTITIES
+            for(int i = 0; i < entityList.size(); i++){
+                entityList.get(i).draw(g2);
+            }
+            //EMPTY ENTITY LIST
+            entityList.clear();
+
+            //UI
+            ui.draw(g2);
         }
 
-        //ADD PROJECTILE TO LIST
-        for(int i = 0; i < projectileList.size(); i++){
-            if(projectileList.get(i) != null){
-                entityList.add(projectileList.get(i));
-            }
-        }
-
-        //SORT
-        Collections.sort(entityList, new Comparator<Entity>() {
-            @Override
-            public int compare(Entity e1, Entity e2) {
-
-                int result = Integer.compare(e1.worldY, e2.worldY);
-                return result;
-            }
-        });
-
-
-        //DRAW ENTITIES
-        for(int i = 0; i < entityList.size(); i++){
-            entityList.get(i).draw(g2);
-        }
-        //EMPTY ENTITY LIST
-        entityList.clear();
-
-        //UI
-        ui.draw(g2);
 
         //DEBUG
 //        g2.drawRect((28+ player.screenX), (12 + player.screenY), 10, 40);

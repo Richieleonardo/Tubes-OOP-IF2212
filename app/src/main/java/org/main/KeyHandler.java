@@ -50,6 +50,95 @@ public class KeyHandler implements KeyListener {
             }
         }
 
+        //ZOMBIES LIST STATE
+        if(gp.gameState == gp.ListZombiesState){
+            if(code == KeyEvent.VK_W){
+                if(gp.ui.slotRowInv != 0){
+                    gp.ui.slotRowInv--;
+                }
+
+            }
+            if(code == KeyEvent.VK_S){
+                if(gp.ui.slotRowInv != 1){
+                    gp.ui.slotRowInv++;
+                }
+            }
+            if(code == KeyEvent.VK_A){
+                if(gp.ui.slotColInv != 0) {
+                    gp.ui.slotColInv--;
+                }
+            }
+            if(code == KeyEvent.VK_D){
+                if(gp.ui.slotColInv != 4){
+                    gp.ui.slotColInv++;
+                }
+            }
+            if(code == KeyEvent.VK_ESCAPE) {
+                gp.gameState = 0;
+            }
+        }
+        
+        //PLANTS LIST STATE
+        if(gp.gameState == gp.ListPlantState){
+            if(code == KeyEvent.VK_W){
+                if(gp.ui.slotRowInv != 0){
+                    gp.ui.slotRowInv--;
+                }
+
+            }
+            if(code == KeyEvent.VK_S){
+                if(gp.ui.slotRowInv != 1){
+                    gp.ui.slotRowInv++;
+                }
+            }
+            if(code == KeyEvent.VK_A){
+                if(gp.ui.slotColInv != 0) {
+                    gp.ui.slotColInv--;
+                }
+            }
+            if(code == KeyEvent.VK_D){
+                if(gp.ui.slotColInv != 4){
+                    gp.ui.slotColInv++;
+                }
+            }
+            if(code == KeyEvent.VK_ESCAPE) {
+                gp.gameState = 0;
+            }
+        }
+
+        //TITLE STATE
+        if(gp.gameState == gp.titleState){
+            if(code == KeyEvent.VK_W){
+                gp.ui.commandNum--;
+                if(gp.ui.commandNum < 0){
+                    gp.ui.commandNum = 4;
+                }
+            }
+            if(code == KeyEvent.VK_S){
+                gp.ui.commandNum++;
+                if(gp.ui.commandNum > 4){
+                    gp.ui.commandNum = 0;
+                }
+            }
+            if(code == KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum == 0){
+                    gp.gameState = gp.inventoryState;
+                }
+                if(gp.ui.commandNum == 1){
+                    //add later
+                }
+                if(gp.ui.commandNum == 2){
+                    gp.gameState = gp.ListPlantState;
+                }
+                if(gp.ui.commandNum == 3){
+                    gp.gameState = gp.ListZombiesState;
+                }
+                if(gp.ui.commandNum == 4){
+                    System.exit(0);
+                }
+            }
+        }
+
         //PAUSE STATE
         if(code == KeyEvent.VK_P){ //SHORTCUT KEY FOR GAME STATE (EXAMPLE)
             if(gp.gameState == gp.playState){
@@ -96,6 +185,12 @@ public class KeyHandler implements KeyListener {
             }
             if(code == KeyEvent.VK_ENTER){
                 gp.player.selectPlant();
+            }
+            if(code == KeyEvent.VK_ESCAPE){
+                gp.gameState = 0;
+            }
+            if(code == KeyEvent.VK_1){
+                gp.gameState = 1;
             }
         }
 
