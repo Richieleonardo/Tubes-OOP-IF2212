@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Player extends Entity{
 
     KeyHandler keyH;
+    //PLAYER SUN
     public static int hasSun = 0;
 
     Graphics2D g2;
@@ -25,6 +26,9 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
+
+    public int tickCounter = 0;
+
 
     //Constructor
     public Player(GamePanel gp, KeyHandler keyH){
@@ -54,6 +58,7 @@ public class Player extends Entity{
         worldY = gp.getTileSize() * 8;
         speed = 4;
         direction = "down";
+        hasSun = 100;
     }
 
 
@@ -88,6 +93,12 @@ public class Player extends Entity{
         }
     }
 
+
+    /*
+    TODO : SPAWN PLANT DENGAN MENGGUNAKAN FITUR DECK
+           MENGURANGI SUN JIKA BERHASIL MENANAM TANAMAN
+           MEMBERIKAN COOLDOWN SETIAP TANAMAN DITANAM
+     */
     public void putPlant(){
         int plantIndex = gp.ui.getPlantIndexOnDeck();
 
@@ -100,11 +111,6 @@ public class Player extends Entity{
             Entity selectedPlant = deck.get(plantIndex);
 
         }
-
-//        if(!(tileNum == 2)){
-//
-//        }
-
 
         // CURSOR
         int cursorX = (gp.getTileSize() * worldCursorCol);
@@ -120,7 +126,26 @@ public class Player extends Entity{
         }
     }
 
+    /*
+    TODO : MENGHILANGKAN TANAMAN DARI MAP
+           JIKA TANAMAN DI AIR DAN DIATAS LILYPAD, MENGHILANGKAN KEDUA TANAMAN
+     */
+    public void digPlant(){
+
+    }
+
+    public void addSun(){
+        if(tickCounter == 3*60){
+            hasSun += 25;
+            tickCounter = 0;
+        }
+        else{
+            tickCounter++;
+        }
+    }
+
     public void update(){
+        addSun();
 //        System.out.println(Health);
         if(keyH.upPressed || keyH.downPressed ||
                 keyH.leftPressed || keyH.rightPressed){

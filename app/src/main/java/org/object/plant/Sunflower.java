@@ -5,7 +5,9 @@ import org.Entity.Player;
 
 public class Sunflower extends Plant implements ProduceSun{
 
+    //TIMER (tick counter)
     int counter = 0;
+    int tickSun = 0;
 
     public Sunflower(GamePanel gp) {
         super(gp, "Sunflower", 50, 100, 0, 0, 0, 10, false);
@@ -22,11 +24,18 @@ public class Sunflower extends Plant implements ProduceSun{
 
     @Override
     public void produceSun() {
-        Player.hasSun += 25;
+        if(tickSun == 3 * 60){
+            Player.hasSun += 25;
+            tickSun = 0;
+        }
+        else{
+            tickSun++;
+        }
     }
 
     @Override
     public void update() {
+        produceSun();
         System.out.println(name + "Health : " + Health);
         super.update();
         counter++;
