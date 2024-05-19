@@ -2,6 +2,7 @@ package org.object.plant;
 
 import com.sun.source.tree.CatchTree;
 import org.Entity.Entity;
+import org.Entity.Projectile;
 import org.main.GamePanel;
 import org.object.pellet.Pea2;
 
@@ -24,16 +25,8 @@ public class Repeater extends Plant {
     }
 
     public void update() {
-        try {
             System.out.println(name + "Health : " + Health);
             Shoot();
-            TimeUnit.NANOSECONDS.sleep(200);
-            Shoot();
-
-        } catch (Exception e){
-            System.out.println("ga");
-
-        }
     }
     public void Shoot() {
         //      PROJECTILE GENERATE ONLY WHEN THE OTHER IS NOT ALIVE
@@ -43,11 +36,18 @@ public class Repeater extends Plant {
                     if (zombie.worldY == this.worldY) {
                         int distance = zombie.worldX - this.worldX;
                         if (distance <= getRange()) {
-                                projectile.set(worldX, worldY, direction, true, this);
+                            projectile.set(worldX, worldY, direction, true, this);
+                            gp.projectileList.add(projectile);
 
-                                //ADD PROJECTILE1 TO LIST
+                            // Shoot second projectile with slight delay
+                            try {
+                                TimeUnit.NANOSECONDS.sleep(2000);
+                                projectile = new Pea2(gp); // Create new projectile instance
+                                projectile.set(worldX, worldY, direction, true, this);  // Consider using Repeater instead of 'this'
                                 gp.projectileList.add(projectile);
-
+                            } catch (Exception e){
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }

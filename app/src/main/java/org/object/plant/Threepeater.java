@@ -29,13 +29,21 @@ public class Threepeater extends Plant {
         if(canAttack){
             for(Entity zombie : gp.zombie) {
                 if (zombie != null) {
-                    if (zombie.worldY == this.worldY) {
+                    if (zombie.worldY == this.worldY || zombie.worldY-48 == this.worldY || zombie.worldY+48 == this.worldY) {
                         int distance = zombie.worldX - worldX;
                         if (distance <= getRange() || getRange() == -1) {
                             if (projectile.alive == false) {
                                 projectile.set(worldX, worldY, direction, true, this);
 
                                 //ADD PROJECTILE TO LIST
+                                gp.projectileList.add(projectile);
+
+                                projectile = new Pea2(gp); // Create new projectile instance
+                                projectile.set(worldX, worldY-48, direction, true, this);  // Consider using Repeater instead of 'this'
+                                gp.projectileList.add(projectile);
+
+                                projectile = new Pea2(gp); // Create new projectile instance
+                                projectile.set(worldX, worldY+48, direction, true, this);  // Consider using Repeater instead of 'this'
                                 gp.projectileList.add(projectile);
                             }
                         }
