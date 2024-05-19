@@ -5,36 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="Pindahin kode attack ke method Shoot di class Plant">
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Lilypad.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_05_2024_12_47__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_18_01__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_18_01__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_09__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_09__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_43__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Projectile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/CollisionChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/Cabbage_pellet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/Cabbage_pellet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/Pea2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/Pea2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Cabbagepult.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Cabbagepult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Kernelpult.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Kernelpult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Lilypad.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Lilypad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Peashooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Peashooter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Repeater.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Repeater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/SnowPeashooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/SnowPeashooter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Squash.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Squash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Sunflower.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Sunflower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Threepeater.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Threepeater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Wallnut.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Wallnut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +166,11 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java</url>
           <line>91</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/org/main/UI.java</url>
+          <line>362</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

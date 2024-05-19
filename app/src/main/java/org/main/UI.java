@@ -1,12 +1,15 @@
 package org.main;
 
 import org.Entity.Entity;
+import org.Entity.Player;
 import org.object.pellet.SunParticle;
 import org.object.plant.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import org.Entity.Entity;
@@ -193,6 +196,8 @@ public class UI {
 
     }
 
+
+    //DRAW SUB WINDOW round rect
     public void drawSubWindow(int x, int y, int width, int height){
         //WINDOW
         Color c = new Color(0,0,0,220);
@@ -220,6 +225,7 @@ public class UI {
         if(gp.gameState == gp.playState){
             //Do playstate stuff
             drawDeck();
+            drawSun();
 
         }
         if(gp.gameState == gp.pauseState){
@@ -351,6 +357,7 @@ public class UI {
         g2.drawString(text3, gp.getTileSize()*2, gp.getTileSize()*8);
         g2.drawString(text2, gp.getTileSize()*2, gp.getTileSize()*8 + 20);
     }
+
     public void drawTitleScreen(){
 
         g2.setColor(new Color(70,120,80));
@@ -417,6 +424,21 @@ public class UI {
             g2.drawString(">", x-gp.getTileSize(), y);
         }
 
+    }
+
+    public void drawSun(){
+        SunParticle sun = new SunParticle(gp);
+        int x = gp.getTileSize() * 8;
+        int y = 10;
+        int width = gp.getTileSize() + (gp.getTileSize()/2);
+        int height = gp.getTileSize() * 2;
+        drawSubWindow(x, y, width, height);
+        g2.drawImage(sun.down1, x+12, y+10, null);
+//        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 17F));
+//        g2.drawString("x", x+32, y+16+gp.getTileSize());
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 22F));
+
+        g2.drawString(String.valueOf(Player.hasSun), x+17, y+27+gp.getTileSize());
     }
 
     public void drawPauseScreen(){

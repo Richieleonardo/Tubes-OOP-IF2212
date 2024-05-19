@@ -7,6 +7,7 @@ import org.checkerframework.checker.units.qual.N;
 import org.object.plant.Cabbagepult;
 import org.object.plant.Peashooter;
 import org.object.plant.Plant;
+import org.object.plant.Sunflower;
 import org.object.zombie.NormalZombie;
 import org.object.zombie.Zombie;
 import org.tile.TileManager;
@@ -93,7 +94,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame(){
 //        assetSetter.setObject();
 //        assetSetter.setPlant(plant);
-//        assetSetter.setPlant(new Cabbagepult(this), 17, 7);
+        assetSetter.setPlant(new Sunflower(this), 15, 7);
         assetSetter.setPlant(new Peashooter(this), 18, 7);
         assetSetter.setZombie(new NormalZombie(this), 24, 7);
         gameState = titleState;
@@ -180,9 +181,6 @@ public class GamePanel extends JPanel implements Runnable{
         if(gameState == inventoryState){
 
         }
-
-
-
 
     }
 
