@@ -93,8 +93,8 @@ public abstract class Plant extends Entity {
             for (Entity zombie : gp.zombie) {
                 if (zombie != null) {
                     if (zombie.worldY == this.worldY) {
-                        int distance = zombie.worldX - worldX;
-                        if (distance <= getRange() || getRange() == -1) {
+                        int distance = zombie.worldX - this.worldX;
+                        if (distance <= getRange()) {
                             if (projectile.alive == false) {
                                 projectile.set(worldX, worldY, direction, true, this);
 

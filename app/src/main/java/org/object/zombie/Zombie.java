@@ -89,6 +89,7 @@ public abstract class Zombie extends Entity {
         System.out.println("Zombie health : " + this.Health);
         collisionOn = false;
         gp.collisionChecker.checkTile(this);
+
         //Implement collision with plant
         int Index = gp.collisionChecker.checkEntity(this, gp.plant);
         if(canAttack){
