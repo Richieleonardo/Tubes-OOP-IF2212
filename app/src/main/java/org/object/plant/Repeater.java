@@ -1,7 +1,11 @@
 package org.object.plant;
 
+import com.sun.source.tree.CatchTree;
+import org.Entity.Entity;
 import org.main.GamePanel;
 import org.object.pellet.Pea2;
+
+import java.util.concurrent.TimeUnit;
 
 public class Repeater extends Plant {
 
@@ -14,9 +18,16 @@ public class Repeater extends Plant {
         projectile = new Pea2(gp);
     }
 
-    public void update(){
-        System.out.println(name + "Health : " + Health);
-        Shoot();
+    public void update() {
+        try {
+            System.out.println(name + "Health : " + Health);
+            Shoot();
+            TimeUnit.NANOSECONDS.sleep(200);
+            Shoot();
 
+        } catch (Exception e){
+            System.out.println("ga");
+
+        }
     }
 }

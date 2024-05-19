@@ -3,6 +3,8 @@ package org.main;
 import org.object.Door;
 import org.object.pellet.Kernel_pellet;
 import org.object.plant.Peashooter;
+import org.object.plant.Repeater;
+import org.object.zombie.ConeHeadZombie;
 import org.object.zombie.NormalZombie;
 import org.object.*;
 import org.object.pellet.Cabbage_pellet;
@@ -37,9 +39,9 @@ public class AssetSetter {
         gp.zombie[0].worldX = 24 * gp.getTileSize();
         gp.zombie[0].worldY = 7 * gp.getTileSize();
 
-//        gp.zombie[1] = new NormalZombie(gp);
-//        gp.zombie[1].worldX = 24 * gp.getTileSize();
-//        gp.zombie[1].worldY = 8 * gp.getTileSize();
+        gp.zombie[1] = new ConeHeadZombie(gp);
+        gp.zombie[1].worldX = 24 * gp.getTileSize();
+        gp.zombie[1].worldY = 6 * gp.getTileSize();
 
     }
 
@@ -52,6 +54,15 @@ public class AssetSetter {
         gp.plant[1] = new Cabbagepult(gp);
         gp.plant[1].worldX = 17 * gp.getTileSize();
         gp.plant[1].worldY = 7 * gp.getTileSize();
+
+        gp.plant[2] = new Repeater(gp);
+        gp.plant[2].worldX = 17 * gp.getTileSize();
+        gp.plant[2].worldY = 6 * gp.getTileSize();
+
+        gp.plant[3] = new Peashooter(gp);
+        gp.plant[3].worldX = 16 * gp.getTileSize();
+        gp.plant[3].worldY = 6 * gp.getTileSize();
+
     }
 
     public void setObject(){
