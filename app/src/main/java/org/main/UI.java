@@ -275,7 +275,7 @@ public class UI {
 
         //DRAW INVENTORY's ITEMS
         for(int i = 0; i < inventoryZombie.size(); i++){
-            g2.drawImage(inventoryZombie.get(i).down1, slotX, slotY, null);
+            g2.drawImage(inventoryZombie.get(i).left1, slotX, slotY, null);
 
             slotX += gp.getTileSize();
             if(slotX == 4 || i == 4){

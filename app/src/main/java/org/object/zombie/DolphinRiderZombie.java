@@ -12,8 +12,8 @@ public class DolphinRiderZombie extends Zombie implements Jump {
         getImage();
     }
     public void getImage() {
-
-//        left1 = setup("/zombie/");
+        //TODO
+        left1 = setup("/zombie/NormalZombie.png");
 
 
     }

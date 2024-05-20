@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="merge main">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/zombie/YetiZombie_Left.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/zombie/YetiZombie_Left.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/zombie/YetiZombie_Right.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/zombie/YetiZombie_Right.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +57,12 @@
     &quot;assignee&quot;: &quot;Richieleonardo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Richieleonardo/Tubes-OOP-IF2212.git&quot;,
-    &quot;accountId&quot;: &quot;19487a37-4dbf-4ccb-a2d3-ebcf60fea660&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Richieleonardo/Tubes-OOP-IF2212.git",
+    "accountId": "eb67a8b2-e441-4444-8833-87471886945c"
   }
-}</component>
+}]]></component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -73,18 +83,20 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/resources/plant",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "last_opened_file_path": "E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/java/org/object/pellet",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\org\object\pellet" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\zombie" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\objects" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\src\object" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\tiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\objects" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\plant" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\src" />

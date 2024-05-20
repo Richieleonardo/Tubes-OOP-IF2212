@@ -11,8 +11,8 @@ public class PoleVaultingZombie extends Zombie implements Jump{
         getImage();
     }
     public void getImage() {
-
-//        left1 = setup("/zombie/.png");
+        //TODO
+        left1 = setup("/zombie/NormalZombie.png");
 //        left2 = setup("/zombie/.png");
 // belum ada png
     }

@@ -44,10 +44,10 @@ public class KeyHandler implements KeyListener {
                     gp.ui.slotColDeck++;
                 }
             }
-            if(code == KeyEvent.VK_ENTER){
-                //PLANT ITEMS
-                gp.player.selectPlant();
-            }
+//            if(code == KeyEvent.VK_ENTER){
+//                //PLANT ITEMS
+//                gp.player.selectPlant();
+//            }
         }
 
         //ZOMBIES LIST STATE
@@ -150,15 +150,15 @@ public class KeyHandler implements KeyListener {
 
         }
 
-        //INVENTORY STATE
-        if(code == KeyEvent.VK_I){
-            if(gp.gameState == gp.playState){
-                gp.gameState = gp.inventoryState;
-            }
-            else if(gp.gameState == gp.inventoryState){
-                gp.gameState = gp.playState;
-            }
-        }
+//        //INVENTORY STATE
+//        if(code == KeyEvent.VK_I){
+//            if(gp.gameState == gp.playState){
+//                gp.gameState = gp.inventoryState;
+//            }
+//            else if(gp.gameState == gp.inventoryState){
+//                gp.gameState = gp.playState;
+//            }
+//        }
 
         if(gp.gameState == gp.inventoryState){
             //DO SOMETHING
