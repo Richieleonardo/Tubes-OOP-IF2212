@@ -6,15 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="merge main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/FootballZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/FootballZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ScreenDoorZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ScreenDoorZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/CollisionChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/SnowPea.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/pellet/SnowPea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/maps/mapdebug.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/maps/mapdebug.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +45,6 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -79,18 +72,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "bihurin",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/java/org/object/pellet",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/java/org/object/pellet&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\org\object\pellet" />

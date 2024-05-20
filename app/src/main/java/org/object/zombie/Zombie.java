@@ -12,15 +12,16 @@ public abstract class Zombie extends Entity {
     private int attack_speed;
     private boolean isAquatic = false;
 
+
     //Check if zombie can attack or not
     public boolean canAttack = true;
     public int attack_counter = 0;
 
     private boolean isSlowed = false;
     private int slowCounter = 0;
-    private int originalSpeed;
+    private double originalSpeed;
 
-    public Zombie(GamePanel gp, String name, int health, int speed, int attack_damage, int attack_speed) {
+    public Zombie(GamePanel gp, String name, int health, double speed, int attack_damage, int attack_speed) {
         super(gp);
         this.name = name;
         this.maxHealth = health;
