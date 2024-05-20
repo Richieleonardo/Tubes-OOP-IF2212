@@ -206,7 +206,7 @@ public class Player extends Entity{
     }
 
     public void spawnZombies(){
-        if(zombieTickCounter == 6*60){
+        if(zombieTickCounter == 20*60){
             SecureRandom rand = new SecureRandom();
             int row = rand.nextInt(6);
             gp.assetSetter.setZombie(generateZombie(), 24, row+6);
