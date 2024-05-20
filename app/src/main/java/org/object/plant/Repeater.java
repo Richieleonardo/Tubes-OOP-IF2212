@@ -9,7 +9,7 @@ import org.object.pellet.Pea2;
 import java.util.concurrent.TimeUnit;
 
 public class Repeater extends Plant {
-
+    Projectile projectile2;
     public Repeater(GamePanel gp){
         super(gp, "Repeater", 200, 300, 40, 4, -1, 5, false);
 
@@ -17,6 +17,7 @@ public class Repeater extends Plant {
         down1 = setup("/plant/Repeater.png");
         collision = true;
         projectile = new Pea2(gp);
+        projectile2 = new Pea2(gp);
     }
 
     @Override
@@ -43,8 +44,8 @@ public class Repeater extends Plant {
                             try {
                                 TimeUnit.NANOSECONDS.sleep(2000);
                                 projectile = new Pea2(gp); // Create new projectile instance
-                                projectile.set(worldX, worldY, direction, true, this);  // Consider using Repeater instead of 'this'
-                                gp.projectileList.add(projectile);
+                                projectile2.set(worldX, worldY, direction, true, this);  // Consider using Repeater instead of 'this'
+                                gp.projectileList.add(projectile2);
                             } catch (Exception e){
                                 e.printStackTrace();
                             }

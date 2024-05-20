@@ -19,17 +19,6 @@ public class ConeHeadZombie extends Zombie {
     }
     public void setAction(){
 
-//        tickCounter++;
-//
-//        if(tickCounter == 120){
-//            Random random = new Random();
-//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
-//
-//            if(i <= 25){
-//                direction = "left";
-//                tickCounter = 0;
-//            }
-//            tickCounter = 0;        }
     }
 }
 
