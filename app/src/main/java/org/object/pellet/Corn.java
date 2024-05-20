@@ -2,13 +2,12 @@ package org.object.pellet;
 
 import org.Entity.Projectile;
 import org.main.GamePanel;
-import org.object.plant.Plant;
 
-public class Cabbage_pellet extends Projectile {
+public class Corn extends Projectile {
 
     GamePanel gp;
 
-    public Cabbage_pellet(GamePanel gp){
+    public Corn(GamePanel gp){
         super(gp);
         this.gp = gp;
 
@@ -19,10 +18,11 @@ public class Cabbage_pellet extends Projectile {
         alive = false;
 
         name = "Cabbage_pellet";
-        down1 = setup("/objects/Cabbage_pellet.png");
+        down1 = setup("/objects/Corn.png");
     }
 
+    //TODO
+    public void Freeze(){
 
-
-
+    }
 }
