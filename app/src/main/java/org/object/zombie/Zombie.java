@@ -107,7 +107,7 @@ public abstract class Zombie extends Entity {
 
         //if collisionOn = false player can move
         if(collisionOn == false) {
-            worldX -= ((speed)/60);
+            worldX -= (speed/10);
         }
     }
 
