@@ -412,12 +412,12 @@ public class UI {
         g2.drawString(text3, gp.getTileSize()*2, gp.getTileSize()*8);
         g2.drawString(text2, gp.getTileSize()*2, gp.getTileSize()*8 + 20);
 
-        int frameX2 = gp.getTileSize()*2 - 20;
-        int frameY2 = gp.getTileSize()*4 - 40;
-        int frameWidth2 = gp.getTileSize() * 14;
-        int frameHeight2 = gp.getTileSize() * 8;
-
-        drawSubWindow(frameX2, frameY2, frameWidth2, frameHeight2);
+//        int frameX2 = gp.getTileSize()*2 - 20;
+//        int frameY2 = gp.getTileSize()*4 - 40;
+//        int frameWidth2 = gp.getTileSize() * 14;
+//        int frameHeight2 = gp.getTileSize() * 8;
+//
+//        drawSubWindow(frameX2, frameY2, frameWidth2, frameHeight2);
 
 
 
