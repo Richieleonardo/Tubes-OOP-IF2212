@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class DolphinRiderZombie extends Zombie implements Jump {
     public DolphinRiderZombie(GamePanel gp) {
-        super(gp, "Dolphin Rider Zombie", 175, 5, 100, 1);
+        super(gp, "Dolphin Rider Zombie", 175, 1, 100, 1);
         setIsAquatic(true);
         direction = "left";
         getImage();

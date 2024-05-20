@@ -9,7 +9,7 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed;
 
     public boolean checkDrawTime = false;
-    
+
     public KeyHandler(GamePanel gp){
         this.gp = gp;
     }
@@ -44,10 +44,10 @@ public class KeyHandler implements KeyListener {
                     gp.ui.slotColDeck++;
                 }
             }
-//            if(code == KeyEvent.VK_ENTER){
-//                //PLANT ITEMS
-//                gp.player.selectPlant();
-//            }
+            if(code == KeyEvent.VK_ENTER){
+                //PLANT ITEMS
+                gp.player.putPlant();
+            }
         }
 
         //ZOMBIES LIST STATE
@@ -77,7 +77,7 @@ public class KeyHandler implements KeyListener {
                 gp.gameState = 0;
             }
         }
-        
+
         //PLANTS LIST STATE
         if(gp.gameState == gp.ListPlantState){
             if(code == KeyEvent.VK_W){
@@ -112,6 +112,7 @@ public class KeyHandler implements KeyListener {
                 gp.gameState = 0;
             }
         }
+
         //TITLE STATE
         if(gp.gameState == gp.titleState){
             if(code == KeyEvent.VK_W){
@@ -156,15 +157,15 @@ public class KeyHandler implements KeyListener {
 
         }
 
-//        //INVENTORY STATE
-//        if(code == KeyEvent.VK_I){
-//            if(gp.gameState == gp.playState){
-//                gp.gameState = gp.inventoryState;
-//            }
-//            else if(gp.gameState == gp.inventoryState){
-//                gp.gameState = gp.playState;
-//            }
-//        }
+        //INVENTORY STATE
+        if(code == KeyEvent.VK_I){
+            if(gp.gameState == gp.playState){
+                gp.gameState = gp.inventoryState;
+            }
+            else if(gp.gameState == gp.inventoryState){
+                gp.gameState = gp.playState;
+            }
+        }
 
         if(gp.gameState == gp.inventoryState){
             //DO SOMETHING
