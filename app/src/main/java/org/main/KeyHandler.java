@@ -9,7 +9,7 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed;
 
     public boolean checkDrawTime = false;
-    
+
     public KeyHandler(GamePanel gp){
         this.gp = gp;
     }
@@ -46,7 +46,7 @@ public class KeyHandler implements KeyListener {
             }
             if(code == KeyEvent.VK_ENTER){
                 //PLANT ITEMS
-                gp.player.selectPlant();
+                gp.player.putPlant();
             }
         }
 
@@ -77,7 +77,7 @@ public class KeyHandler implements KeyListener {
                 gp.gameState = 0;
             }
         }
-        
+
         //PLANTS LIST STATE
         if(gp.gameState == gp.ListPlantState){
             if(code == KeyEvent.VK_W){
@@ -106,6 +106,13 @@ public class KeyHandler implements KeyListener {
             }
         }
 
+        //HELP STATE
+        if(gp.gameState == gp.HelpState){
+            if(code == KeyEvent.VK_ESCAPE) {
+                gp.gameState = 0;
+            }
+        }
+
         //TITLE STATE
         if(gp.gameState == gp.titleState){
             if(code == KeyEvent.VK_W){
@@ -125,7 +132,7 @@ public class KeyHandler implements KeyListener {
                     gp.gameState = gp.inventoryState;
                 }
                 if(gp.ui.commandNum == 1){
-                    //add later
+                    gp.gameState = gp.HelpState;
                 }
                 if(gp.ui.commandNum == 2){
                     gp.gameState = gp.ListPlantState;

@@ -2,11 +2,9 @@ package org.object.zombie;
 
 import org.main.GamePanel;
 
-import java.util.Random;
-
 public class YetiZombie extends Zombie implements Escape{
     public YetiZombie(GamePanel gp) {
-        super(gp, "Yeti Zombie", 400, 5, 200, 1);
+        super(gp, "Yeti Zombie", 400, 1, 200, 1);
         direction = "left";
         getImage();
     }

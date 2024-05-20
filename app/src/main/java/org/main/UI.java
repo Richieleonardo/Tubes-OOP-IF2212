@@ -245,6 +245,10 @@ public class UI {
             drawListZombie();
         }
 
+        if(gp.gameState == gp.HelpState){
+            drawHelp();
+        }
+
     }
 
     public void drawListZombie(){
@@ -275,7 +279,7 @@ public class UI {
 
         //DRAW INVENTORY's ITEMS
         for(int i = 0; i < inventoryZombie.size(); i++){
-            g2.drawImage(inventoryZombie.get(i).down1, slotX, slotY, null);
+            g2.drawImage(inventoryZombie.get(i).left1, slotX, slotY, null);
 
             slotX += gp.getTileSize();
             if(slotX == 4 || i == 4){
@@ -300,6 +304,41 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 24F));
         g2.drawString(text3, gp.getTileSize()*2, gp.getTileSize()*8);
         g2.drawString(text2, gp.getTileSize()*2, gp.getTileSize()*8 + 20);
+    }
+
+    public void drawHelp(){
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
+        String text = "Help";
+        int x = getXforCenteredText(text);
+        int y = gp.getTileSize()*3;
+
+        //SHADOW
+        g2.setColor(Color.black);
+        g2.drawString(text, x+5, y+5);
+        //MAIN COLOR
+        g2.setColor(Color.white);
+        g2.drawString(text, x, y);
+
+        String text1 = "* Pilih 6 Plant yang ingin dimasukkan ke deck";
+        String text7 = "   sebelum memulai permainan";
+        String text4 = "* Tekan List Plants untuk mengetahui jenis-jenis";
+        String text8 = "   Plant yang dapat dipilih";
+        String text5 = "* Tekan List Zombies untuk mengetahui jenis-jenis";
+        String text9 = "   Zombie yang dapat muncul";
+        String text6 = "* Tekan Exit jika ingin keluar dari permainan";
+        String text2 = "* Tekan tombol Esc ketika ingin kembali ke title screen";
+        String text3 = "* Gunakan WASD untuk memindahkan kursor";
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 23F));
+        g2.drawString(text1, gp.getTileSize()*2+5, gp.getTileSize()*5 - 20);
+        g2.drawString(text7, gp.getTileSize()*2+5, gp.getTileSize()*5);
+        g2.drawString(text4, gp.getTileSize()*2+5, gp.getTileSize()*5 + 20);
+        g2.drawString(text8, gp.getTileSize()*2+5, gp.getTileSize()*5 + 40);
+        g2.drawString(text5, gp.getTileSize()*2+5, gp.getTileSize()*5 + 60);
+        g2.drawString(text9, gp.getTileSize()*2+5, gp.getTileSize()*5 + 80);
+        g2.drawString(text6, gp.getTileSize()*2+5, gp.getTileSize()*5 + 100);
+        g2.drawString(text2, gp.getTileSize()*2+5, gp.getTileSize()*5 + 120);
+        g2.drawString(text3, gp.getTileSize()*2+5, gp.getTileSize()*5 + 140);
     }
 
     public void drawListPlant(){

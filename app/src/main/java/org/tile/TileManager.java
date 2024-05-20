@@ -32,7 +32,7 @@ public class TileManager {
         //Banyak jenis tiles
         setup(0, "/tiles/grass01.png", false);
         setup(1, "/tiles/wall.png", true);
-        setup(2, "/tiles/water01.png", true);
+        setup(2, "/tiles/water01.png", false);
         setup(3, "/tiles/earth.png", false);
         setup(4, "/tiles/road00.png", false);
         setup(5, "/tiles/tree.png", true);
@@ -87,9 +87,9 @@ public class TileManager {
     }
 
     /*
-    *   Draw tiles inside Game Panel Frame
-    *   KODE : [0 = grass], [1 = wall], [2 = water]
-    */
+     *   Draw tiles inside Game Panel Frame
+     *   KODE : [0 = grass], [1 = wall], [2 = water]
+     */
 
 
     public void draw(Graphics2D g2){

@@ -16,11 +16,11 @@ TODO : IMPLEMENT abstract PLANT yang extend Entity.
        Buat ArrayList baru di GamePanel untuk menyimpan Plant dan Zombie saja.
 
  */
-public class Entity {
+public class Entity implements Cloneable {
     public GamePanel gp;
 
     public int worldX ,worldY;
-    public int speed;
+    public double speed;
 
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;//Store image file
     public String direction = "down"; //DEFAULT
@@ -44,7 +44,7 @@ public class Entity {
 
 //    public int type; // 1 plant, 2 zombie
 
-//    //PROJECTILE TEST (for now)
+    //    //PROJECTILE TEST (for now)
     public boolean alive;
 //    public Projectile projectile;
 
@@ -166,4 +166,14 @@ public class Entity {
     }
 
 
+    @Override
+    public Entity clone() {
+        try {
+            Entity clone = (Entity) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            return new Entity(this.gp);
+        }
+    }
 }

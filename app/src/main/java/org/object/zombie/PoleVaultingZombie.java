@@ -6,13 +6,13 @@ import java.util.Random;
 
 public class PoleVaultingZombie extends Zombie implements Jump{
     public PoleVaultingZombie(GamePanel gp) {
-        super(gp, "Pole Vaulting Zombie", 175, 5, 100, 1);
+        super(gp, "Pole Vaulting Zombie", 175, 1, 100, 1);
         direction = "left";
         getImage();
     }
     public void getImage() {
-
-//        left1 = setup("/zombie/.png");
+        //TODO
+        left1 = setup("/zombie/NormalZombie.png");
 //        left2 = setup("/zombie/.png");
 // belum ada png
     }
