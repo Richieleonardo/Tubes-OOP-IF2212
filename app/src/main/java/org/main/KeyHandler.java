@@ -106,6 +106,12 @@ public class KeyHandler implements KeyListener {
             }
         }
 
+        //HELP STATE
+        if(gp.gameState == gp.HelpState){
+            if(code == KeyEvent.VK_ESCAPE) {
+                gp.gameState = 0;
+            }
+        }
         //TITLE STATE
         if(gp.gameState == gp.titleState){
             if(code == KeyEvent.VK_W){
@@ -125,7 +131,7 @@ public class KeyHandler implements KeyListener {
                     gp.gameState = gp.inventoryState;
                 }
                 if(gp.ui.commandNum == 1){
-                    //add later
+                    gp.gameState = gp.HelpState;
                 }
                 if(gp.ui.commandNum == 2){
                     gp.gameState = gp.ListPlantState;
