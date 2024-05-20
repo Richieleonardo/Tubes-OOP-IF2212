@@ -218,7 +218,7 @@ public class Player extends Entity{
 
     public Entity generateZombie(){
         SecureRandom rand = new SecureRandom();
-        int randZombie = rand.nextInt(10);
+        int randZombie = rand.nextInt(10+1);
         return switch (randZombie) {
             case 0 -> new NormalZombie(gp);
             case 1 -> new BucketHeadZombie(gp);

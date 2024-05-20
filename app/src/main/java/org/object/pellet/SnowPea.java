@@ -31,7 +31,7 @@ public class SnowPea extends Projectile{
 //        solidAreaDefaultY = 9;
 //        collision = true;
     }
-    public void hit(Zombie zombie){
+    public void slow(Zombie zombie){
         if (zombie != null) {
             zombie.applySlow(180, 50); // Slow for 3 seconds (180 frames), 50% slow
             this.alive = false; // Projectile disappears after hitting

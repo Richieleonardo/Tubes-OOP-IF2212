@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class SnorkelZombie extends Zombie {
     public SnorkelZombie(GamePanel gp) {
-        super(gp, "Snorkel Zombie", 100, 5, 100, 1);
+        super(gp, "Snorkel Zombie", 100, 1, 100, 1);
         direction = "left";
         getImage();
     }
