@@ -48,6 +48,10 @@ public class KeyHandler implements KeyListener {
                 //PLANT ITEMS
                 gp.player.putPlant();
             }
+            if(code == KeyEvent.VK_BACK_SPACE){
+                //PLANT ITEMS
+                gp.player.digPlant();
+            }
         }
 
         //ZOMBIES LIST STATE
