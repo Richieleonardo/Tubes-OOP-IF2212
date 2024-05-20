@@ -330,15 +330,15 @@ public class UI {
         String text2 = "* Tekan tombol Esc ketika ingin kembali ke title screen";
         String text3 = "* Gunakan WASD untuk memindahkan kursor";
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 23F));
-        g2.drawString(text1, gp.getTileSize()*3+5, gp.getTileSize()*5 - 20);
-        g2.drawString(text7, gp.getTileSize()*3+5, gp.getTileSize()*5);
-        g2.drawString(text4, gp.getTileSize()*3+5, gp.getTileSize()*5 + 20);
-        g2.drawString(text8, gp.getTileSize()*3+5, gp.getTileSize()*5 + 40);
-        g2.drawString(text5, gp.getTileSize()*3+5, gp.getTileSize()*5 + 60);
-        g2.drawString(text9, gp.getTileSize()*3+5, gp.getTileSize()*5 + 80);
-        g2.drawString(text6, gp.getTileSize()*3+5, gp.getTileSize()*5 + 100);
-        g2.drawString(text2, gp.getTileSize()*3+5, gp.getTileSize()*5 + 120);
-        g2.drawString(text3, gp.getTileSize()*3+5, gp.getTileSize()*5 + 140);
+        g2.drawString(text1, gp.getTileSize()*2+5, gp.getTileSize()*5 - 20);
+        g2.drawString(text7, gp.getTileSize()*2+5, gp.getTileSize()*5);
+        g2.drawString(text4, gp.getTileSize()*2+5, gp.getTileSize()*5 + 20);
+        g2.drawString(text8, gp.getTileSize()*2+5, gp.getTileSize()*5 + 40);
+        g2.drawString(text5, gp.getTileSize()*2+5, gp.getTileSize()*5 + 60);
+        g2.drawString(text9, gp.getTileSize()*2+5, gp.getTileSize()*5 + 80);
+        g2.drawString(text6, gp.getTileSize()*2+5, gp.getTileSize()*5 + 100);
+        g2.drawString(text2, gp.getTileSize()*2+5, gp.getTileSize()*5 + 120);
+        g2.drawString(text3, gp.getTileSize()*2+5, gp.getTileSize()*5 + 140);
     }
 
     public void drawListPlant(){
