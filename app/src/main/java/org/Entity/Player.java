@@ -193,17 +193,33 @@ public class Player extends Entity{
         hasSun -= cost;
     }
 
+
+    /*
+    TODO : SPESIFIKASIKAN ZOMBIE YANG SPAWN DI AIR ATAU GA, KITA CARI DARI generateZombie.
+           KITA HARUS BUAT TIMER YANG DIMULAI KETIKA gameState == PlayState dimulai. (set 20 detik sebelum zombie spawn)
+           KAYAKNYA PERLU ADA KONDISI IS ZOMBIE AQUATIC JADI KITA BISA SPESIFIKASIKAN KALAU TILE ZOMBIE SPAWN ITU HANYA DI TILE WATER SAJA
+           .
+           NOTE: WATER TILE ITU DI
+           (X >= 15 && X <= 23)
+           &&
+           (Y >= 8 && Y <= 9)
+     */
+
+    //SPAWN THE ZOMBIE
     public void spawnZombies(){
-        if(zombieTickCounter == 6*60){
+        if(zombieTickCounter == 3*60){ //ZOMBIE SPAWN 3 DETIK  SEKALI
             SecureRandom rand = new SecureRandom();
-            int row = rand.nextInt(6);
-            gp.assetSetter.setZombie(generateZombie(), 24, row+6);
+            int row = rand.nextInt(6); //WORLDY COORDINATE
+            if(gp.zombie.size() <= 10){
+                gp.assetSetter.setZombie(generateZombie(), 24, row+6); //ZOMBIE CAN'T SPAWN MORE THAN 10
+            }
             zombieTickCounter = 0;
         } else {
             zombieTickCounter++;
         }
     }
 
+    //CHOOSE WHAT ZOMBIE TYPE TO SPAWN
     public Entity generateZombie(){
         SecureRandom rand = new SecureRandom();
         int randZombie = rand.nextInt(10);
@@ -213,11 +229,11 @@ public class Player extends Entity{
             case 2 -> new YetiZombie(gp);
             case 3 -> new ConeHeadZombie(gp);
             case 4 -> new FootballZombie(gp);
-            case 5 -> new DolphinRiderZombie(gp);
-            case 6 -> new DuckyTubeZombie(gp);
+            case 5 -> new DolphinRiderZombie(gp);   //AQUATIC ZOMBIE
+            case 6 -> new DuckyTubeZombie(gp);      //AQUATIC ZOMBIE
             case 7 -> new PoleVaultingZombie(gp);
             case 8 -> new ScreenDoorZombie(gp);
-            case 9 -> new SnorkelZombie(gp);
+            case 9 -> new SnorkelZombie(gp);        //AQUATIC ZOMBIE
             default -> null;
         };
     }
