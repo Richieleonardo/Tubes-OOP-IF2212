@@ -4,7 +4,7 @@ import org.main.GamePanel;
 
 public class ScreenDoorZombie extends Zombie {
     public ScreenDoorZombie(GamePanel gp) {
-        super(gp, "Screen Door Zombie", 325, 5, 100, 1);
+        super(gp, "Screen Door Zombie", 325, 1, 100, 1);
         direction = "left";
         getImage();
     }
@@ -19,17 +19,6 @@ public class ScreenDoorZombie extends Zombie {
     }
     public void setAction(){
 
-//        tickCounter++;
-//
-//        if(tickCounter == 120){
-//            Random random = new Random();
-//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
-//
-//            if(i <= 25){
-//                direction = "left";
-//                tickCounter = 0;
-//            }
-//            tickCounter = 0;        }
     }
 }
 

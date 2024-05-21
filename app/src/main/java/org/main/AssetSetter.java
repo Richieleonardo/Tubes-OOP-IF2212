@@ -58,12 +58,7 @@ public class AssetSetter {
         plant.worldX = X * gp.getTileSize();
         plant.worldY = Y * gp.getTileSize();
         gp.plant.add(plant);
-
-        }
-
-
-
-
+    }
 
 //    public void setObject(){
 //

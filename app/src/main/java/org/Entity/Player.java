@@ -2,14 +2,13 @@ package org.Entity;
 
 import org.main.GamePanel;
 import org.main.KeyHandler;
-import org.object.plant.Cabbagepult;
-import org.object.plant.Peashooter;
-import org.object.plant.SnowPeashooter;
+import org.object.plant.*;
+import org.object.zombie.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.security.SecureRandom;
 import java.util.ArrayList;
-
 
 public class Player extends Entity{
 
@@ -27,8 +26,8 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
 
-    public int tickCounter = 0;
-
+    public int sunTickCounter = 0;
+    public int zombieTickCounter = 0;
 
     //Constructor
     public Player(GamePanel gp, KeyHandler keyH){
@@ -63,14 +62,14 @@ public class Player extends Entity{
 
 
     public void getPlayerImage(){
-            up1 = setup("/player/boy_up_1.png");
-            up2 = setup("/player/boy_up_2.png");
-            down1 = setup("/player/boy_down_1.png");
-            down2 = setup("/player/boy_down_2.png");
-            left1 = setup("/player/boy_left_1.png");
-            left2 = setup("/player/boy_left_2.png");
-            right1 = setup("/player/boy_right_1.png");
-            right2 = setup("/player/boy_right_2.png");
+        up1 = setup("/player/hotbar_selector.png");
+        up2 = setup("/player/hotbar_selector.png");
+        down1 = setup("/player/hotbar_selector.png");
+        down2 = setup("/player/hotbar_selector.png");
+        left1 = setup("/player/hotbar_selector.png");
+        left2 = setup("/player/hotbar_selector.png");
+        right1 = setup("/player/hotbar_selector.png");
+        right2 = setup("/player/hotbar_selector.png");
 
     }
 
@@ -93,7 +92,6 @@ public class Player extends Entity{
         }
     }
 
-
     /*
     TODO : SPAWN PLANT DENGAN MENGGUNAKAN FITUR DECK
            MENGURANGI SUN JIKA BERHASIL MENANAM TANAMAN
@@ -108,8 +106,19 @@ public class Player extends Entity{
         int tileNum = gp.tileM.mapTileNum[worldTileX][worldTileY];
 
         if(plantIndex < deck.size()){
-            Entity selectedPlant = deck.get(plantIndex);
+            // Membuat copy plant
+            Plant selectedPlant = (Plant) deck.get(plantIndex).clone();
 
+            // Mendapatkan posisi player
+            int playerTileX = worldX/gp.getTileSize();
+            int playerTileY = worldY/gp.getTileSize();
+
+            // Menanam jika kondisi berikut terpenuhi
+            // TODO: belum memperhitungkan cooldown plant
+            if (hasSun >= selectedPlant.getCost() && isPlantable(selectedPlant, playerTileX, playerTileY)){
+                useSun(selectedPlant.getCost());
+                gp.assetSetter.setPlant(selectedPlant, playerTileX, playerTileY);
+            }
         }
 
         // CURSOR
@@ -126,26 +135,108 @@ public class Player extends Entity{
         }
     }
 
+    public boolean isOnWater(int X, int Y){
+        return (X >= 15 && X <= 23) && (Y >= 8 && Y <= 9);
+    }
+
+    public boolean isPlanted(int X, int Y){
+        int tileX = X*gp.getTileSize();
+        int tileY = Y*gp.getTileSize();
+
+        // Mengecek apakah terdapat plant
+        for (Entity p : gp.plant){
+            if (p.worldX == tileX && p.worldY == tileY){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isLilyPadPlanted(int X, int Y){
+        int tileX = X*gp.getTileSize();
+        int tileY = Y*gp.getTileSize();
+
+        // Mengecek apakah Lilypad sudah ditanam
+        for (Entity p : gp.plant){
+            if (((Plant) p).getName().equals("Lilypad") && p.worldX == tileX && p.worldY == tileY){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isPlantable(Plant plant, int X, int Y){
+        boolean isValidPos = (X >= 15 && X <= 23) && (Y >= 6 && Y <= 11);
+
+        if (isOnWater(X, Y)){ // Jika player berada di atas air
+            if (plant.getIsAquatic()){ // Memastikan Lilypad tidak bertumpuk
+                return isValidPos && !isLilyPadPlanted(X, Y);
+            } else { // Harus ada Lilypad sebelum ditanam plant lain
+                return isValidPos && isLilyPadPlanted(X, Y);
+            }
+        } else {
+            return !plant.getIsAquatic() && isValidPos && !isPlanted(X, Y);
+        }
+    }
+
     /*
     TODO : MENGHILANGKAN TANAMAN DARI MAP
            JIKA TANAMAN DI AIR DAN DIATAS LILYPAD, MENGHILANGKAN KEDUA TANAMAN
      */
     public void digPlant(){
+        int playerTileX = worldX/gp.getTileSize();
+        int playerTileY = worldY/gp.getTileSize();
 
+        // Menghapus semua plant yang berada pada tile worldX, worldY
+        gp.plant.removeIf(p -> p.worldX == playerTileX && p.worldY == playerTileY);
     }
 
     public void addSun(){
-        if(tickCounter == 3*60){
+        if(sunTickCounter == 3*60){
             hasSun += 25;
-            tickCounter = 0;
+            sunTickCounter = 0;
         }
         else{
-            tickCounter++;
+            sunTickCounter++;
         }
+    }
+
+    public void useSun(int cost){
+        hasSun -= cost;
+    }
+
+    public void spawnZombies(){
+        if(zombieTickCounter == 6*60){
+            SecureRandom rand = new SecureRandom();
+            int row = rand.nextInt(6);
+            gp.assetSetter.setZombie(generateZombie(), 24, row+6);
+            zombieTickCounter = 0;
+        } else {
+            zombieTickCounter++;
+        }
+    }
+
+    public Entity generateZombie(){
+        SecureRandom rand = new SecureRandom();
+        int randZombie = rand.nextInt(10+1);
+        return switch (randZombie) {
+            case 0 -> new NormalZombie(gp);
+            case 1 -> new BucketHeadZombie(gp);
+            case 2 -> new YetiZombie(gp);
+            case 3 -> new ConeHeadZombie(gp);
+            case 4 -> new FootballZombie(gp);
+            case 5 -> new DolphinRiderZombie(gp);
+            case 6 -> new DuckyTubeZombie(gp);
+            case 7 -> new PoleVaultingZombie(gp);
+            case 8 -> new ScreenDoorZombie(gp);
+            case 9 -> new SnorkelZombie(gp);
+            default -> null;
+        };
     }
 
     public void update(){
         addSun();
+        spawnZombies();
 //        System.out.println(Health);
         if(keyH.upPressed || keyH.downPressed ||
                 keyH.leftPressed || keyH.rightPressed){
