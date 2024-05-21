@@ -62,8 +62,8 @@ public class GamePanel extends JPanel implements Runnable{
     //CREATING SUPER OBJECT -> ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
     public ArrayList<Entity> obj= new ArrayList<>();
-    public ArrayList<Entity> plant = new ArrayList<>(); //TYPE masih ENTITY, TODO : buat type Plant yang extends Entity
-    public ArrayList<Entity> zombie = new ArrayList<>(); //TYPE masih ENTITY, TODO : buat type Zombie yang extends Entity
+    public ArrayList<Entity> plant = new ArrayList<>(); //TYPE masih ENTITY,
+    public ArrayList<Entity> zombie = new ArrayList<>(); //TYPE masih ENTITY,
 
     //TODO : gatau perlu ditambah ato ga, perlu ide....
     public ArrayList<Entity> projectileList = new ArrayList<>();

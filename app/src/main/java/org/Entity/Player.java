@@ -100,18 +100,18 @@ public class Player extends Entity{
     public void putPlant(){
         int plantIndex = gp.ui.getPlantIndexOnDeck();
 
-        //GET TILE
-        int worldTileX = worldCursorCol/gp.getTileSize();
-        int worldTileY = worldCursorRow/gp.getTileSize();
-        int tileNum = gp.tileM.mapTileNum[worldTileX][worldTileY];
+//        //GET TILE
+//        int worldTileX = worldCursorCol/gp.getTileSize();
+//        int worldTileY = worldCursorRow/gp.getTileSize();
+//        int tileNum = gp.tileM.mapTileNum[worldTileX][worldTileY];
 
         if(plantIndex < deck.size()){
             // Membuat copy plant
             Plant selectedPlant = (Plant) deck.get(plantIndex).clone();
 
             // Mendapatkan posisi player
-            int playerTileX = worldX/gp.getTileSize();
-            int playerTileY = worldY/gp.getTileSize();
+            int playerTileX = (int) Math.floor((worldX+24)/gp.getTileSize());
+            int playerTileY = (int) Math.floor((worldY+24)/gp.getTileSize());
 
             // Menanam jika kondisi berikut terpenuhi
             // TODO: belum memperhitungkan cooldown plant
@@ -119,19 +119,6 @@ public class Player extends Entity{
                 useSun(selectedPlant.getCost());
                 gp.assetSetter.setPlant(selectedPlant, playerTileX, playerTileY);
             }
-        }
-
-        // CURSOR
-        int cursorX = (gp.getTileSize() * worldCursorCol);
-        int cursorY = (gp.getTileSize() * worldCursorRow);
-        int cursorWidth = gp.getTileSize();
-        int cursorHeight = gp.getTileSize();
-
-        //DRAW CURSOR
-        g2.setColor(Color.white);
-        g2.setStroke(new BasicStroke(3));
-        if(gp.gameState == gp.playState){
-            g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
         }
     }
 
@@ -145,7 +132,8 @@ public class Player extends Entity{
 
         // Mengecek apakah terdapat plant
         for (Entity p : gp.plant){
-            if (p.worldX == tileX && p.worldY == tileY){
+            Plant castp = (Plant) p;
+            if (castp.worldX == tileX && castp.worldY == tileY){
                 return true;
             }
         }
@@ -218,7 +206,7 @@ public class Player extends Entity{
 
     public Entity generateZombie(){
         SecureRandom rand = new SecureRandom();
-        int randZombie = rand.nextInt(10+1);
+        int randZombie = rand.nextInt(10);
         return switch (randZombie) {
             case 0 -> new NormalZombie(gp);
             case 1 -> new BucketHeadZombie(gp);

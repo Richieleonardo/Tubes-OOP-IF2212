@@ -78,7 +78,7 @@ public abstract class Zombie extends Entity {
             gp.plant.get(i).Health -= attack_damage;
             canAttack = false;
             if(gp.plant.get(i).Health <= 0){
-                gp.plant.set(i, null);
+                gp.plant.remove(i);
                 canAttack = true;
             }
         }
@@ -87,7 +87,7 @@ public abstract class Zombie extends Entity {
     @Override
     public void update(){
 
-        System.out.println("Zombie health : " + this.Health);
+//        System.out.println("Zombie health : " + this.Health);
         collisionOn = false;
         gp.collisionChecker.checkTile(this);
 
