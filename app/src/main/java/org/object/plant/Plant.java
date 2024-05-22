@@ -38,6 +38,14 @@ public abstract class Plant extends Entity {
         }
         this.cooldown = cooldown;
         this.isAquatic = isAquatic;
+
+        solidArea = new Rectangle();
+        solidArea.x = 0;
+        solidArea.y = 0;
+        solidArea.width = 48;
+        solidArea.height = 48;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
     }
 
 
@@ -117,7 +125,7 @@ public abstract class Plant extends Entity {
 
 
     public void update(){
-        System.out.println(name + "Health : " + Health);
+//        System.out.println(name + "Health : " + Health);
 
 
     }
@@ -127,7 +135,7 @@ public abstract class Plant extends Entity {
             gp.zombie.get(i).Health -= attack_damage;
 
             if(gp.zombie.get(i).Health <= 0){
-                gp.zombie.set(i, null);
+                gp.zombie.remove(i);
             }
         }
     }

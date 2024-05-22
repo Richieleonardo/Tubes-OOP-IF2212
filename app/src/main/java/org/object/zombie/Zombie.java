@@ -78,12 +78,13 @@ public abstract class Zombie extends Entity {
             gp.plant.get(i).Health -= attack_damage;
             canAttack = false;
             if(gp.plant.get(i).Health <= 0){
-                gp.plant.set(i, null);
+                gp.plant.remove(i);
                 canAttack = true;
             }
         }
     }
 
+    static int frameCounter = 0;
     @Override
     public void update(){
 
@@ -98,17 +99,22 @@ public abstract class Zombie extends Entity {
         }
         else{
             attack_counter++;
-            if(attack_counter == (60*attack_speed)){
+            if(attack_counter > (60*attack_speed)){
                 canAttack = true;
                 attack_counter = 0;
             }
             updateSlow();
         }
 
-        //if collisionOn = false player can move
-        if(collisionOn == false) {
-            worldX -= (speed/10);
+
+        frameCounter++;
+        if(collisionOn == false){
+            if (frameCounter > 60) {
+                worldX -= (int) (speed + 5.00);
+                frameCounter = 0;
+            }
         }
+
     }
 
     // Method to apply slow effect

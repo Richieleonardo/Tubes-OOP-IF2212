@@ -46,7 +46,7 @@ public class Player extends Entity{
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
         solidArea.width = 24;
-        solidArea.height = 48;
+        solidArea.height = 20;
 
         setDefaultValues();
         getPlayerImage();
@@ -62,14 +62,14 @@ public class Player extends Entity{
 
 
     public void getPlayerImage(){
-        up1 = setup("/player/boy_up_1.png");
-        up2 = setup("/player/boy_up_2.png");
-        down1 = setup("/player/boy_down_1.png");
-        down2 = setup("/player/boy_down_2.png");
-        left1 = setup("/player/boy_left_1.png");
-        left2 = setup("/player/boy_left_2.png");
-        right1 = setup("/player/boy_right_1.png");
-        right2 = setup("/player/boy_right_2.png");
+        up1 = setup("/player/hotbar_selector.png");
+        up2 = setup("/player/hotbar_selector.png");
+        down1 = setup("/player/hotbar_selector.png");
+        down2 = setup("/player/hotbar_selector.png");
+        left1 = setup("/player/hotbar_selector.png");
+        left2 = setup("/player/hotbar_selector.png");
+        right1 = setup("/player/hotbar_selector.png");
+        right2 = setup("/player/hotbar_selector.png");
 
     }
 
@@ -100,18 +100,18 @@ public class Player extends Entity{
     public void putPlant(){
         int plantIndex = gp.ui.getPlantIndexOnDeck();
 
-        //GET TILE
-        int worldTileX = worldCursorCol/gp.getTileSize();
-        int worldTileY = worldCursorRow/gp.getTileSize();
-        int tileNum = gp.tileM.mapTileNum[worldTileX][worldTileY];
+//        //GET TILE
+//        int worldTileX = worldCursorCol/gp.getTileSize();
+//        int worldTileY = worldCursorRow/gp.getTileSize();
+//        int tileNum = gp.tileM.mapTileNum[worldTileX][worldTileY];
 
         if(plantIndex < deck.size()){
             // Membuat copy plant
             Plant selectedPlant = (Plant) deck.get(plantIndex).clone();
 
             // Mendapatkan posisi player
-            int playerTileX = worldX/gp.getTileSize();
-            int playerTileY = worldY/gp.getTileSize();
+            int playerTileX = (int) Math.floor((worldX+24)/gp.getTileSize());
+            int playerTileY = (int) Math.floor((worldY+24)/gp.getTileSize());
 
             // Menanam jika kondisi berikut terpenuhi
             // TODO: belum memperhitungkan cooldown plant
@@ -119,19 +119,6 @@ public class Player extends Entity{
                 useSun(selectedPlant.getCost());
                 gp.assetSetter.setPlant(selectedPlant, playerTileX, playerTileY);
             }
-        }
-
-        // CURSOR
-        int cursorX = (gp.getTileSize() * worldCursorCol);
-        int cursorY = (gp.getTileSize() * worldCursorRow);
-        int cursorWidth = gp.getTileSize();
-        int cursorHeight = gp.getTileSize();
-
-        //DRAW CURSOR
-        g2.setColor(Color.white);
-        g2.setStroke(new BasicStroke(3));
-        if(gp.gameState == gp.playState){
-            g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
         }
     }
 
@@ -145,7 +132,8 @@ public class Player extends Entity{
 
         // Mengecek apakah terdapat plant
         for (Entity p : gp.plant){
-            if (p.worldX == tileX && p.worldY == tileY){
+            Plant castp = (Plant) p;
+            if (castp.worldX == tileX && castp.worldY == tileY){
                 return true;
             }
         }
@@ -205,31 +193,47 @@ public class Player extends Entity{
         hasSun -= cost;
     }
 
+
+    /*
+    TODO : SPESIFIKASIKAN ZOMBIE YANG SPAWN DI AIR ATAU GA, KITA CARI DARI generateZombie.
+           KITA HARUS BUAT TIMER YANG DIMULAI KETIKA gameState == PlayState dimulai. (set 20 detik sebelum zombie spawn)
+           KAYAKNYA PERLU ADA KONDISI IS ZOMBIE AQUATIC JADI KITA BISA SPESIFIKASIKAN KALAU TILE ZOMBIE SPAWN ITU HANYA DI TILE WATER SAJA
+           .
+           NOTE: WATER TILE ITU DI
+           (X >= 15 && X <= 23)
+           &&
+           (Y >= 8 && Y <= 9)
+     */
+
+    //SPAWN THE ZOMBIE
     public void spawnZombies(){
-        if(zombieTickCounter == 6*60){
+        if(zombieTickCounter == 3*60){ //ZOMBIE SPAWN 3 DETIK  SEKALI
             SecureRandom rand = new SecureRandom();
-            int row = rand.nextInt(6);
-            gp.assetSetter.setZombie(generateZombie(), 24, row+6);
+            int row = rand.nextInt(6); //WORLDY COORDINATE
+            if(gp.zombie.size() <= 10){
+                gp.assetSetter.setZombie(generateZombie(), 24, row+6); //ZOMBIE CAN'T SPAWN MORE THAN 10
+            }
             zombieTickCounter = 0;
         } else {
             zombieTickCounter++;
         }
     }
 
+    //CHOOSE WHAT ZOMBIE TYPE TO SPAWN
     public Entity generateZombie(){
         SecureRandom rand = new SecureRandom();
-        int randZombie = rand.nextInt(10+1);
+        int randZombie = rand.nextInt(10);
         return switch (randZombie) {
             case 0 -> new NormalZombie(gp);
             case 1 -> new BucketHeadZombie(gp);
             case 2 -> new YetiZombie(gp);
             case 3 -> new ConeHeadZombie(gp);
             case 4 -> new FootballZombie(gp);
-            case 5 -> new DolphinRiderZombie(gp);
-            case 6 -> new DuckyTubeZombie(gp);
+            case 5 -> new DolphinRiderZombie(gp);   //AQUATIC ZOMBIE
+            case 6 -> new DuckyTubeZombie(gp);      //AQUATIC ZOMBIE
             case 7 -> new PoleVaultingZombie(gp);
             case 8 -> new ScreenDoorZombie(gp);
-            case 9 -> new SnorkelZombie(gp);
+            case 9 -> new SnorkelZombie(gp);        //AQUATIC ZOMBIE
             default -> null;
         };
     }

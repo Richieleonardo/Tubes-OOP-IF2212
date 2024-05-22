@@ -22,7 +22,7 @@ public class Peashooter extends Plant {
     }
 
     public void update(){
-        System.out.println(name + "Health : " + Health);
+//        System.out.println(name + "Health : " + Health);
         Shoot();
 
     }

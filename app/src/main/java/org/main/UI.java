@@ -320,25 +320,41 @@ public class UI {
         g2.setColor(Color.white);
         g2.drawString(text, x, y);
 
-        String text1 = "* Pilih 6 Plant yang ingin dimasukkan ke deck";
-        String text7 = "   sebelum memulai permainan";
-        String text4 = "* Tekan List Plants untuk mengetahui jenis-jenis";
-        String text8 = "   Plant yang dapat dipilih";
+        int frameX = gp.getTileSize()*2 - 20;
+        int frameY = gp.getTileSize()*4 - 40;
+        int frameWidth = gp.getTileSize() * 14;
+        int frameHeight = gp.getTileSize() * 8;
+
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+
+        String text1 = "* Pilih 6 Plant yang ingin dimasukkan ke deck sebelum";
+        String text3 = "* Gunakan WASD untuk memindahkan kursor";
+        String text7 = "   memulai permainan";
+        String text4 = "* Tekan List Plants untuk mengetahui jenis-jenis Plant";
+        String text8 = "   yang dapat dipilih";
         String text5 = "* Tekan List Zombies untuk mengetahui jenis-jenis";
         String text9 = "   Zombie yang dapat muncul";
         String text6 = "* Tekan Exit jika ingin keluar dari permainan";
         String text2 = "* Tekan tombol Esc ketika ingin kembali ke title screen";
-        String text3 = "* Gunakan WASD untuk memindahkan kursor";
+        String text10 = "* Gunakan Enter untuk memasukkan dan mengeluarkan";
+        String text13 = "   tanaman dari deck";
+        String text11 = "* Gunakan ZX untuk memilih tanaman dari deck";
+        String text12 = "* Gunakan P untuk melakukan pause ketika game dimulai";
+
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 23F));
-        g2.drawString(text1, gp.getTileSize()*2+5, gp.getTileSize()*5 - 20);
-        g2.drawString(text7, gp.getTileSize()*2+5, gp.getTileSize()*5);
-        g2.drawString(text4, gp.getTileSize()*2+5, gp.getTileSize()*5 + 20);
-        g2.drawString(text8, gp.getTileSize()*2+5, gp.getTileSize()*5 + 40);
-        g2.drawString(text5, gp.getTileSize()*2+5, gp.getTileSize()*5 + 60);
-        g2.drawString(text9, gp.getTileSize()*2+5, gp.getTileSize()*5 + 80);
-        g2.drawString(text6, gp.getTileSize()*2+5, gp.getTileSize()*5 + 100);
-        g2.drawString(text2, gp.getTileSize()*2+5, gp.getTileSize()*5 + 120);
-        g2.drawString(text3, gp.getTileSize()*2+5, gp.getTileSize()*5 + 140);
+        g2.drawString(text1, gp.getTileSize()*2+5, gp.getTileSize()*4);
+        g2.drawString(text7, gp.getTileSize()*2+5, gp.getTileSize()*4 + 25);
+        g2.drawString(text3, gp.getTileSize()*2+5, gp.getTileSize()*4 + 50);
+        g2.drawString(text10, gp.getTileSize()*2+5, gp.getTileSize()*4 + 75);
+        g2.drawString(text13, gp.getTileSize()*2+5, gp.getTileSize()*4 + 100);
+        g2.drawString(text11, gp.getTileSize()*2+5, gp.getTileSize()*4 + 125);
+        g2.drawString(text2, gp.getTileSize()*2+5, gp.getTileSize()*4 + 150);
+        g2.drawString(text12, gp.getTileSize()*2+5, gp.getTileSize()*4 + 175);
+        g2.drawString(text4, gp.getTileSize()*2+5, gp.getTileSize()*4 + 200);
+        g2.drawString(text8, gp.getTileSize()*2+5, gp.getTileSize()*4 + 225);
+        g2.drawString(text5, gp.getTileSize()*2+5, gp.getTileSize()*4 + 250);
+        g2.drawString(text9, gp.getTileSize()*2+5, gp.getTileSize()*4 + 275);
+        g2.drawString(text6, gp.getTileSize()*2+5, gp.getTileSize()*4 + 300);
     }
 
     public void drawListPlant(){
@@ -395,6 +411,16 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 24F));
         g2.drawString(text3, gp.getTileSize()*2, gp.getTileSize()*8);
         g2.drawString(text2, gp.getTileSize()*2, gp.getTileSize()*8 + 20);
+
+//        int frameX2 = gp.getTileSize()*2 - 20;
+//        int frameY2 = gp.getTileSize()*4 - 40;
+//        int frameWidth2 = gp.getTileSize() * 14;
+//        int frameHeight2 = gp.getTileSize() * 8;
+//
+//        drawSubWindow(frameX2, frameY2, frameWidth2, frameHeight2);
+
+
+
     }
 
     public void drawTitleScreen(){
