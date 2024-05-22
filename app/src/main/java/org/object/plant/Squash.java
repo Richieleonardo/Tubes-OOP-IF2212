@@ -22,14 +22,14 @@ public class Squash extends Plant {
     }
 
     public void update(){
-        System.out.println(name + "Health : " + Health);
+//        System.out.println(name + "Health : " + Health);
         Shoot();
-        int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
-        if(zombieIndex != 999){
-            attackZombie(zombieIndex);
-            alive = false;
-            worldX += 48;
-        }
+//        int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
+//        if(zombieIndex != 999){
+//            attackZombie(zombieIndex);
+//            alive = false;
+//            worldX += 48;
+//        }
     }
 
 

@@ -36,7 +36,7 @@ public class Sunflower extends Plant implements ProduceSun{
     @Override
     public void update() {
         produceSun();
-        System.out.println(name + "Health : " + Health);
+//        System.out.println(name + "Health : " + Health);
         super.update();
         counter++;
         if(counter == 60 * 3){

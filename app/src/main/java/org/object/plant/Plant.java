@@ -38,6 +38,14 @@ public abstract class Plant extends Entity {
         }
         this.cooldown = cooldown;
         this.isAquatic = isAquatic;
+
+        solidArea = new Rectangle();
+        solidArea.x = 0;
+        solidArea.y = 0;
+        solidArea.width = 48;
+        solidArea.height = 48;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
     }
 
 
