@@ -36,14 +36,15 @@ public class Repeater extends Plant {
                     if (zombie.worldY == this.worldY) {
                         int distance = zombie.worldX - this.worldX;
                         if (distance <= getRange()) {
-                            projectile.set(worldX+12, worldY, direction, true, this);
-                            gp.projectileList.add(projectile);
+                            if (projectile.alive == false) {
+                                projectile.set(worldX + 12, worldY, direction, true, this);
+                                gp.projectileList.add(projectile);
 
-                            // Shoot second projectile with slight delay
-                            projectile2 = new Pea2(gp);// Create new projectile instance
-                            projectile2.set(worldX-12,worldY, direction, true, this);
-                            gp.projectileList.add(projectile2);
-
+                                // Shoot second projectile with slight delay
+                                projectile2 = new Pea2(gp);// Create new projectile instance
+                                projectile2.set(worldX - 12, worldY, direction, true, this);
+                                gp.projectileList.add(projectile2);
+                            }
                         }
                     }
                 }

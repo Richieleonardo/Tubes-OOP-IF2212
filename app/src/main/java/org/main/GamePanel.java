@@ -179,6 +179,9 @@ public class GamePanel extends JPanel implements Runnable{
                     Plant tanaman = (Plant) plant.get(i);
                     tanaman.update();
                 }
+                if(plant.get(i).maxHealth <= 0){
+                    plant.remove(i);
+                }
             }
 
             //PROJECTILE

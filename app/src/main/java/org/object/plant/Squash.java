@@ -35,6 +35,7 @@ public class Squash extends Plant {
                         int distance = zombie.worldX - this.worldX;
                         if (distance <= getRange()) {
                             if (projectile.alive == false) {
+                                maxHealth = 0;
                                 projectile.set(worldX, worldY, direction, true, this);
 
                                 //ADD PROJECTILE TO LIST
@@ -45,7 +46,18 @@ public class Squash extends Plant {
                 }
             }
         }
-    }
+//        public void kamikaze(){
+//            int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
+//            if(zombieIndex != 999){
+//                gp.zombie.get(zombieIndex).Health -= getAttackDamage();
+//
+//                if(gp.zombie.get(zombieIndex).Health <= 0){
+//                    gp.zombie.remove(zombieIndex);
+//                }
+//            }
+//    }
+}
+
 
 
 
