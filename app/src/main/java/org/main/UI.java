@@ -321,7 +321,7 @@ public class UI {
         g2.drawRoundRect(x+5, y+5, width-10, height-10, 25, 25);
     }
 
-    public void draw(Graphics2D g2){
+    public void draw(Graphics2D g2) throws InterruptedException {
         this.g2 = g2;
         g2.setFont(arial_40);
         g2.setColor(Color.WHITE);
@@ -359,7 +359,7 @@ public class UI {
         //CHANGE CURSOR POSITION
         if(gp.gameState == gp.deckState){
             drawDeck();
-//            drawInventory();
+            drawInventory();
         }
 
         if(gp.gameState == gp.ListPlantState){
@@ -374,21 +374,8 @@ public class UI {
             drawHelp();
         }
 
-        if(gameFinishedWin){
-            String text = "You Win!";
-            g2.setFont(g2.getFont().deriveFont(Font.BOLD,80F));
-            int x = getXforCenteredText(text);
-            int y = gp.getTileSize()*7;
-            g2.drawString(text, x, y);
-            gp.gameThread = null;
-        }
-        if(gameFinishedLose){
-            String text = "You Lose!";
-            g2.setFont(g2.getFont().deriveFont(Font.BOLD,80F));
-            int x = getXforCenteredText(text);
-            int y = gp.getTileSize()*7;
-            g2.drawString(text, x, y);
-            gp.gameThread = null;
+        if(gp.gameState == gp.endState){
+            drawEndScreen();
         }
     }
 
@@ -653,6 +640,23 @@ public class UI {
         int y = gp.screenHeight/2;
 
         g2.drawString(text, x, y);
+    }
+
+    public void drawEndScreen(){
+        if(gameFinishedWin){
+            String text = "You Win!";
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD,80F));
+            int x = getXforCenteredText(text);
+            int y = gp.getTileSize()*7;
+            g2.drawString(text, x, y);
+        }
+        if(gameFinishedLose){
+            String text = "You Lose!";
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD,80F));
+            int x = getXforCenteredText(text);
+            int y = gp.getTileSize()*7;
+            g2.drawString(text, x, y);
+        }
     }
 
     public void drawTimer(){

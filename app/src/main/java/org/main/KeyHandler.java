@@ -23,7 +23,6 @@ public class KeyHandler implements KeyListener {
     }
 
 
-    int pastGameState;
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode(); //return number key that was pressed
@@ -122,6 +121,18 @@ public class KeyHandler implements KeyListener {
         if(gp.gameState == gp.HelpState){
             if(code == KeyEvent.VK_ESCAPE) {
                 gp.gameState = 0;
+            }
+        }
+
+
+        //END STATE
+        if(gp.gameState == gp.endState){
+            if(code == KeyEvent.VK_ESCAPE) {
+                gp.ui.gameFinishedWin = false;
+                gp.ui.gameFinishedLose = false;
+                UI.playTime = 0;
+                gp.player.deck.clear();
+                gp.gameState = gp.titleState;
             }
         }
 
@@ -238,11 +249,11 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_2){
             if(gp.gameState == gp.inventoryState || gp.gameState == gp.deckState){
                 gp.gameState = gp.swapStateInv;
-                System.out.println("Change State " + gp.gameState);
+//                System.out.println("Change State " + gp.gameState);
             }
             else if(gp.gameState == gp.swapStateInv){ //Always comeback to inventory state after swap
                 gp.gameState = gp.inventoryState;
-                System.out.println("Change State " + gp.gameState);
+//                System.out.println("Change State " + gp.gameState);
             }
         }
 
@@ -305,6 +316,7 @@ public class KeyHandler implements KeyListener {
                 pressedR = true;
             }
         }
+
 
         //DEBUG
         if(code == KeyEvent.VK_T){
