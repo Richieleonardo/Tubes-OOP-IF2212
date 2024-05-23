@@ -225,7 +225,12 @@ public class Player extends Entity{
                 SecureRandom rand = new SecureRandom();
                 int row = rand.nextInt(6); //WORLDY COORDINATE
                 if(gp.zombie.size() <= 10){
-                    gp.assetSetter.setZombie(generateZombie(), 24, row+6); //ZOMBIE CAN'T SPAWN MORE THAN 10
+                    if (row+6 == 8 || row+6 == 9) {
+                        gp.assetSetter.setZombie(generateAquaticZombie(), 24, row + 6);
+                    }//ZOMBIE CAN'T SPAWN MORE THAN 10
+                    else {
+                        gp.assetSetter.setZombie(generateZombie(),24,row+6);
+                    }
                 }
                 zombieTickCounter = 0;
             } else {
@@ -234,21 +239,29 @@ public class Player extends Entity{
         }
     }
 
-    //CHOOSE WHAT ZOMBIE TYPE TO SPAWN
+    //CHOOSE WHAT LAND ZOMBIE TYPE TO SPAWN
     public Entity generateZombie(){
         SecureRandom rand = new SecureRandom();
-        int randZombie = rand.nextInt(10);
+        int randZombie = rand.nextInt(7);
         return switch (randZombie) {
             case 0 -> new NormalZombie(gp);
             case 1 -> new BucketHeadZombie(gp);
             case 2 -> new YetiZombie(gp);
             case 3 -> new ConeHeadZombie(gp);
             case 4 -> new FootballZombie(gp);
-            case 5 -> new DolphinRiderZombie(gp);   //AQUATIC ZOMBIE
-            case 6 -> new DuckyTubeZombie(gp);      //AQUATIC ZOMBIE
-            case 7 -> new PoleVaultingZombie(gp);
-            case 8 -> new ScreenDoorZombie(gp);
-            case 9 -> new SnorkelZombie(gp);        //AQUATIC ZOMBIE
+            case 5 -> new PoleVaultingZombie(gp);
+            case 6 -> new ScreenDoorZombie(gp);
+            default -> null;
+        };
+    }
+    //CHOOSE WHAT AQUATIC ZOMBIE TYPE TO SPAWN
+    public Entity generateAquaticZombie(){
+        SecureRandom rand = new SecureRandom();
+        int randZombie = rand.nextInt(3);
+        return switch (randZombie) {
+            case 0 -> new DolphinRiderZombie(gp);   //AQUATIC ZOMBIE
+            case 1 -> new DuckyTubeZombie(gp);      //AQUATIC ZOMBIE
+            case 2 -> new SnorkelZombie(gp);        //AQUATIC ZOMBIE
             default -> null;
         };
     }
