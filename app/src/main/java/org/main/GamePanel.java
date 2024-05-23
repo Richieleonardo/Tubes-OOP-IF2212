@@ -74,10 +74,12 @@ public class GamePanel extends JPanel implements Runnable{
     public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
-    public final int inventoryState = 3; //Later use
-    public final int ListPlantState = 4;
-    public final int ListZombiesState = 5;
-    public final int HelpState = 6;
+    public final int inventoryState = 3;
+    public final int deckState = 4;
+    public final int ListPlantState = 5;
+    public final int ListZombiesState = 6;
+    public final int HelpState = 7;
+    public final int swapState = 8; //LATER USE
 
     //Constructor
     public GamePanel(){
@@ -183,9 +185,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
-        if(gameState == inventoryState){
 
-        }
 
 
 

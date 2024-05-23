@@ -21,6 +21,8 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode(); //return number key that was pressed
+
+        //PLAY STATE
         if(gp.gameState == gp.playState){
             if(code == KeyEvent.VK_W){
                 upPressed = true;
@@ -161,16 +163,19 @@ public class KeyHandler implements KeyListener {
 
         }
 
-        //INVENTORY STATE
-        if(code == KeyEvent.VK_I){
-            if(gp.gameState == gp.playState){
+
+        //CHANGE CURSOR DRAW BETWEEN DECK AND INVENTORY
+        if(code == KeyEvent.VK_C){ //SHORTCUT KEY FOR GAME STATE (EXAMPLE)
+            if(gp.gameState == gp.inventoryState){
+                gp.gameState = gp.deckState;
+            }
+            else if(gp.gameState == gp.deckState){
                 gp.gameState = gp.inventoryState;
             }
-            else if(gp.gameState == gp.inventoryState){
-                gp.gameState = gp.playState;
-            }
+
         }
 
+        //INVENTORY STATE
         if(gp.gameState == gp.inventoryState){
             //DO SOMETHING
             if(code == KeyEvent.VK_W){
@@ -198,12 +203,27 @@ public class KeyHandler implements KeyListener {
                 gp.player.selectPlant();
             }
             if(code == KeyEvent.VK_ESCAPE){
-                gp.gameState = 0;
+                gp.gameState = gp.titleState;
             }
             if(code == KeyEvent.VK_1){
-                gp.gameState = 1;
+                gp.gameState = gp.playState;
             }
         }
+
+        //DECK STATE
+        if(gp.gameState == gp.deckState){
+            if(code == KeyEvent.VK_Z){
+                if(gp.ui.slotColDeck != 0){
+                    gp.ui.slotColDeck--;
+                }
+            }
+            if(code == KeyEvent.VK_X){
+                if(gp.ui.slotColDeck != 5){
+                    gp.ui.slotColDeck++;
+                }
+            }
+        }
+
 
         //DEBUG
         if(code == KeyEvent.VK_T){

@@ -15,7 +15,7 @@ public class Player extends Entity{
 
     KeyHandler keyH;
     //PLAYER SUN
-    public static int hasSun = 0;
+    public static int hasSun = 50;
 
     Graphics2D g2;
     public ArrayList<Plant> deck = new ArrayList<>();
@@ -78,10 +78,10 @@ public class Player extends Entity{
         int itemIndex = gp.ui.getPlantIndexOnInventory();
 
         if(itemIndex < gp.ui.inventory.size()){
-            Entity selectedItem = gp.ui.inventory.get(itemIndex);
+            Plant selectedItem = (Plant) gp.ui.inventory.get(itemIndex);
             if(!deck.contains(selectedItem)){
                 if (deck.size() < 6) {
-                    deck.add((Plant) selectedItem);
+                    deck.add(selectedItem);
                 }
                 else{
                     System.out.println("Can't put plants");
@@ -116,9 +116,15 @@ public class Player extends Entity{
 
             // Menanam jika kondisi berikut terpenuhi
             // TODO: belum memperhitungkan cooldown plant
-            if (hasSun >= selectedPlant.getCost() && isPlantable(selectedPlant, playerTileX, playerTileY)){
+            if (hasSun >= selectedPlant.getCost() && isPlantable(selectedPlant, playerTileX, playerTileY) && deck.get(plantIndex).isCooldown() == false){
                 useSun(selectedPlant.getCost());
                 gp.assetSetter.setPlant(selectedPlant, playerTileX, playerTileY);
+                deck.get(plantIndex).setCooldown(true);
+                Thread cool = new Thread(deck.get(plantIndex).r);
+                cool.start();
+            }
+            else{
+                System.out.println("Tanaman masih cooldown!");
             }
         }
     }

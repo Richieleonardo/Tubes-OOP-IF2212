@@ -123,7 +123,11 @@ public class UI {
         //DRAW CURSOR
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(3));
-        g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
+
+        //DRAW IF INVENTORY STATE
+        if(gp.gameState == gp.inventoryState){
+            g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
+        }
 
 //        int plantIndex = getPlantIndexOnInventory();
 //        if(itemIndex<inventory.size()){
@@ -191,7 +195,9 @@ public class UI {
         //DRAW CURSOR
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(3));
-        if(gp.gameState == gp.playState){
+
+        //DRAW ONLY IF playState or deckState
+        if(gp.gameState == gp.playState || gp.gameState == gp.deckState){
             g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
         }
 
@@ -236,6 +242,12 @@ public class UI {
         if(gp.gameState == gp.inventoryState){
             drawDeck();
             drawInventory();
+        }
+
+        //CHANGE CURSOR POSITION
+        if(gp.gameState == gp.deckState){
+            drawDeck();
+//            drawInventory();
         }
 
         if(gp.gameState == gp.ListPlantState){
