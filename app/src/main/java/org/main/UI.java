@@ -23,7 +23,9 @@ public class UI {
     public boolean messageOn = false;
 //    public String message = "";
 
-    boolean gameFinished = false;
+    //GAME STATUS (Finished/Not Finished)
+    boolean gameFinishedWin = false;
+    boolean gameFinishedLose = false;
     public static double playTime;
     DecimalFormat dFormat = new DecimalFormat("#0.00");
 
@@ -372,6 +374,22 @@ public class UI {
             drawHelp();
         }
 
+        if(gameFinishedWin){
+            String text = "You Win!";
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD,80F));
+            int x = getXforCenteredText(text);
+            int y = gp.getTileSize()*7;
+            g2.drawString(text, x, y);
+            gp.gameThread = null;
+        }
+        if(gameFinishedLose){
+            String text = "You Lose!";
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD,80F));
+            int x = getXforCenteredText(text);
+            int y = gp.getTileSize()*7;
+            g2.drawString(text, x, y);
+            gp.gameThread = null;
+        }
     }
 
     public void drawListZombie(){
@@ -567,7 +585,7 @@ public class UI {
         //Plant IMAGE
         x = gp.screenWidth/2 - (gp.getTileSize()*2)/2;
         y += gp.getTileSize();
-        g2.drawImage(gp.plant.getFirst().down1, x, y, gp.getTileSize()*2, gp.getTileSize()*2, null);
+        g2.drawImage(inventory.getFirst().down1, x, y, gp.getTileSize()*2, gp.getTileSize()*2, null);
 
         //MENU
         g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));

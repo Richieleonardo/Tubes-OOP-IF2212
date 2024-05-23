@@ -12,6 +12,8 @@ public abstract class Zombie extends Entity {
     private int attack_speed;
     private boolean isAquatic = false;
 
+    //COLLISION FOR TILE
+    public boolean collisionTile = false;
 
     //Check if zombie can attack or not
     public boolean canAttack = true;
@@ -88,7 +90,7 @@ public abstract class Zombie extends Entity {
     @Override
     public void update(){
 
-        System.out.println("Zombie health : " + this.Health);
+//        System.out.println("Zombie health : " + this.Health);
         collisionOn = false;
         gp.collisionChecker.checkTile(this);
 

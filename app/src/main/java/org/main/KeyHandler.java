@@ -212,7 +212,12 @@ public class KeyHandler implements KeyListener {
                 gp.gameState = gp.titleState;
             }
             if(code == KeyEvent.VK_1){
-                gp.gameState = gp.playState;
+                if(gp.player.deck.size() == 6){
+                    gp.gameState = gp.playState;
+                }
+                else{
+                    System.out.println("Plant harus 6 untuk memulai permainan!");
+                }
             }
         }
 
