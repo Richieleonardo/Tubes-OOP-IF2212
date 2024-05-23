@@ -2,6 +2,7 @@ package org.Entity;
 
 import org.main.GamePanel;
 import org.main.KeyHandler;
+import org.object.factory.*;
 import org.object.plant.*;
 import org.object.zombie.*;
 import org.main.UI;
@@ -9,13 +10,19 @@ import org.main.UI;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.security.SecureRandom;
+import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Player extends Entity{
 
     KeyHandler keyH;
+
     //PLAYER SUN
-    public static int hasSun = 50;
+    public static int hasSun;
+    SecureRandom randSun = new SecureRandom();
+    int randIntervalSun;
+    boolean sunProduced = false;
 
     Graphics2D g2;
     public ArrayList<Plant> deck = new ArrayList<>();
@@ -29,6 +36,24 @@ public class Player extends Entity{
 
     public int sunTickCounter = 0;
     public int zombieTickCounter = 180; //DEFAULT
+
+    //ZOMBIE FACTORY
+    private static final List<ZombieFactory> landfactories = Arrays.asList(
+            new NormalZombieFactory(),
+            new BucketHeadZombieFactory(),
+            new YetiZombieFactory(),
+            new ConeHeadZombieFactory(),
+            new FootballZombieFactory(),
+            new PoleVaultingZombieFactory(),
+            new ScreenDoorZombieFactory()
+    );
+
+    private static final List<ZombieFactory> waterfactories = Arrays.asList(
+            new DuckyTubeZombieFactory(),
+            new DolphinRiderZombieFactory(),
+            new SnorkelZombieFactory()
+    );
+
 
     //Constructor
     public Player(GamePanel gp, KeyHandler keyH){
@@ -59,6 +84,7 @@ public class Player extends Entity{
         speed = 4;
         direction = "down";
         hasSun = 100;
+        randIntervalSun = 3 + randSun.nextInt(3);
     }
 
 
@@ -190,15 +216,20 @@ public class Player extends Entity{
     }
 
     public void addSun() {
-        SecureRandom rand = new SecureRandom();
-        if (sunTickCounter == 60) {
-            int randInterval = 3 + rand.nextInt(3);
-            if (sunTickCounter == randInterval * 60) {
+
+        if(!sunProduced){
+            randIntervalSun = 3 + randSun.nextInt(3);
+            sunProduced = true;
+        }
+        else{
+            if (sunTickCounter == randIntervalSun * 60) {
                 hasSun += 25;
                 sunTickCounter = 0;
+                sunProduced = false;
             }
-        } else {
-            sunTickCounter++;
+            else{
+                sunTickCounter++;
+            }
         }
     }
 
@@ -224,12 +255,14 @@ public class Player extends Entity{
             if(zombieTickCounter == 3*60){ //ZOMBIE SPAWN 3 DETIK  SEKALI
                 SecureRandom rand = new SecureRandom();
                 int row = rand.nextInt(6); //WORLDY COORDINATE
-                if(gp.zombie.size() <= 10){
-                    if (row+6 == 8 || row+6 == 9) {
-                        gp.assetSetter.setZombie(generateAquaticZombie(), 24, row + 6);
-                    }//ZOMBIE CAN'T SPAWN MORE THAN 10
-                    else {
-                        gp.assetSetter.setZombie(generateZombie(),24,row+6);
+                if(rand.nextDouble() <= 0.3){ //30% CHANCE to spawn
+                    if(gp.zombie.size() <= 10){
+                        if (row+6 == 8 || row+6 == 9) {
+                            gp.assetSetter.setZombie(generateAquaticZombie(), 24, row + 6);
+                        }//ZOMBIE CAN'T SPAWN MORE THAN 10
+                        else {
+                            gp.assetSetter.setZombie(generateZombie(),24,row+6);
+                        }
                     }
                 }
                 zombieTickCounter = 0;
@@ -242,34 +275,21 @@ public class Player extends Entity{
     //CHOOSE WHAT LAND ZOMBIE TYPE TO SPAWN
     public Entity generateZombie(){
         SecureRandom rand = new SecureRandom();
-        int randZombie = rand.nextInt(7);
-        return switch (randZombie) {
-            case 0 -> new NormalZombie(gp);
-            case 1 -> new BucketHeadZombie(gp);
-            case 2 -> new YetiZombie(gp);
-            case 3 -> new ConeHeadZombie(gp);
-            case 4 -> new FootballZombie(gp);
-            case 5 -> new PoleVaultingZombie(gp);
-            case 6 -> new ScreenDoorZombie(gp);
-            default -> null;
-        };
+//        int randZombie = rand.nextInt(7);
+        ZombieFactory factory = landfactories.get(rand.nextInt(landfactories.size()));
+        return factory.createZombie(gp);
     }
     //CHOOSE WHAT AQUATIC ZOMBIE TYPE TO SPAWN
     public Entity generateAquaticZombie(){
         SecureRandom rand = new SecureRandom();
-        int randZombie = rand.nextInt(3);
-        return switch (randZombie) {
-            case 0 -> new DolphinRiderZombie(gp);   //AQUATIC ZOMBIE
-            case 1 -> new DuckyTubeZombie(gp);      //AQUATIC ZOMBIE
-            case 2 -> new SnorkelZombie(gp);        //AQUATIC ZOMBIE
-            default -> null;
-        };
+//        int randZombie = rand.nextInt(3);
+        ZombieFactory factory = waterfactories.get(rand.nextInt(waterfactories.size()));
+        return factory.createZombie(gp);
     }
 
     public void update(){
-        if(UI.playTime < 100){
-            addSun();
-        }
+        addSun();
+
         spawnZombies();
 //        System.out.println(Health);
         if(keyH.upPressed || keyH.downPressed ||

@@ -1,5 +1,6 @@
 package org.object.zombie;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
 
 import java.util.Random;
@@ -33,5 +34,6 @@ public class FootballZombie extends Zombie {
 //            }
 //            tickCounter = 0;        }
     }
+
 }
 

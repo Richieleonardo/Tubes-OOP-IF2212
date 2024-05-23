@@ -1,5 +1,6 @@
 package org.object.zombie;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
 
 public class ScreenDoorZombie extends Zombie {

@@ -150,7 +150,6 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void update(){ //update the draw method
-
         if(gameState == titleState){
             ui.gameFinishedLose = false;
             ui.gameFinishedWin = false;
@@ -159,7 +158,6 @@ public class GamePanel extends JPanel implements Runnable{
         if(gameState == playState){
             //PLAYER
             player.update();
-
 
             //ZOMBIE
             for(int i = 0; i < zombie.size(); i++){
@@ -220,11 +218,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         //TITLE SCREEN
         if(gameState == titleState){
-            try {
-                ui.draw(g2);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            ui.draw(g2);
         }else{
             //TILE
             tileM.draw(g2);
@@ -280,11 +274,7 @@ public class GamePanel extends JPanel implements Runnable{
             entityList.clear();
 
             //UI
-            try {
-                ui.draw(g2);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            ui.draw(g2);
         }
 
 
