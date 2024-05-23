@@ -9,6 +9,8 @@ public class BucketHeadZombie extends Zombie {
         super(gp, "Bucket Head Zombie", 300, 1, 100, 1);
         direction = "left";
         getImage();
+        description = "BucketHeadZombie adalah zombie yang menggunakan atribut ember di kepalanya.";
+        plantDamage = getAttackDamage();
     }
     public void getImage() {
 

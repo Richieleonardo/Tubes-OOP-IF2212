@@ -9,6 +9,8 @@ public class PoleVaultingZombie extends Zombie implements Jump{
         super(gp, "Pole Vaulting Zombie", 175, 1, 100, 1);
         direction = "left";
         getImage();
+        description = "PoleVaultingZombie adalah zombie yang dapat melompati plant sebanyak 1 kali.";
+        plantDamage = getAttackDamage();
     }
     public void getImage() {
         //TODO

@@ -16,6 +16,9 @@ public class Threepeater extends Plant {
         projectile = new Pea2(gp);
         projectile2 = new Pea2(gp);
         projectile3 = new Pea2(gp);
+        description = "Threepeater adalah plant yang dapat menyerang zombie pada 3 tile berbeda menggunakan .";
+        des2 = "pea.";
+        plantDamage = getAttackDamage();
     }
 
     @Override

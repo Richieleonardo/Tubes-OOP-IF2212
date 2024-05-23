@@ -16,6 +16,8 @@ public class Cabbagepult extends Plant {
         down1 = setup("/plant/Cabbagepult.png");
         collision = true;
         projectile = new Cabbage_pellet(gp);
+        description = "Cabbagepult adalah plant yang dapat menyerang zombie menggunakan cabbage pellet.";
+        plantDamage = getAttackDamage();
     }
 
     @Override

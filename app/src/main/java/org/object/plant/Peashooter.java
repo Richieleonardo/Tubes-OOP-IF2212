@@ -14,6 +14,8 @@ public class Peashooter extends Plant {
         down1 = setup("/plant/Peashooter.png");
         collision = true;
         projectile = new Pea(gp);
+        description = "Peashooter adalah plant yang dapat menyerang zombie menggunakan pea.";
+        plantDamage = getAttackDamage();
     }
 
     @Override

@@ -12,6 +12,8 @@ public class Wallnut extends Plant {
         //name = "Wallnut";
         down1 = setup("/plant/Wallnut.png");
         collision = true;
+        description = "Wallnut adalah plant yang hanya memiliki atribut health.";
+        plantDamage = getAttackDamage();
     }
 
     @Override

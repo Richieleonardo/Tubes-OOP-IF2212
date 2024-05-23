@@ -24,6 +24,8 @@ public class NormalZombie extends Zombie {
         left2 = setup("/zombie/NormalZombie.png");
         right1 = setup("/zombie/NormalZombie.png");
         right2 = setup("/zombie/NormalZombie.png");
+        description = "NormalZombie adalah zombie yang tidak memiliki atribut.";
+        plantDamage = getAttackDamage();
     }
 
     public void setAction(){

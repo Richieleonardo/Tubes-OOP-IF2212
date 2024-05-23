@@ -9,6 +9,8 @@ public class FootballZombie extends Zombie {
         super(gp, "Football Zombie", 275, 2, 125, 1);
         direction = "left";
         getImage();
+        description = "FootballZombie adalah zombie yang menggunakan atribut pemain football.";
+        plantDamage = getAttackDamage();
     }
     public void getImage() {
 

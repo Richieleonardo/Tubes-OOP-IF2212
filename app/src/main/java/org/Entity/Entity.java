@@ -34,6 +34,9 @@ public class Entity implements Cloneable {
     public int maxHealth;
     public int Health;
 
+    public String description = "";
+    public int plantDamage;
+    public String des2 = "";
 
     public Rectangle solidArea = new Rectangle(0,0,48,48);
     public int solidAreaDefaultX, solidAreaDefaultY;

@@ -9,6 +9,8 @@ public class ConeHeadZombie extends Zombie {
         super(gp, "Cone Head Zombie", 250, 1, 100, 1);
         direction = "left";
         getImage();
+        description = "ConeHeadZombie adalah zombie yang menggunakan atribut traffic cone di kepalanya.";
+        plantDamage = getAttackDamage();
 }
     public void getImage() {
 

@@ -10,6 +10,8 @@ public class DolphinRiderZombie extends Zombie implements Jump {
         setIsAquatic(true);
         direction = "left";
         getImage();
+        description = "DolphinRiderZombie adalah zombie aquatic yang dapat melompati Plant sebanyak 1 kali.";
+        plantDamage = getAttackDamage();
     }
     public void getImage() {
         //TODO

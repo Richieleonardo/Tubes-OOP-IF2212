@@ -18,6 +18,8 @@ public class Repeater extends Plant {
         collision = true;
         projectile = new Pea2(gp);
         projectile2 = new Pea2(gp);
+        description = "Repeater adalah plant yang dapat menyerang zombie menggunakan 2 pea sekaligus.";
+        plantDamage = getAttackDamage();
     }
 
     @Override

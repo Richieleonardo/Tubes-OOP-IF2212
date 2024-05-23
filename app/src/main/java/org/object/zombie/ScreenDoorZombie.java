@@ -7,6 +7,8 @@ public class ScreenDoorZombie extends Zombie {
         super(gp, "Screen Door Zombie", 325, 1, 100, 1);
         direction = "left";
         getImage();
+        description = "ScreenDoorZombie adalah zombie yang menggunakan atribut screen door sebagai perisai.";
+        plantDamage = getAttackDamage();
     }
     public void getImage() {
 

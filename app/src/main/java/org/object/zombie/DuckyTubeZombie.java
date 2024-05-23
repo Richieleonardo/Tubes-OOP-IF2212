@@ -10,6 +10,8 @@ public class DuckyTubeZombie extends Zombie {
         direction = "left";
         setIsAquatic(true);
         getImage();
+        description = "DuckyTubeZombie adalah zombie aquatic yang menggunakan atribut ducky tube.";
+        plantDamage = getAttackDamage();
     }
     public void getImage() {
         //TODO
