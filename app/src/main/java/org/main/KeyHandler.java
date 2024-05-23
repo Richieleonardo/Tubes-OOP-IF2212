@@ -48,7 +48,7 @@ public class KeyHandler implements KeyListener {
                 //PLANT ITEMS
                 gp.player.putPlant();
             }
-            if(code == KeyEvent.VK_BACK_SPACE){
+            if(code == KeyEvent.VK_V){
                 //PLANT ITEMS
                 gp.player.digPlant();
             }

@@ -126,7 +126,7 @@ public abstract class Plant extends Entity {
 
     public void update(){
 //        System.out.println(name + "Health : " + Health);
-
+//        System.out.println("Plant : " + worldX + ", " + worldY);
 
     }
 

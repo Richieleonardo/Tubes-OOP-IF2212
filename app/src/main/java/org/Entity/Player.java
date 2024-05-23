@@ -4,6 +4,7 @@ import org.main.GamePanel;
 import org.main.KeyHandler;
 import org.object.plant.*;
 import org.object.zombie.*;
+import org.main.UI;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -17,7 +18,7 @@ public class Player extends Entity{
     public static int hasSun = 0;
 
     Graphics2D g2;
-    public ArrayList<Entity> deck = new ArrayList<>();
+    public ArrayList<Plant> deck = new ArrayList<>();
     public final int deckSize = 6;
     //CURSOR PLACEMENT IN MAP
     public int worldCursorCol = 16;
@@ -27,7 +28,7 @@ public class Player extends Entity{
     public final int screenY;
 
     public int sunTickCounter = 0;
-    public int zombieTickCounter = 0;
+    public int zombieTickCounter = 180; //DEFAULT
 
     //Constructor
     public Player(GamePanel gp, KeyHandler keyH){
@@ -80,7 +81,7 @@ public class Player extends Entity{
             Entity selectedItem = gp.ui.inventory.get(itemIndex);
             if(!deck.contains(selectedItem)){
                 if (deck.size() < 6) {
-                    deck.add(selectedItem);
+                    deck.add((Plant) selectedItem);
                 }
                 else{
                     System.out.println("Can't put plants");
@@ -175,16 +176,22 @@ public class Player extends Entity{
         int playerTileX = worldX/gp.getTileSize();
         int playerTileY = worldY/gp.getTileSize();
 
+        //DEBUG
+//        System.out.println("Player : " + playerTileX + ", " + playerTileY);
+
         // Menghapus semua plant yang berada pada tile worldX, worldY
-        gp.plant.removeIf(p -> p.worldX == playerTileX && p.worldY == playerTileY);
+        gp.plant.removeIf(p -> (p.worldX/gp.getTileSize()) == playerTileX && (p.worldY/gp.getTileSize()) == playerTileY);
     }
 
-    public void addSun(){
-        if(sunTickCounter == 3*60){
-            hasSun += 25;
-            sunTickCounter = 0;
-        }
-        else{
+    public void addSun() {
+        SecureRandom rand = new SecureRandom();
+        if (sunTickCounter == 60) {
+            int randInterval = 3 + rand.nextInt(3);
+            if (sunTickCounter == randInterval * 60) {
+                hasSun += 25;
+                sunTickCounter = 0;
+            }
+        } else {
             sunTickCounter++;
         }
     }
@@ -207,15 +214,17 @@ public class Player extends Entity{
 
     //SPAWN THE ZOMBIE
     public void spawnZombies(){
-        if(zombieTickCounter == 3*60){ //ZOMBIE SPAWN 3 DETIK  SEKALI
-            SecureRandom rand = new SecureRandom();
-            int row = rand.nextInt(6); //WORLDY COORDINATE
-            if(gp.zombie.size() <= 10){
-                gp.assetSetter.setZombie(generateZombie(), 24, row+6); //ZOMBIE CAN'T SPAWN MORE THAN 10
+        if(UI.playTime > 20){
+            if(zombieTickCounter == 3*60){ //ZOMBIE SPAWN 3 DETIK  SEKALI
+                SecureRandom rand = new SecureRandom();
+                int row = rand.nextInt(6); //WORLDY COORDINATE
+                if(gp.zombie.size() <= 10){
+                    gp.assetSetter.setZombie(generateZombie(), 24, row+6); //ZOMBIE CAN'T SPAWN MORE THAN 10
+                }
+                zombieTickCounter = 0;
+            } else {
+                zombieTickCounter++;
             }
-            zombieTickCounter = 0;
-        } else {
-            zombieTickCounter++;
         }
     }
 
