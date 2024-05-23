@@ -1,10 +1,11 @@
 package org.object.zombie;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
 
 import java.util.Random;
 
-public class DuckyTubeZombie extends Zombie {
+public class DuckyTubeZombie extends Zombie{
     public DuckyTubeZombie(GamePanel gp) {
         super(gp, "Ducky Tube Zombie", 100, 1, 100, 1);
         direction = "left";

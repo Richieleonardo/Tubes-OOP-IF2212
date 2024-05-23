@@ -1,5 +1,6 @@
 package org.object.zombie;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
 
 public class YetiZombie extends Zombie implements Escape{
@@ -23,5 +24,6 @@ public class YetiZombie extends Zombie implements Escape{
     public void goBack(){
         direction = "right";
     }
+
 }
 

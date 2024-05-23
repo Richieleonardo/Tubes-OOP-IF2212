@@ -1,5 +1,6 @@
 package org.object.zombie;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
 
 import java.awt.*;
@@ -30,6 +31,7 @@ public class NormalZombie extends Zombie {
 
     public void setAction(){
     }
+
 
 
 }

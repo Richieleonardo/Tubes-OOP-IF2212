@@ -1,10 +1,11 @@
 package org.object.zombie;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
 
 import java.util.Random;
 
-public class BucketHeadZombie extends Zombie {
+public class BucketHeadZombie extends Zombie{
     public BucketHeadZombie(GamePanel gp) {
         super(gp, "Bucket Head Zombie", 300, 1, 100, 1);
         direction = "left";
