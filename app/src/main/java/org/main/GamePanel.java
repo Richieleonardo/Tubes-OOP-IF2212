@@ -74,10 +74,12 @@ public class GamePanel extends JPanel implements Runnable{
     public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
-    public final int inventoryState = 3; //Later use
-    public final int ListPlantState = 4;
-    public final int ListZombiesState = 5;
-    public final int HelpState = 6;
+    public final int inventoryState = 3;
+    public final int deckState = 4;
+    public final int ListPlantState = 5;
+    public final int ListZombiesState = 6;
+    public final int HelpState = 7;
+    public final int swapState = 8; //LATER USE
 
     //Constructor
     public GamePanel(){
@@ -92,13 +94,13 @@ public class GamePanel extends JPanel implements Runnable{
 //        assetSetter.setObject();
 //        assetSetter.setPlant(plant);
         assetSetter.setPlant(new Sunflower(this), 15, 6);
-        assetSetter.setPlant(new Threepeater(this), 18, 7);
+//        assetSetter.setPlant(new Threepeater(this), 18, 7);
 //        assetSetter.setPlant(new Cabbagepult(this), 17, 7);
 //        assetSetter.setPlant(new Peashooter(this), 18, 7);
-        assetSetter.setPlant(new SnowPeashooter(this), 16, 6);
-        assetSetter.setPlant(new Repeater(this), 15,7);
-        assetSetter.setPlant(new Squash(this),16, 7);
-        assetSetter.setPlant(new Wallnut(this), 22, 7);
+//        assetSetter.setPlant(new SnowPeashooter(this), 16, 6);
+//        assetSetter.setPlant(new Repeater(this), 15,7);
+//        assetSetter.setPlant(new Squash(this),16, 7);
+//        assetSetter.setPlant(new Wallnut(this), 22, 7);
 //        assetSetter.setZombie(new NormalZombie(this), 24, 7);
 //        assetSetter.setZombie(new ConeHeadZombie(this), 24, 6);
         gameState = titleState;
@@ -183,9 +185,7 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
-        if(gameState == inventoryState){
 
-        }
 
 
 

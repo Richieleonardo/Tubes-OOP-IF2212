@@ -26,7 +26,7 @@ public class UI {
 //    public String message = "";
 
     boolean gameFinished = false;
-    double playTime;
+    public static double playTime;
     DecimalFormat dFormat = new DecimalFormat("#0.00");
 
     // INVENTORY
@@ -123,7 +123,11 @@ public class UI {
         //DRAW CURSOR
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(3));
-        g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
+
+        //DRAW IF INVENTORY STATE
+        if(gp.gameState == gp.inventoryState){
+            g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
+        }
 
 //        int plantIndex = getPlantIndexOnInventory();
 //        if(itemIndex<inventory.size()){
@@ -157,8 +161,6 @@ public class UI {
         g2.drawString(text, x, y);
     }
 
-
-
     public void drawDeck(){
         int x = gp.getTileSize()/2;
         int y = 10;
@@ -176,6 +178,9 @@ public class UI {
         //DRAW DECK's ITEMS
         for(int i = 0; i < gp.player.deck.size(); i++){
             g2.drawImage(gp.player.deck.get(i).down1, slotX, slotY, null);
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD, 11F));
+            String cost = String.valueOf(gp.player.deck.get(i).getCost());
+            g2.drawString(cost, slotX+30, slotY+50);
 
             slotX += gp.getTileSize();
         }
@@ -190,7 +195,9 @@ public class UI {
         //DRAW CURSOR
         g2.setColor(Color.white);
         g2.setStroke(new BasicStroke(3));
-        if(gp.gameState == gp.playState){
+
+        //DRAW ONLY IF playState or deckState
+        if(gp.gameState == gp.playState || gp.gameState == gp.deckState){
             g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
         }
 
@@ -226,7 +233,7 @@ public class UI {
             //Do playstate stuff
             drawDeck();
             drawSun();
-
+            drawTimer();
         }
         if(gp.gameState == gp.pauseState){
             drawPauseScreen();
@@ -235,6 +242,12 @@ public class UI {
         if(gp.gameState == gp.inventoryState){
             drawDeck();
             drawInventory();
+        }
+
+        //CHANGE CURSOR POSITION
+        if(gp.gameState == gp.deckState){
+            drawDeck();
+//            drawInventory();
         }
 
         if(gp.gameState == gp.ListPlantState){
@@ -512,6 +525,11 @@ public class UI {
         int y = gp.screenHeight/2;
 
         g2.drawString(text, x, y);
+    }
+
+    public void drawTimer(){
+        playTime += (double) 1/60;
+        g2.drawString("Time: " + dFormat.format(playTime), gp.getTileSize()*11, 65);
     }
 
     public int getXforCenteredText(String text){

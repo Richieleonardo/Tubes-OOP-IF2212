@@ -16,6 +16,8 @@ public abstract class Plant extends Entity {
     private int cooldown;
     private boolean isAquatic;
 
+    //CHECK COOLDOWN
+    private boolean isCooldown;
 
     //Projectile
     public Projectile projectile;
@@ -38,6 +40,7 @@ public abstract class Plant extends Entity {
         }
         this.cooldown = cooldown;
         this.isAquatic = isAquatic;
+        this.isCooldown = false;
 
         solidArea = new Rectangle();
         solidArea.x = 0;
@@ -92,7 +95,10 @@ public abstract class Plant extends Entity {
         this.isAquatic = isAquatic;
     }
 
-    public void die() {
+
+    public boolean isCooldown() { return isCooldown; }
+    public void setCooldown(boolean cooldown){
+        isCooldown = cooldown;
     }
 
     public void Shoot() {
@@ -126,7 +132,7 @@ public abstract class Plant extends Entity {
 
     public void update(){
 //        System.out.println(name + "Health : " + Health);
-
+//        System.out.println("Plant : " + worldX + ", " + worldY);
 
     }
 
@@ -139,6 +145,31 @@ public abstract class Plant extends Entity {
             }
         }
     }
+
+    /*
+    FOR COOLDOWN (I KNOW IT IS BAD..., BUT AT LEAST I TRY!)
+     */
+    public Runnable r = new Runnable() {
+        @Override
+        public void run() {
+            int coolcount = 0;
+            try{
+                for(int i = 0; i < cooldown-1;i++){
+//                    System.out.println("Cooldown status for " + name + ": " + isCooldown);
+                    coolcount++;
+//                    System.out.println("Cooldown" + (count));
+                    Thread.sleep(1000);
+                }
+                setCooldown(false);
+//                System.out.println("Cooldown status : " + isCooldown);
+            }
+            catch(InterruptedException e){
+                throw new RuntimeException(e);
+            }
+        }
+    };
+
+//    public Thread cool = new Thread(r);
 
     public String toString() {
         return this.name;
