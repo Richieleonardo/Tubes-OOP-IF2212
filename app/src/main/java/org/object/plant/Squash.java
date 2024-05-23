@@ -10,11 +10,11 @@ public class Squash extends Plant {
         super(gp, "Squash", 50, 100, 5000, 0, 1, 20, false);
         //name = "Squash";
 
+        description = "Squash adalah plant yang dapat melakukan instakill pada zombie.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/Squash.png");
         collision = true;
         projectile = new Squash_proj(gp);
-        description = "Squash adalah plant yang dapat melakukan instakill pada zombie.";
-        plantDamage = getAttackDamage();
     }
 
     @Override

@@ -426,13 +426,6 @@ public class UI {
         g2.setStroke(new BasicStroke(3));
         g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
 
-
-//        String text2 = "* Tekan tombol Esc ketika ingin kembali ke title screen";
-//        String text3 = "* Gunakan WASD untuk memindahkan kursor";
-//        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 24F));
-//        g2.drawString(text3, gp.getTileSize()*2, gp.getTileSize()*8);
-//        g2.drawString(text2, gp.getTileSize()*2, gp.getTileSize()*8 + 20);
-
         // DESCRIPTION FRAME
         int dFrameX = gp.getTileSize() + 20;
         int dFrameY = frameY + frameHeight + 20;
@@ -452,8 +445,20 @@ public class UI {
             g2.drawString("Health : " + inventoryZombie.get(itemIndex).maxHealth, textx, dFrameY + gp.getTileSize() + 10);
             g2.drawString(inventoryZombie.get(itemIndex).description, textx, texty);
             g2.drawString(inventoryZombie.get(itemIndex).des2, textx, texty + 20);
-            g2.drawString("Attack Damage : " + inventoryZombie.get(itemIndex).plantDamage, textx, dFrameY + gp.getTileSize()+ 30);
+            g2.drawString("Attack Damage : " + inventoryZombie.get(itemIndex).entityDamage, textx, dFrameY + gp.getTileSize()+ 30);
         }
+
+//        String text2 = "* Tekan tombol Esc ketika ingin kembali ke title screen";
+//        String text3 = "* Gunakan WASD untuk memindahkan kursor";
+//        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 24F));
+//        g2.drawString(text3, gp.getTileSize()*2, gp.getTileSize()*8);
+//        g2.drawString(text2, gp.getTileSize()*2, gp.getTileSize()*8 + 20);
+
+    }
+
+    public int getItemIndexOnSlot(){
+        int itemIndex = slotColInv + (slotRowInv*5);
+        return itemIndex;
     }
 
     public void drawHelp(){
@@ -562,13 +567,6 @@ public class UI {
 //        g2.drawString(text3, gp.getTileSize()*2, gp.getTileSize()*8);
 //        g2.drawString(text2, gp.getTileSize()*2, gp.getTileSize()*8 + 20);
 
-//        int frameX2 = gp.getTileSize()*2 - 20;
-//        int frameY2 = gp.getTileSize()*4 - 40;
-//        int frameWidth2 = gp.getTileSize() * 14;
-//        int frameHeight2 = gp.getTileSize() * 8;
-//
-//        drawSubWindow(frameX2, frameY2, frameWidth2, frameHeight2);
-
         // DESCRIPTION FRAME
         int dFrameX = gp.getTileSize() + 20;
         int dFrameY = frameY + frameHeight + 20;
@@ -588,13 +586,15 @@ public class UI {
             g2.drawString("Health : " + inventory.get(itemIndex).maxHealth, textx, dFrameY + gp.getTileSize() + 10);
             g2.drawString(inventory.get(itemIndex).description, textx, texty);
             g2.drawString(inventory.get(itemIndex).des2, textx, texty + 20);
-            g2.drawString("Attack Damage : " + inventory.get(itemIndex).plantDamage, textx, dFrameY + gp.getTileSize()+ 30);
+            g2.drawString("Attack Damage : " + inventory.get(itemIndex).entityDamage, textx, dFrameY + gp.getTileSize()+ 30);
         }
-    }
+//        int frameX2 = gp.getTileSize()*2 - 20;
+//        int frameY2 = gp.getTileSize()*4 - 40;
+//        int frameWidth2 = gp.getTileSize() * 14;
+//        int frameHeight2 = gp.getTileSize() * 8;
+//
+//        drawSubWindow(frameX2, frameY2, frameWidth2, frameHeight2);
 
-    public int getItemIndexOnSlot(){
-        int itemIndex = slotColInv + (slotRowInv*5);
-        return itemIndex;
     }
 
 

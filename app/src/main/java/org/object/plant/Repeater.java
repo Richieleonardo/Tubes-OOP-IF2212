@@ -14,12 +14,12 @@ public class Repeater extends Plant {
         super(gp, "Repeater", 200, 300, 40, 4, -1, 5, false);
 
         //name = "Repeater";
+        description = "Repeater adalah plant yang dapat menyerang zombie menggunakan 2 pea sekaligus.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/Repeater.png");
         collision = true;
         projectile = new Pea2(gp);
         projectile2 = new Pea2(gp);
-        description = "Repeater adalah plant yang dapat menyerang zombie menggunakan 2 pea sekaligus.";
-        plantDamage = getAttackDamage();
     }
 
     @Override

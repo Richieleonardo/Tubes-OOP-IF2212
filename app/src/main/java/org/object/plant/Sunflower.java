@@ -13,10 +13,10 @@ public class Sunflower extends Plant implements ProduceSun{
         super(gp, "Sunflower", 50, 100, 0, 0, 0, 10, false);
 
         //name = "Sunflower";
+        description = "Sunflower adalah tanaman spesial yang dapat menghasilkan 25 sun setiap 3 detik.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/Sunflower.png");
         collision = true;
-        description = "Sunflower adalah tanaman spesial yang dapat menghasilkan 25 sun setiap 3 detik.";
-        plantDamage = getAttackDamage();
     }
 
     @Override

@@ -13,6 +13,8 @@ public class NormalZombie extends Zombie {
 
     public NormalZombie(GamePanel gp) {
         super(gp, "NormalZombie", 125, 1, 100, 3);
+        description = "NormalZombie adalah zombie yang tidak memiliki atribut.";
+        entityDamage = getAttackDamage();
         direction = "left";
         getImage();
 //        solidArea.width = 45;
@@ -25,8 +27,6 @@ public class NormalZombie extends Zombie {
         left2 = setup("/zombie/NormalZombie.png");
         right1 = setup("/zombie/NormalZombie.png");
         right2 = setup("/zombie/NormalZombie.png");
-        description = "NormalZombie adalah zombie yang tidak memiliki atribut.";
-        plantDamage = getAttackDamage();
     }
 
     public void setAction(){

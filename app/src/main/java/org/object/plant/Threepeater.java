@@ -12,13 +12,13 @@ public class Threepeater extends Plant {
         super(gp, "Threepeater", 325, 300, 60, 4, -1, 15, false);
 
         //name = "Threepeater";
+        description = "Threepeater adalah plant yang dapat menyerang zombie pada 3 tile berbeda menggunakan .";
+        des2 = "pea.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/Threepeater.png");
         projectile = new Pea2(gp);
         projectile2 = new Pea2(gp);
         projectile3 = new Pea2(gp);
-        description = "Threepeater adalah plant yang dapat menyerang zombie pada 3 tile berbeda menggunakan .";
-        des2 = "pea.";
-        plantDamage = getAttackDamage();
     }
 
     @Override

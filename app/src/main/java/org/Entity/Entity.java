@@ -27,16 +27,16 @@ public class Entity implements Cloneable {
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;//Store image file
     public String direction = "down"; //DEFAULT
 
+    public int entityDamage;
+    public String description = "";
+    public String des2 = "";
+
     public int spriteCounter = 0;
     public int spriteNum = 1;
 
     //ENTITY STATUS
     public int maxHealth;
     public int Health;
-
-    public String description = "";
-    public int plantDamage;
-    public String des2 = "";
 
     public Rectangle solidArea = new Rectangle(0,0,48,48);
     public int solidAreaDefaultX, solidAreaDefaultY;

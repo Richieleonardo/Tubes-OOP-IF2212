@@ -13,11 +13,11 @@ public class Cabbagepult extends Plant {
         super(gp, "Cabbagepult", 100, 300, 40, 1, -1, 5, false);
 
         //name = "Cabbagepult";
+        description = "Cabbagepult adalah plant yang dapat menyerang zombie menggunakan cabbage pellet.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/Cabbagepult.png");
         collision = true;
         projectile = new Cabbage_pellet(gp);
-        description = "Cabbagepult adalah plant yang dapat menyerang zombie menggunakan cabbage pellet.";
-        plantDamage = getAttackDamage();
     }
 
     @Override

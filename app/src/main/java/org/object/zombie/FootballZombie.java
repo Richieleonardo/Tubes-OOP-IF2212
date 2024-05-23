@@ -8,10 +8,10 @@ import java.util.Random;
 public class FootballZombie extends Zombie {
     public FootballZombie(GamePanel gp) {
         super(gp, "Football Zombie", 275, 2, 125, 1);
+        description = "FootballZombie adalah zombie yang menggunakan atribut pemain football.";
+        entityDamage = getAttackDamage();
         direction = "left";
         getImage();
-        description = "FootballZombie adalah zombie yang menggunakan atribut pemain football.";
-        plantDamage = getAttackDamage();
     }
     public void getImage() {
 

@@ -8,11 +8,11 @@ import java.util.Random;
 public class DuckyTubeZombie extends Zombie{
     public DuckyTubeZombie(GamePanel gp) {
         super(gp, "Ducky Tube Zombie", 100, 1, 100, 1);
+        description = "DuckyTubeZombie adalah zombie aquatic yang menggunakan atribut ducky tube.";
+        entityDamage = getAttackDamage();
         direction = "left";
         setIsAquatic(true);
         getImage();
-        description = "DuckyTubeZombie adalah zombie aquatic yang menggunakan atribut ducky tube.";
-        plantDamage = getAttackDamage();
     }
     public void getImage() {
         //TODO

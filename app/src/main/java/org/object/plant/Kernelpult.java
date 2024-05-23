@@ -11,11 +11,11 @@ public class Kernelpult extends Plant {
         super(gp, "Kernelpult", 100, 300, 30, 3, -1, 5, false);
 
         //name = "Kernelpult";
+        description = "Kernelpult adalah plant yang dapat menyerang zombie menggunakan kernel pellet.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/Kernelpult.png");
         collision = true;
         projectile = new Kernel_pellet(gp);
-        description = "Kernelpult adalah plant yang dapat menyerang zombie menggunakan kernel pellet.";
-        plantDamage = getAttackDamage();
     }
 
     @Override

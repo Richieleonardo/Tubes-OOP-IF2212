@@ -8,11 +8,11 @@ import java.util.Random;
 public class DolphinRiderZombie extends Zombie implements Jump{
     public DolphinRiderZombie(GamePanel gp) {
         super(gp, "Dolphin Rider Zombie", 175, 1, 100, 1);
+        description = "DolphinRiderZombie adalah zombie aquatic yang dapat melompati Plant sebanyak 1 kali.";
+        entityDamage = getAttackDamage();
         setIsAquatic(true);
         direction = "left";
         getImage();
-        description = "DolphinRiderZombie adalah zombie aquatic yang dapat melompati Plant sebanyak 1 kali.";
-        plantDamage = getAttackDamage();
     }
     public void getImage() {
         //TODO
