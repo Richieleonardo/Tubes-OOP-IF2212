@@ -17,20 +17,35 @@ public class Squash extends Plant {
     }
 
     @Override
-    public Plant clone(){
+    public Plant clone() {
         return new Squash(gp);
     }
 
-    public void update(){
-//        System.out.println(name + "Health : " + Health);
+    public void update() {
+        System.out.println(name + "Health : " + Health);
         Shoot();
-//        int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
-//        if(zombieIndex != 999){
-//            attackZombie(zombieIndex);
-//            alive = false;
-//            worldX += 48;
-//        }
+
+    }
+
+    public void Shoot() {
+        //      PROJECTILE GENERATE ONLY WHEN THE OTHER IS NOT ALIVE
+            for (Entity zombie : gp.zombie) {
+                if (zombie != null) {
+                    if (zombie.worldY == this.worldY) {
+                        int distance = zombie.worldX - this.worldX;
+                        if (distance <= getRange()) {
+                            if (projectile.alive == false) {
+                                projectile.set(worldX, worldY, direction, true, this);
+
+                                //ADD PROJECTILE TO LIST
+                                gp.projectileList.add(projectile);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 
-}
+

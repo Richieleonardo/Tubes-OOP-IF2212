@@ -20,14 +20,14 @@ public class Pea2 extends Projectile{
         maxHealth = 99999;
         Health = maxHealth;
         alive = false;
-//        solidArea = new Rectangle();
-//        solidArea.x = 9;
-//        solidArea.y = 9;
-//        solidArea.width = 27;
-//        solidArea.height = 27;
-//
-//        solidAreaDefaultX = 9;
-//        solidAreaDefaultY = 9;
-//        collision = true;
+        solidArea = new Rectangle();
+        solidArea.x = 9;
+        solidArea.y = 6;
+        solidArea.width = 27;
+        solidArea.height = 27;
+
+        solidAreaDefaultX = 9;
+        solidAreaDefaultY = 6;
+        collision = true;
     }
 }
