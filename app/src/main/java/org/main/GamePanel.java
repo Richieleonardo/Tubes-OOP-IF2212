@@ -79,7 +79,9 @@ public class GamePanel extends JPanel implements Runnable{
     public final int ListPlantState = 5;
     public final int ListZombiesState = 6;
     public final int HelpState = 7;
-    public final int swapState = 8; //LATER USE
+    public final int swapStateInv = 8; //LATER USE
+    public final int swapStateDeck = 9;
+    public final int endState = 10;
 
     //Constructor
     public GamePanel(){
@@ -93,7 +95,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame(){
 //        assetSetter.setObject();
 //        assetSetter.setPlant(plant);
-        assetSetter.setPlant(new Sunflower(this), 15, 6);
+//        assetSetter.setPlant(new Sunflower(this), 15, 6);
 //        assetSetter.setPlant(new Threepeater(this), 18, 7);
 //        assetSetter.setPlant(new Cabbagepult(this), 17, 7);
 //        assetSetter.setPlant(new Peashooter(this), 18, 7);
@@ -149,6 +151,11 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update(){ //update the draw method
 
+        if(gameState == titleState){
+            ui.gameFinishedLose = false;
+            ui.gameFinishedWin = false;
+        }
+
         if(gameState == playState){
             //PLAYER
             player.update();
@@ -159,6 +166,9 @@ public class GamePanel extends JPanel implements Runnable{
                 if(zombie.get(i) != null){
                     Zombie enemy = (Zombie) zombie.get(i);
                     enemy.update();
+                    if(enemy.collisionTile){
+                        ui.gameFinishedLose = true;
+                    }
 //                    zombie.get(i).update();
                 }
             }
@@ -185,11 +195,12 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
-
-
-
-
-
+        if(UI.playTime > 200 && zombie.isEmpty()){
+            ui.gameFinishedWin = true;
+        }
+        if(ui.gameFinishedLose || ui.gameFinishedWin){
+            gameState = endState;
+        }
     }
 
     public void paintComponent(Graphics g){
@@ -206,7 +217,11 @@ public class GamePanel extends JPanel implements Runnable{
 
         //TITLE SCREEN
         if(gameState == titleState){
-            ui.draw(g2);
+            try {
+                ui.draw(g2);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }else{
             //TILE
             tileM.draw(g2);
@@ -262,7 +277,11 @@ public class GamePanel extends JPanel implements Runnable{
             entityList.clear();
 
             //UI
-            ui.draw(g2);
+            try {
+                ui.draw(g2);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
 
 

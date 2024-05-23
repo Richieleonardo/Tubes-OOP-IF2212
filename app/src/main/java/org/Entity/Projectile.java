@@ -23,7 +23,9 @@ public class Projectile extends Entity{
         this.Health = this.maxHealth;
     }
 
-
+    public Plant getUser(){
+        return user;
+    }
 
     public void update(){
         //Check zombie collision

@@ -220,7 +220,7 @@ public class Player extends Entity{
 
     //SPAWN THE ZOMBIE
     public void spawnZombies(){
-        if(UI.playTime > 20){
+        if(UI.playTime > 20 && UI.playTime <= 160){
             if(zombieTickCounter == 3*60){ //ZOMBIE SPAWN 3 DETIK  SEKALI
                 SecureRandom rand = new SecureRandom();
                 int row = rand.nextInt(6); //WORLDY COORDINATE
@@ -267,7 +267,9 @@ public class Player extends Entity{
     }
 
     public void update(){
-        addSun();
+        if(UI.playTime < 100){
+            addSun();
+        }
         spawnZombies();
 //        System.out.println(Health);
         if(keyH.upPressed || keyH.downPressed ||
