@@ -16,8 +16,8 @@ public class Squash_proj extends Projectile{
         name = "Squash_proj";
         down1 = setup("/plant/Squash.png");
 
-        speed = 1;
-        maxHealth = 99999;
+        speed = 2;
+        maxHealth = 60;
         Health = maxHealth;
         alive = false;
 //        solidArea = new Rectangle();

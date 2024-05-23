@@ -9,7 +9,7 @@ public class Threepeater extends Plant {
     Projectile projectile2;
     Projectile projectile3;
     public Threepeater(GamePanel gp){
-        super(gp, "Threepeater", 325, 300, 60, 4, -1, 15, false);
+        super(gp, "Threepeater", 325, 300, 40, 4, -1, 15, false);
 
         //name = "Threepeater";
         down1 = setup("/plant/Threepeater.png");
@@ -45,12 +45,15 @@ public class Threepeater extends Plant {
                                 gp.projectileList.add(projectile);
 
 //                                projectile = new Pea2(gp); // Create new projectile instance
-                                projectile2.set(worldX, worldY-48, direction, true, this);  // Consider using Repeater instead of 'this'
-                                gp.projectileList.add(projectile2);
-
+                                if (worldY-1*gp.getTileSize()!=5* gp.getTileSize()) {
+                                    projectile2.set(worldX, worldY - 48, direction, true, this);  // Consider using Repeater instead of 'this'
+                                    gp.projectileList.add(projectile2);
+                                }
+                                if (worldY+1*gp.getTileSize()!=12* gp.getTileSize()) {
 //                                projectile = new Pea2(gp); // Create new projectile instance
-                                projectile3.set(worldX, worldY+48, direction, true, this);  // Consider using Repeater instead of 'this'
-                                gp.projectileList.add(projectile3);
+                                    projectile3.set(worldX, worldY + 48, direction, true, this);  // Consider using Repeater instead of 'this'
+                                    gp.projectileList.add(projectile3);
+                                }
                             }
                         }
                     }
