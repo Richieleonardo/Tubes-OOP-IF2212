@@ -16,6 +16,8 @@ TODO : IMPLEMENT abstract PLANT yang extend Entity.
        Buat ArrayList baru di GamePanel untuk menyimpan Plant dan Zombie saja.
 
  */
+
+//DESIGN PATTERN PROTOTYPE
 public class Entity implements Cloneable {
     public GamePanel gp;
 

@@ -10,6 +10,10 @@ public class KeyHandler implements KeyListener {
 
     public boolean checkDrawTime = false;
 
+    //SWAP PLANT
+    public boolean pressedCtrl = false;
+    public boolean pressedR = false;
+
     public KeyHandler(GamePanel gp){
         this.gp = gp;
     }
@@ -18,6 +22,8 @@ public class KeyHandler implements KeyListener {
     public void keyTyped(KeyEvent e) {
     }
 
+
+    int pastGameState;
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode(); //return number key that was pressed
@@ -50,7 +56,7 @@ public class KeyHandler implements KeyListener {
                 //PLANT ITEMS
                 gp.player.putPlant();
             }
-            if(code == KeyEvent.VK_V){
+            if(code == KeyEvent.VK_BACK_SPACE){
                 //PLANT ITEMS
                 gp.player.digPlant();
             }
@@ -224,6 +230,76 @@ public class KeyHandler implements KeyListener {
             }
         }
 
+        if(code == KeyEvent.VK_2){
+            if(gp.gameState == gp.inventoryState || gp.gameState == gp.deckState){
+                gp.gameState = gp.swapStateInv;
+                System.out.println("Change State " + gp.gameState);
+            }
+            else if(gp.gameState == gp.swapStateInv){ //Always comeback to inventory state after swap
+                gp.gameState = gp.inventoryState;
+                System.out.println("Change State " + gp.gameState);
+            }
+        }
+
+        if(code == KeyEvent.VK_3){
+            if(gp.gameState == gp.inventoryState){
+                gp.gameState = gp.swapStateDeck;
+                System.out.println("Change State " + gp.gameState);
+            }
+            else if(gp.gameState == gp.swapStateDeck){ //Always comeback to inventory state after swap
+                gp.gameState = gp.inventoryState;
+                System.out.println("Change State " + gp.gameState);
+            }
+        }
+
+        //SWAP STATE
+        if(gp.gameState == gp.swapStateInv){
+            if(code == KeyEvent.VK_W){
+                if(gp.ui.slotRowInv != 0){
+                    gp.ui.slotRowInv--;
+                }
+
+            }
+            if(code == KeyEvent.VK_S){
+                if(gp.ui.slotRowInv != 1){
+                    gp.ui.slotRowInv++;
+                }
+            }
+            if(code == KeyEvent.VK_A){
+                if(gp.ui.slotColInv != 0) {
+                    gp.ui.slotColInv--;
+                }
+            }
+            if(code == KeyEvent.VK_D){
+                if(gp.ui.slotColInv != 4){
+                    gp.ui.slotColInv++;
+                }
+            }
+            if(code == KeyEvent.VK_CONTROL){
+                pressedCtrl = true;
+            }
+            if(code == KeyEvent.VK_R){
+                pressedR = true;
+            }
+        }
+        if(gp.gameState == gp.swapStateDeck){
+            if(code == KeyEvent.VK_Z){
+                if(gp.ui.slotColDeck != 0){
+                    gp.ui.slotColDeck--;
+                }
+            }
+            if(code == KeyEvent.VK_X){
+                if(gp.ui.slotColDeck != 5){
+                    gp.ui.slotColDeck++;
+                }
+            }
+            if(code == KeyEvent.VK_CONTROL){
+                pressedCtrl = true;
+            }
+            if(code == KeyEvent.VK_R){
+                pressedR = true;
+            }
+        }
 
         //DEBUG
         if(code == KeyEvent.VK_T){
@@ -251,5 +327,11 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_D){
             rightPressed = false;
         }
+        if(code == KeyEvent.VK_CONTROL){
+            pressedCtrl = false;
+        }
+//        if(code == KeyEvent.VK_R){
+//            pressedR = false;
+//        }
     }
 }

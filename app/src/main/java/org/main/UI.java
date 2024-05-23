@@ -5,14 +5,12 @@ import org.Entity.Player;
 import org.object.pellet.SunParticle;
 import org.object.plant.*;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import org.Entity.Entity;
+import java.util.Collections;
+
 import org.object.zombie.*;
 
 public class UI {
@@ -32,8 +30,23 @@ public class UI {
     // INVENTORY
     int slotColInv = 0;
     int slotRowInv = 0;
+
+    //DECK
     public int slotColDeck = 0;
     public int slotRowDeck = 0;
+
+    //TEMP
+    class TempCursor{
+        int tempCol;
+        int tempRow;
+
+        public TempCursor(int tempCol, int tempRow){
+            this.tempCol = tempCol;
+            this.tempRow = tempRow;
+        }
+    }
+
+
     public ArrayList<Entity> inventory = new ArrayList<>();
     public ArrayList<Entity> inventoryZombie = new ArrayList<>();
     public final int inventorySize = 10;
@@ -151,6 +164,93 @@ public class UI {
         g2.drawString(text6, gp.getTileSize(), gp.getTileSize()*8 + 60);
     }
 
+    int cursorCol = 0;
+    int cursorRow = 0;
+    public void swapPlantInv(){
+        int plantIndex1, plantIndex2;
+
+        //GAME CONDITION
+        if(gp.keyH.pressedCtrl == true){
+            TempCursor tempCursorInv = new TempCursor(slotColInv, slotRowInv);
+            cursorCol = tempCursorInv.tempCol;
+            cursorRow = tempCursorInv.tempRow;
+        }
+        if(gp.gameState == gp.swapStateInv){
+            int frameX = (gp.getTileSize()/2) + 20;
+            int frameY = (gp.getTileSize() * 3) + 20;
+            //UNTUK CURSOR NORMAL
+            int cursorX = frameX + (gp.getTileSize() * slotColInv);
+            int cursorY = frameY + (gp.getTileSize() * slotRowInv);
+
+            //UNTUK CURSOR PILIH
+            int cursorXtemp = frameX + (gp.getTileSize() * cursorCol);
+            int cursorYtemp = frameY + (gp.getTileSize() * cursorRow);
+            int cursorWidth = gp.getTileSize();
+            int cursorHeight = gp.getTileSize();
+
+            //DRAW YELLOW CURSOR
+            g2.setColor(Color.yellow);
+            g2.setStroke(new BasicStroke(3));
+            g2.drawRoundRect(cursorXtemp, cursorYtemp, cursorWidth, cursorHeight, 10, 10);
+
+            //DRAW CURSOR
+            g2.setColor(Color.white);
+            g2.setStroke(new BasicStroke(3));
+            g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
+
+            plantIndex1 = cursorCol + (cursorRow * 5);
+            plantIndex2 = getPlantIndexOnInventory();
+
+            if(gp.keyH.pressedR == true){
+                Collections.swap(inventory, plantIndex1, plantIndex2);
+                gp.keyH.pressedR = false;
+            }
+        }
+    }
+
+
+    public void swapPlantDeck(){
+        int plantIndex1, plantIndex2;
+
+        //GAME CONDITION
+        if(gp.keyH.pressedCtrl == true){
+            TempCursor tempCursorInv = new TempCursor(slotColDeck, slotRowDeck);
+            cursorCol = tempCursorInv.tempCol;
+            cursorRow = tempCursorInv.tempRow;
+        }
+        if(gp.gameState == gp.swapStateDeck){
+            int frameX = (gp.getTileSize()/2) + 20;
+            int frameY = 10 + 20;
+            //UNTUK CURSOR NORMAL
+            int cursorX = frameX + (gp.getTileSize() * slotColDeck);
+            int cursorY = frameY + (gp.getTileSize() * slotRowDeck);
+
+            //UNTUK CURSOR PILIH
+            int cursorXtemp = frameX + (gp.getTileSize() * cursorCol);
+            int cursorYtemp = frameY + (gp.getTileSize() * cursorRow);
+            int cursorWidth = gp.getTileSize();
+            int cursorHeight = gp.getTileSize();
+
+            //DRAW YELLOW CURSOR
+            g2.setColor(Color.yellow);
+            g2.setStroke(new BasicStroke(3));
+            g2.drawRoundRect(cursorXtemp, cursorYtemp, cursorWidth, cursorHeight, 10, 10);
+
+            //DRAW CURSOR
+            g2.setColor(Color.white);
+            g2.setStroke(new BasicStroke(3));
+            g2.drawRoundRect(cursorX,cursorY, cursorWidth, cursorHeight, 10, 10);
+
+            plantIndex1 = cursorCol;
+            plantIndex2 = getPlantIndexOnDeck();
+
+            if(gp.keyH.pressedR == true){
+                Collections.swap(gp.player.deck, plantIndex1, plantIndex2);
+                gp.keyH.pressedR = false;
+            }
+        }
+    }
+
     public void drawHeader1(String text, int x, int y){
         Font header1 = new Font("Arial", Font.BOLD, 26);
         g2.drawString(text, x, y);
@@ -244,6 +344,16 @@ public class UI {
             drawInventory();
         }
 
+        if(gp.gameState == gp.swapStateInv){
+            drawDeck();
+            drawInventory();
+            swapPlantInv();
+        }
+        if(gp.gameState == gp.swapStateDeck){
+            drawDeck();
+            drawInventory();
+            swapPlantDeck();
+        }
         //CHANGE CURSOR POSITION
         if(gp.gameState == gp.deckState){
             drawDeck();

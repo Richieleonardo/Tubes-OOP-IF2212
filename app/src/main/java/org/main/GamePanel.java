@@ -79,7 +79,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int ListPlantState = 5;
     public final int ListZombiesState = 6;
     public final int HelpState = 7;
-    public final int swapState = 8; //LATER USE
+    public final int swapStateInv = 8; //LATER USE
+    public final int swapStateDeck = 9;
 
     //Constructor
     public GamePanel(){
