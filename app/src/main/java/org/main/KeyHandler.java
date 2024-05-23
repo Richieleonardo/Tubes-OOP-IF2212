@@ -132,6 +132,7 @@ public class KeyHandler implements KeyListener {
                 gp.ui.gameFinishedLose = false;
                 UI.playTime = 0;
                 gp.player.deck.clear();
+                gp.zombie.clear();
                 gp.gameState = gp.titleState;
             }
         }

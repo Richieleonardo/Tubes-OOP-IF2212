@@ -1,5 +1,6 @@
 package org.object.zombie;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
 
 import java.util.Random;
@@ -34,5 +35,6 @@ public class PoleVaultingZombie extends Zombie implements Jump{
         this.worldX -=48;
         //    super.attackPlant();
     }
+
 }
 

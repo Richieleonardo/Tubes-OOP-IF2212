@@ -321,7 +321,7 @@ public class UI {
         g2.drawRoundRect(x+5, y+5, width-10, height-10, 25, 25);
     }
 
-    public void draw(Graphics2D g2) throws InterruptedException {
+    public void draw(Graphics2D g2){
         this.g2 = g2;
         g2.setFont(arial_40);
         g2.setColor(Color.WHITE);

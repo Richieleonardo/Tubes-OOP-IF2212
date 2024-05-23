@@ -1,10 +1,11 @@
 package org.object.zombie;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
 
 import java.util.Random;
 
-public class DolphinRiderZombie extends Zombie implements Jump {
+public class DolphinRiderZombie extends Zombie implements Jump{
     public DolphinRiderZombie(GamePanel gp) {
         super(gp, "Dolphin Rider Zombie", 175, 1, 100, 1);
         setIsAquatic(true);

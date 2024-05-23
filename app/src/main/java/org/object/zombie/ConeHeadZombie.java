@@ -1,10 +1,12 @@
 package org.object.zombie;
 
+import org.Entity.Entity;
 import org.main.GamePanel;
+import org.object.plant.Cabbagepult;
 
 import java.util.Random;
 
-public class ConeHeadZombie extends Zombie {
+public class ConeHeadZombie extends Zombie{
     public ConeHeadZombie(GamePanel gp) {
         super(gp, "Cone Head Zombie", 250, 1, 100, 1);
         direction = "left";
