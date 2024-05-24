@@ -20,23 +20,9 @@ public class PoleVaultingZombie extends Zombie implements Jump{
 //        left2 = setup("/zombie/.png");
 // belum ada png
     }
-    public void setAction(){
 
-//        tickCounter++;
-//
-//        if(tickCounter == 120){
-//            Random random = new Random();
-//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
-//
-//            if(i <= 25){
-//                direction = "left";
-//                tickCounter = 0;
-//            }
-//            tickCounter = 0;        }
-    }
     public void jump(){
         this.worldX -=60;
-        //    super.attackPlant();
     }
     @Override
     public void update(){
@@ -50,7 +36,7 @@ public class PoleVaultingZombie extends Zombie implements Jump{
             if (!hasJumped) {
                 if (collisionOn) {
                     jump();
-                    attackPlant(Index);
+                    instakillPlant(Index);
                     hasJumped = true;
                 } else {
                     attackPlant(Index);
@@ -75,6 +61,16 @@ public class PoleVaultingZombie extends Zombie implements Jump{
             if (frameCounter > 60) {
                 worldX -= (int) (speed + 5.00);
                 frameCounter = 0;
+            }
+        }
+    }
+    public void instakillPlant(int i){
+        if(i != 999 && canAttack){
+            gp.plant.get(i).Health = 0;
+            canAttack = false;
+            if(gp.plant.get(i).Health <= 0){
+                gp.plant.remove(i);
+                canAttack = true;
             }
         }
     }

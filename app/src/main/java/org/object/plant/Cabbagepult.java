@@ -10,7 +10,7 @@ public class Cabbagepult extends Plant {
 
 
     public Cabbagepult(GamePanel gp){
-        super(gp, "Cabbagepult", 100, 300, 40, 1, -1, 5, false);
+        super(gp, "Cabbagepult", 100, 300, 40, 5, -1, 5, false);
 
         //name = "Cabbagepult";
         description = "Cabbagepult adalah plant yang dapat menyerang zombie menggunakan cabbage pellet.";

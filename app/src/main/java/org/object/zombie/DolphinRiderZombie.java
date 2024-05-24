@@ -21,9 +21,7 @@ public class DolphinRiderZombie extends Zombie implements Jump{
 
 
     }
-    public void setAction(){
 
-    }
     public void jump(){
         this.worldX -=60;
     //    super.attackPlant();
@@ -40,7 +38,7 @@ public class DolphinRiderZombie extends Zombie implements Jump{
             if (!hasJumped) {
                 if(collisionOn) {
                     jump();
-                    attackPlant(Index);
+                    instakillPlant(Index);
                     hasJumped = true;
                 } else {attackPlant(Index);}
             }
@@ -63,6 +61,16 @@ public class DolphinRiderZombie extends Zombie implements Jump{
             if (frameCounter > 60) {
                     worldX -= (int) (speed + 5.00);
                     frameCounter = 0;
+            }
+        }
+    }
+    public void instakillPlant(int i){
+        if(i != 999 && canAttack){
+            gp.plant.get(i).Health = 0;
+            canAttack = false;
+            if(gp.plant.get(i).Health <= 0){
+                gp.plant.remove(i);
+                canAttack = true;
             }
         }
     }

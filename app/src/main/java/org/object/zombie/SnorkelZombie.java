@@ -20,9 +20,7 @@ public class SnorkelZombie extends Zombie {
 
 
     }
-    public void setAction(){
 
-    }
     public void jump(){
         this.worldX -=144;
         //    super.attackPlant();
