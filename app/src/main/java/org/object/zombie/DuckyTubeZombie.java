@@ -16,7 +16,7 @@ public class DuckyTubeZombie extends Zombie{
     }
     public void getImage() {
         //TODO
-        left1 = setup("/zombie/NormalZombie.png");
+        left1 = setup("/zombie/DuckyTubeZombie.png");
 
 
     }
