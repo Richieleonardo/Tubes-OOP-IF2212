@@ -17,6 +17,7 @@ public class Repeater extends Plant {
         description = "Repeater adalah plant yang dapat menyerang zombie menggunakan 2 pea sekaligus.";
         entityDamage = getAttackDamage();
         down1 = setup("/plant/Repeater.png");
+        down2 = setup("/plant/Repeater_Cooldown.png");
         collision = true;
         projectile = new Pea2(gp);
     }

@@ -13,6 +13,7 @@ public class Squash extends Plant {
         description = "Squash adalah plant yang dapat melakukan instakill pada zombie.";
         entityDamage = getAttackDamage();
         down1 = setup("/plant/Squash.png");
+        down2 = setup("/plant/Squash_Cooldown.png");
         collision = true;
         projectile = new Squash_proj(gp);
     }

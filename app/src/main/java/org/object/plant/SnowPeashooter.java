@@ -13,6 +13,7 @@ public class SnowPeashooter extends Plant {
         des2 = "menggunakan snowpea.";
         entityDamage = getAttackDamage();
         down1 = setup("/plant/SnowPeashooter.png");
+        down2 = setup("/plant/SnowPeashooter_Cooldown.png");
         collision = true;
         projectile = new SnowPea(gp);
     }
