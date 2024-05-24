@@ -16,7 +16,7 @@ public class Corn extends Projectile {
         speed = 2;
         maxHealth = 999; //Yang -1 assign healthnya tinggi aja, ini lifetime projectilenya 999 health = 999 frame (60 frame = 1 detik)
         Health = maxHealth;
-        alive = false;
+       alive = false;
 
         name = "Cabbage_pellet";
         down1 = setup("/objects/Corn.png");
