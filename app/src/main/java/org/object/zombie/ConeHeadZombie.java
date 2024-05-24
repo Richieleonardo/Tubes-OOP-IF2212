@@ -21,8 +21,5 @@ public class ConeHeadZombie extends Zombie{
         right1 = setup("/zombie/ConeHeadZombie.png");
         right2 = setup("/zombie/ConeHeadZombie.png");
     }
-    public void setAction(){
-
-    }
 }
 

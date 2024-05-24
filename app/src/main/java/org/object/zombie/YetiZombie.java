@@ -18,9 +18,7 @@ public class YetiZombie extends Zombie implements Escape{
         right1 = setup("/zombie/YetiZombie_Right.png");
         right2 = setup("/zombie/YetiZombie_Right.png");
     }
-    public void setAction(){
 
-    }
     public void goBack(){
         direction = "right";
         frameCounter++;
