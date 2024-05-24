@@ -95,7 +95,8 @@ public class TileManager {
     public void draw(Graphics2D g2){
         int col = 0;
         int row = 0;
-
+//        int x = gp.getTileSize();
+//        int y = - (gp.getTileSize() * 2);
         while(col < gp.maxWorldCol && row < gp.maxWorldRow){ //maxWorldCol, maxWorldRow for camera settings
 
             int tileNum = mapTileNum[col][row];
@@ -105,21 +106,24 @@ public class TileManager {
             int screenX = worldX - gp.player.worldX + gp.player.screenX;
             int screenY = worldY - gp.player.worldY + gp.player.screenY;
 
-            if(     worldX + gp.getTileSize() > gp.player.worldX - gp.player.screenX  &&
-                    worldX - gp.getTileSize() < gp.player.worldX + gp.player.screenX  &&
-                    worldY + gp.getTileSize() > gp.player.worldY - gp.player.screenY  &&
-                    worldY - gp.getTileSize() < gp.player.worldY + gp.player.screenY )
-            {
+//            if(     worldX + gp.getTileSize() > gp.player.worldX - gp.player.screenX  &&
+//                    worldX - gp.getTileSize() < gp.player.worldX + gp.player.screenX  &&
+//                    worldY + gp.getTileSize() > gp.player.worldY - gp.player.screenY  &&
+//                    worldY - gp.getTileSize() < gp.player.worldY + gp.player.screenY )
+//            {
                 g2.drawImage(tile[tileNum].image, screenX, screenY, null); //Optimized draw tile
-            }
-
+//            }
+//
             col++;
-
-
-            if(col == gp.maxWorldCol ){
+//            g2.drawImage(tile[tileNum].image, x, y, gp.getTileSize(), gp.getTileSize(), null);
+//            col++;
+//            x += gp.getTileSize();
+            if(col == gp.maxWorldCol){
                 col = 0;
+//                x = gp.getTileSize();
                 row++;
-
+//                y = gp.getTileSize();
+//
             }
         }
     }

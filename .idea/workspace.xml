@@ -5,33 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="merge main">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/BucketHeadZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/ConeHeadZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/DolphinRiderZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/DuckyTubeZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/FootballZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/NormalZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/PoleVaultingZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/ScreenDoorZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/SnorkelZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/YetiZombieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/object/factory/ZombieFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_43_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_05_2024_1_43__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/BucketHeadZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/BucketHeadZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Cat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ConeHeadZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ConeHeadZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/FootballZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/FootballZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/NormalZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ScreenDoorZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/ScreenDoorZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/YetiZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/objects/Cat_Orange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/Zombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

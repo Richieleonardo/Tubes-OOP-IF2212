@@ -254,20 +254,21 @@ public class Player extends Entity{
         if(UI.playTime > 20 && UI.playTime <= 160){
             if(zombieTickCounter == 3*60){ //ZOMBIE SPAWN 3 DETIK  SEKALI
                 SecureRandom rand = new SecureRandom();
-                int row = rand.nextInt(6); //WORLDY COORDINATE
-                if(rand.nextDouble() <= 0.3){ //30% CHANCE to spawn
-                    if(gp.zombie.size() <= 10){
-                        if (row+6 == 8 || row+6 == 9) {
-                            gp.assetSetter.setZombie(generateAquaticZombie(), 24, row + 6);
-                        }//ZOMBIE CAN'T SPAWN MORE THAN 10
-                        else {
-                            gp.assetSetter.setZombie(generateZombie(),24,row+6);
+                for(int row = 0; row < 6; row++){//WORLDY COORDINATE
+                    if(rand.nextDouble() <= 0.3){ //30% CHANCE to spawn
+                        if(gp.zombie.size() <= 9){
+                            if (row+6 == 8 || row+6 == 9) {
+                                gp.assetSetter.setZombie(generateAquaticZombie(), 24, row + 6);
+                            }//ZOMBIE CAN'T SPAWN MORE THAN 10
+                            else {
+                                gp.assetSetter.setZombie(generateZombie(),24,row+6);
+                            }
                         }
                     }
                 }
-                zombieTickCounter = 0;
+                zombieTickCounter = 0; //RESET COUNTER
             } else {
-                zombieTickCounter++;
+                zombieTickCounter++; //INCREMENT COUNTER
             }
         }
     }
@@ -288,7 +289,9 @@ public class Player extends Entity{
     }
 
     public void update(){
-        addSun();
+        if(UI.playTime < 100){
+            addSun();
+        }
 
         spawnZombies();
 //        System.out.println(Health);
