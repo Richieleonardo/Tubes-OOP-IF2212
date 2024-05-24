@@ -10,6 +10,8 @@ public class Wallnut extends Plant {
         super(gp, "Wall nut", 50, 1000, 0, 0, 0, 20, false);
 
         //name = "Wallnut";
+        description = "Wallnut adalah plant yang hanya memiliki atribut health.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/Wallnut.png");
         collision = true;
     }
