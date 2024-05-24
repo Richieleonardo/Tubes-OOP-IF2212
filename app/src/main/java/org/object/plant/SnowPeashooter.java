@@ -9,6 +9,9 @@ public class SnowPeashooter extends Plant {
         super(gp, "SnowPeashooter", 175, 100, 25, 4, -1, 10, false);
 
         //name = "SnowPeashooter";
+        description = "SnowPeaShooter adalah plant yang dapat memperlambat zombie 50% selama 3 detik ";
+        des2 = "menggunakan snowpea.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/SnowPeashooter.png");
         collision = true;
         projectile = new SnowPea(gp);

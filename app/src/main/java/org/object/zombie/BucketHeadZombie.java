@@ -8,6 +8,8 @@ import java.util.Random;
 public class BucketHeadZombie extends Zombie{
     public BucketHeadZombie(GamePanel gp) {
         super(gp, "Bucket Head Zombie", 300, 1, 100, 1);
+        description = "BucketHeadZombie adalah zombie yang menggunakan atribut ember di kepalanya.";
+        entityDamage = getAttackDamage();
         direction = "left";
         getImage();
     }

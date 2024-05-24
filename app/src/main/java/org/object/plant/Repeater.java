@@ -14,10 +14,11 @@ public class Repeater extends Plant {
         super(gp, "Repeater", 200, 300, 40, 4, -1, 5, false);
 
         //name = "Repeater";
+        description = "Repeater adalah plant yang dapat menyerang zombie menggunakan 2 pea sekaligus.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/Repeater.png");
         collision = true;
         projectile = new Pea2(gp);
-        projectile2 = new Pea2(gp);
     }
 
     @Override
@@ -37,17 +38,14 @@ public class Repeater extends Plant {
                     if (zombie.worldY == this.worldY) {
                         int distance = zombie.worldX - this.worldX;
                         if (distance <= getRange()) {
-                            projectile.set(worldX, worldY, direction, true, this);
-                            gp.projectileList.add(projectile);
+                            if (projectile.alive == false) {
+                                projectile.set(worldX + 12, worldY, direction, true, this);
+                                gp.projectileList.add(projectile);
 
-                            // Shoot second projectile with slight delay
-                            try {
-                                TimeUnit.NANOSECONDS.sleep(2000);
-                                projectile = new Pea2(gp); // Create new projectile instance
-                                projectile2.set(worldX, worldY, direction, true, this);  // Consider using Repeater instead of 'this'
+                                // Shoot second projectile with slight delay
+                                projectile2 = new Pea2(gp);// Create new projectile instance
+                                projectile2.set(worldX - 12, worldY, direction, true, this);
                                 gp.projectileList.add(projectile2);
-                            } catch (Exception e){
-                                e.printStackTrace();
                             }
                         }
                     }

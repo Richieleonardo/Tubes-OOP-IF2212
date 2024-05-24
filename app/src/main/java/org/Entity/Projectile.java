@@ -34,10 +34,10 @@ public class Projectile extends Entity{
             user.attackZombie(zombieIndex);
             alive = false;
         }
-        worldX += this.speed;
+        worldX += 2;
 
         Health--;
-        if(Health <= 0){
+        if(Health <= 0 || worldX == 24*gp.getTileSize()){
             alive = false;
         }
 

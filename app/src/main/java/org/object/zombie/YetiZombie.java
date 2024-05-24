@@ -6,6 +6,8 @@ import org.main.GamePanel;
 public class YetiZombie extends Zombie implements Escape{
     public YetiZombie(GamePanel gp) {
         super(gp, "Yeti Zombie", 400, 1, 200, 1);
+        description = "YetiZombie adalah zombie yang mempunyai kemampuan untuk Escape.";
+        entityDamage = getAttackDamage();
         direction = "left";
         getImage();
     }

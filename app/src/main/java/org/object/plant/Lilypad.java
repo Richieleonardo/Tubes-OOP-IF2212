@@ -9,6 +9,8 @@ public class Lilypad extends Plant {
 
         //belum ada png
         name = "Lilypad";
+        description = "Lilypad adalah tanaman spesial yang dapat menopang tanaman lain di air.";
+        entityDamage = getAttackDamage();
         down1 = setup("/plant/Lilypad.png");
         collision = true;
     }

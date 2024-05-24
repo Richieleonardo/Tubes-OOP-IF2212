@@ -8,6 +8,8 @@ import java.util.Random;
 public class SnorkelZombie extends Zombie {
     public SnorkelZombie(GamePanel gp) {
         super(gp, "Snorkel Zombie", 100, 1, 100, 1);
+        description = "SnorkelZombie adalah zombie aquatic dengan kemampuan menyelam.";
+        entityDamage = getAttackDamage();
         direction = "left";
         getImage();
     }
