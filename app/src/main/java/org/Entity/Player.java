@@ -134,7 +134,7 @@ public class Player extends Entity{
 
         if(plantIndex < deck.size()){
             // Membuat copy plant
-            Plant selectedPlant = (Plant) deck.get(plantIndex).clone();
+            Plant selectedPlant = deck.get(plantIndex).clone();
 
             // Mendapatkan posisi player
             int playerTileX = (int) Math.floor((worldX+24)/gp.getTileSize());
@@ -142,7 +142,7 @@ public class Player extends Entity{
 
             // Menanam jika kondisi berikut terpenuhi
             // TODO: belum memperhitungkan cooldown plant
-            if (hasSun >= selectedPlant.getCost() && isPlantable(selectedPlant, playerTileX, playerTileY) && deck.get(plantIndex).isCooldown() == false){
+            if (hasSun >= selectedPlant.getCost() && isPlantable(selectedPlant, playerTileX, playerTileY) && !deck.get(plantIndex).isCooldown()){
                 useSun(selectedPlant.getCost());
                 gp.assetSetter.setPlant(selectedPlant, playerTileX, playerTileY);
                 deck.get(plantIndex).setCooldown(true);
@@ -151,6 +151,7 @@ public class Player extends Entity{
             }
             else{
                 System.out.println("Tanaman masih cooldown!");
+
             }
         }
     }
@@ -288,10 +289,21 @@ public class Player extends Entity{
         return factory.createZombie(gp);
     }
 
+//    int coolcount = 0;
     public void update(){
         if(UI.playTime < 100){
             addSun();
         }
+
+//        for(Plant deck : deck){
+//            if(deck.isCooldown()){
+//                coolcount++;
+//                if(coolcount > deck.getCooldown()*60){
+//                    deck.setCooldown(false);
+//                    coolcount= 0;
+//                }
+//            }
+//        }
 
         spawnZombies();
 //        System.out.println(Health);

@@ -279,11 +279,18 @@ public class UI {
 
         //DRAW DECK's ITEMS
         for(int i = 0; i < gp.player.deck.size(); i++){
-            g2.drawImage(gp.player.deck.get(i).down1, slotX, slotY, null);
+            if(gp.player.deck.get(i).isCooldown){
+                g2.setFont(g2.getFont().deriveFont(Font.BOLD, 8F));
+                String cooldown = "Cooldown";
+                g2.drawImage(gp.player.deck.get(i).down2, slotX, slotY, null);
+                g2.drawString(cooldown, slotX, slotY+60);
+            }
+            else if(!gp.player.deck.get(i).isCooldown){
+                g2.drawImage(gp.player.deck.get(i).down1, slotX, slotY, null);
+            }
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 11F));
             String cost = String.valueOf(gp.player.deck.get(i).getCost());
-            g2.drawString(cost, slotX+30, slotY+50);
-
+            g2.drawString(cost, slotX+27, slotY+40);
             slotX += gp.getTileSize();
         }
 

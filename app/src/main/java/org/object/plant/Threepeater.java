@@ -16,6 +16,7 @@ public class Threepeater extends Plant {
         des2 = "pea.";
         entityDamage = getAttackDamage();
         down1 = setup("/plant/Threepeater.png");
+        down2 = setup("/plant/Threepeater_Cooldown.png");
         projectile = new Pea2(gp);
         projectile2 = new Pea2(gp);
         projectile3 = new Pea2(gp);

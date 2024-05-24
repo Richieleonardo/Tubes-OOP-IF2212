@@ -19,6 +19,7 @@ public class Kernelpult extends Plant {
         description = "Kernelpult adalah plant yang dapat menyerang zombie menggunakan kernel pellet/ corn yang dapat memberi stun selama 1.5 detik.";
         entityDamage = getAttackDamage();
         down1 = setup("/plant/Kernelpult.png");
+        down2 = setup("/plant/Kernelpult_Cooldown.png");
         collision = true;
         projectile = new Kernel_pellet(gp);
         corn = new Corn(gp);

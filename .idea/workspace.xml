@@ -5,16 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c32ce8e-17b5-40ee-909d-db089b58558b" name="Changes" comment="merge main">
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/zombie/DolphinRiderZombie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/zombie/DuckyTubeZombie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/zombie/PoleVaultingZombie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/zombie/SnorkelZombie.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Cabbagepult_Cooldown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Kernelpult_Cooldown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Lilypad_Cooldown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Peashooter_Cooldown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Repeater_Cooldown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/SnowPeashooter_Cooldown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Squash_Cooldown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Sunflower_Cooldown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Threepeater_Cooldown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/plant/Wallnut_Cooldown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_05_2024_14_16__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_05_2024_14_16__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_05_2024_14_31__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_05_2024_14_31__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DolphinRiderZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/DuckyTubeZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/PoleVaultingZombie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/zombie/SnorkelZombie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/Entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Cabbagepult.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Cabbagepult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Kernelpult.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Kernelpult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Lilypad.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Lilypad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Peashooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Peashooter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Plant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Repeater.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Repeater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/SnowPeashooter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/SnowPeashooter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Squash.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Squash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Sunflower.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Sunflower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Threepeater.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Threepeater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Wallnut.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/object/plant/Wallnut.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +64,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Alvin" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -74,30 +96,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/resources/zombie",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Tubes-OOP-IF2212:app [:app:App.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/code/Tubes_OOP/Tubes-OOP-IF2212/app/src/main/java/org/object/pellet&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\zombie" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\org\object\pellet" />
+      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\zombie" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\objects" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\src\object" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\tiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\zombie" />
-      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\objects" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\plant" />
+      <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\resources\objects" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java" />
       <recent name="E:\code\Tubes_OOP\Tubes-OOP-IF2212\app\src\main\java\src" />
     </key>
@@ -121,6 +142,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
