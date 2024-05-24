@@ -8,7 +8,7 @@ import java.util.Random;
 public class SnorkelZombie extends Zombie {
     static boolean hasJumped;
     public SnorkelZombie(GamePanel gp) {
-        super(gp, "Snorkel Zombie", 100, 1, 100, 1);
+        super(gp, "Snorkel Zombie", 100, 4, 100, 1);
         description = "SnorkelZombie adalah zombie aquatic dengan kemampuan menyelam.";
         entityDamage = getAttackDamage();
         direction = "left";
@@ -20,9 +20,7 @@ public class SnorkelZombie extends Zombie {
 
 
     }
-    public void setAction(){
 
-    }
     public void jump(){
         this.worldX -=144;
         //    super.attackPlant();

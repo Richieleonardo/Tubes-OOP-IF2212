@@ -9,7 +9,7 @@ public class Threepeater extends Plant {
     Projectile projectile2;
     Projectile projectile3;
     public Threepeater(GamePanel gp){
-        super(gp, "Threepeater", 325, 300, 40, 4, -1, 15, false);
+        super(gp, "Threepeater", 325, 200, 35, 4, -1, 15, false);
 
         //name = "Threepeater";
         description = "Threepeater adalah plant yang dapat menyerang zombie pada 3 tile berbeda menggunakan .";

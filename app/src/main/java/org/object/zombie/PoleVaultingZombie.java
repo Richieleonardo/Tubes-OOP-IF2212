@@ -6,9 +6,9 @@ import org.main.GamePanel;
 import java.util.Random;
 
 public class PoleVaultingZombie extends Zombie implements Jump{
-    static boolean hasJumped = false;
+    boolean hasJumped = false;
     public PoleVaultingZombie(GamePanel gp) {
-        super(gp, "Pole Vaulting Zombie", 175, 1, 100, 1);
+        super(gp, "Pole Vaulting Zombie", 175, 4, 100, 1);
         description = "PoleVaultingZombie adalah zombie yang dapat melompati plant sebanyak 1 kali.";
         entityDamage = getAttackDamage();
         direction = "left";
@@ -20,23 +20,9 @@ public class PoleVaultingZombie extends Zombie implements Jump{
 //        left2 = setup("/zombie/.png");
 // belum ada png
     }
-    public void setAction(){
 
-//        tickCounter++;
-//
-//        if(tickCounter == 120){
-//            Random random = new Random();
-//            int i = random.nextInt(100) +1; //pick up a number from 1 to 100
-//
-//            if(i <= 25){
-//                direction = "left";
-//                tickCounter = 0;
-//            }
-//            tickCounter = 0;        }
-    }
     public void jump(){
         this.worldX -=60;
-        //    super.attackPlant();
     }
     @Override
     public void update(){
@@ -50,7 +36,8 @@ public class PoleVaultingZombie extends Zombie implements Jump{
             if (!hasJumped) {
                 if (collisionOn) {
                     jump();
-                    attackPlant(Index);
+                    Index = gp.collisionChecker.checkEntity(this, gp.plant);
+                    instakillPlant(Index);
                     hasJumped = true;
                 } else {
                     attackPlant(Index);
@@ -75,6 +62,16 @@ public class PoleVaultingZombie extends Zombie implements Jump{
             if (frameCounter > 60) {
                 worldX -= (int) (speed + 5.00);
                 frameCounter = 0;
+            }
+        }
+    }
+    public void instakillPlant(int i){
+        if(i != 999 && canAttack){
+            gp.plant.get(i).Health = 0;
+            canAttack = false;
+            if(gp.plant.get(i).Health <= 0){
+                gp.plant.remove(i);
+                canAttack = true;
             }
         }
     }
