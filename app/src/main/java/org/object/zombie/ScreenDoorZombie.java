@@ -11,6 +11,7 @@ public class ScreenDoorZombie extends Zombie {
         direction = "left";
         getImage();
     }
+
     public void getImage() {
 
 
@@ -18,9 +19,6 @@ public class ScreenDoorZombie extends Zombie {
         left2 = setup("/zombie/ScreenDoorZombie.png");
         right1 = setup("/zombie/ScreenDoorZombie.png");
         right2 = setup("/zombie/ScreenDoorZombie.png");
-
-    }
-    public void setAction(){
 
     }
 }

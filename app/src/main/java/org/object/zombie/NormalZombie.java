@@ -28,10 +28,4 @@ public class NormalZombie extends Zombie {
         right1 = setup("/zombie/NormalZombie.png");
         right2 = setup("/zombie/NormalZombie.png");
     }
-
-    public void setAction(){
-    }
-
-
-
 }
