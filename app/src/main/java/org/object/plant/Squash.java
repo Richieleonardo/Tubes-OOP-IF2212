@@ -35,7 +35,7 @@ public class Squash extends Plant {
                 if (zombie != null) {
                     if (zombie.worldY == this.worldY) {
                         int distance = zombie.worldX - this.worldX;
-                        if (distance <= getRange()) {
+                        if (distance <= getRange() && distance >= 0) {
                             if (projectile.alive == false) {
                                 maxHealth = 0;
                                 projectile.set(worldX, worldY, direction, true, this);

@@ -16,7 +16,7 @@ public class Kernelpult extends Plant {
         super(gp, "Kernelpult", 100, 300, 30, 3, -1, 5, false);
 
         //name = "Kernelpult";
-        description = "Kernelpult adalah plant yang dapat menyerang zombie menggunakan kernel pellet.";
+        description = "Kernelpult adalah plant yang dapat menyerang zombie menggunakan kernel pellet/ corn yang dapat memberi stun selama 1.5 detik.";
         entityDamage = getAttackDamage();
         down1 = setup("/plant/Kernelpult.png");
         down2 = setup("/plant/Kernelpult_Cooldown.png");
@@ -45,7 +45,7 @@ public class Kernelpult extends Plant {
                 if (zombie != null) {
                     if (zombie.worldY == this.worldY) {
                         int distance = zombie.worldX - this.worldX;
-                        if (distance <= getRange()) {
+                        if (distance <= getRange() && distance >= 0 ) {
                             if (projectile.alive == false) {
                                 SecureRandom rand = new SecureRandom();
                                 int lucky = rand.nextInt(10);

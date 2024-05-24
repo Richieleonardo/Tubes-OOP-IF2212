@@ -161,7 +161,10 @@ public class GamePanel extends JPanel implements Runnable{
                     if(enemy.collisionTile){
                         ui.gameFinishedLose = true;
                     }
-//                    zombie.get(i).update();
+                    if(zombie.get(i).worldX > 24*getTileSize()){
+                        zombie.remove(i);
+                    }
+
                 }
             }
 

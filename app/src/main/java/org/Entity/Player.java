@@ -253,7 +253,7 @@ public class Player extends Entity{
     //SPAWN THE ZOMBIE
     public void spawnZombies(){
         if(UI.playTime > 20 && UI.playTime <= 160){
-            if(zombieTickCounter == 3*60){ //ZOMBIE SPAWN 3 DETIK  SEKALI
+            if(zombieTickCounter >= 3*60){ //ZOMBIE SPAWN 3 DETIK  SEKALI
                 SecureRandom rand = new SecureRandom();
                 for(int row = 0; row < 6; row++){//WORLDY COORDINATE
                     if(rand.nextDouble() <= 0.3){ //30% CHANCE to spawn
