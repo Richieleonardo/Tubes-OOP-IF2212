@@ -112,7 +112,7 @@ public abstract class Zombie extends Entity {
         frameCounter++;
         if(collisionOn == false){
             if (frameCounter > 60) {
-                worldX -= (int) (speed + 5.00);
+                worldX -= (int) (4);
                 frameCounter = 0;
             }
         }
