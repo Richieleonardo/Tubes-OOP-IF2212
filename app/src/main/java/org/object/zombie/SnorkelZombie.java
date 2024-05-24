@@ -15,7 +15,7 @@ public class SnorkelZombie extends Zombie {
     }
     public void getImage() {
         //TODO
-        left1 = setup("/zombie/NormalZombie.png");
+        left1 = setup("/zombie/SnorkelZombie.png");
 
 
     }
