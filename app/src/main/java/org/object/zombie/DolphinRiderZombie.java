@@ -6,7 +6,7 @@ import org.main.GamePanel;
 import java.util.Random;
 
 public class DolphinRiderZombie extends Zombie implements Jump{
-    static boolean hasJumped = false;
+    boolean hasJumped = false;
     public DolphinRiderZombie(GamePanel gp) {
         super(gp, "Dolphin Rider Zombie", 175, 1, 100, 1);
         description = "DolphinRiderZombie adalah zombie aquatic yang dapat melompati Plant sebanyak 1 kali.";
@@ -38,6 +38,7 @@ public class DolphinRiderZombie extends Zombie implements Jump{
             if (!hasJumped) {
                 if(collisionOn) {
                     jump();
+                    Index = gp.collisionChecker.checkEntity(this, gp.plant);
                     instakillPlant(Index);
                     hasJumped = true;
                 } else {attackPlant(Index);}

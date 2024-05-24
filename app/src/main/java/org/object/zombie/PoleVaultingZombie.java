@@ -6,7 +6,7 @@ import org.main.GamePanel;
 import java.util.Random;
 
 public class PoleVaultingZombie extends Zombie implements Jump{
-    static boolean hasJumped = false;
+    boolean hasJumped = false;
     public PoleVaultingZombie(GamePanel gp) {
         super(gp, "Pole Vaulting Zombie", 175, 1, 100, 1);
         description = "PoleVaultingZombie adalah zombie yang dapat melompati plant sebanyak 1 kali.";
@@ -36,6 +36,7 @@ public class PoleVaultingZombie extends Zombie implements Jump{
             if (!hasJumped) {
                 if (collisionOn) {
                     jump();
+                    Index = gp.collisionChecker.checkEntity(this, gp.plant);
                     instakillPlant(Index);
                     hasJumped = true;
                 } else {

@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class Repeater extends Plant {
     Projectile projectile2;
     public Repeater(GamePanel gp){
-        super(gp, "Repeater", 200, 300, 40, 4, -1, 5, false);
+        super(gp, "Repeater", 200, 200, 30, 4, -1, 5, false);
 
         //name = "Repeater";
         description = "Repeater adalah plant yang dapat menyerang zombie menggunakan 2 pea sekaligus.";

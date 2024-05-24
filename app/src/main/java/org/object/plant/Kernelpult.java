@@ -13,10 +13,11 @@ public class Kernelpult extends Plant {
 
     Projectile corn;
     public Kernelpult(GamePanel gp){
-        super(gp, "Kernelpult", 100, 300, 20, 3, -1, 5, false);
+        super(gp, "Kernelpult", 100, 125, 20, 3, -1, 5, false);
 
         //name = "Kernelpult";
-        description = "Kernelpult adalah plant yang dapat menyerang zombie menggunakan kernel pellet/ corn yang dapat memberi stun selama 1.5 detik.";
+        description = "Kernelpult adalah plant yang dapat menyerang zombie menggunakan kernel pellet";
+        des2 = "atau corn yang dapat memberi stun selama 2 detik.";
         entityDamage = getAttackDamage();
         down1 = setup("/plant/Kernelpult.png");
         down2 = setup("/plant/Kernelpult_Cooldown.png");
