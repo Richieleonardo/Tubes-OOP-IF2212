@@ -17,7 +17,7 @@ public class Kernelpult extends Plant {
 
         //name = "Kernelpult";
         description = "Kernelpult adalah plant yang dapat menyerang zombie menggunakan kernel pellet";
-        des2 = "atau corn yang dapat memberi stun selama 2 detik.";
+        des2 = "atau corn yang dapat memberi stun selama 1.5 detik.";
         entityDamage = getAttackDamage();
         down1 = setup("/plant/Kernelpult.png");
         down2 = setup("/plant/Kernelpult_Cooldown.png");

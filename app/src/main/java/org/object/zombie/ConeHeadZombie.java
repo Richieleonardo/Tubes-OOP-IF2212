@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class ConeHeadZombie extends Zombie{
     public ConeHeadZombie(GamePanel gp) {
-        super(gp, "Cone Head Zombie", 250, 1, 100, 1);
+        super(gp, "Cone Head Zombie", 250, 4, 100, 1);
         description = "ConeHeadZombie adalah zombie yang menggunakan atribut traffic cone di kepalanya.";
         entityDamage = getAttackDamage();
         direction = "left";

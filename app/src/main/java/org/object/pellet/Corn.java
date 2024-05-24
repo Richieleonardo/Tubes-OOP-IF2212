@@ -24,7 +24,7 @@ public class Corn extends Projectile {
 
     public void stun(Zombie zombie){
         if (zombie != null) {
-            zombie.applySlow(120, 99); // Stun for 2 seconds (90 frames), 99% slow
+            zombie.applySlow(90, 100); // Stun for 1.5 seconds (90 frames), 100% slow
             this.alive = false; // Projectile disappears after hitting
         }
     }

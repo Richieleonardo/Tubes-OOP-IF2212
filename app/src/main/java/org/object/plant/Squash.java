@@ -48,16 +48,6 @@ public class Squash extends Plant {
                 }
             }
         }
-//        public void kamikaze(){
-//            int zombieIndex = gp.collisionChecker.checkEntity(this, gp.zombie);
-//            if(zombieIndex != 999){
-//                gp.zombie.get(zombieIndex).Health -= getAttackDamage();
-//
-//                if(gp.zombie.get(zombieIndex).Health <= 0){
-//                    gp.zombie.remove(zombieIndex);
-//                }
-//            }
-//    }
 }
 
 

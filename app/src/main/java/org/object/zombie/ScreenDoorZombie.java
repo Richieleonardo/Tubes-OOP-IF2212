@@ -5,7 +5,7 @@ import org.main.GamePanel;
 
 public class ScreenDoorZombie extends Zombie {
     public ScreenDoorZombie(GamePanel gp) {
-        super(gp, "Screen Door Zombie", 325, 1, 100, 1);
+        super(gp, "Screen Door Zombie", 325, 4, 100, 1);
         description = "ScreenDoorZombie adalah zombie yang menggunakan atribut screen door sebagai perisai.";
         entityDamage = getAttackDamage();
         direction = "left";
