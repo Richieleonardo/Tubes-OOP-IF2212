@@ -12,7 +12,7 @@ speed = 1
 public class NormalZombie extends Zombie {
 
     public NormalZombie(GamePanel gp) {
-        super(gp, "NormalZombie", 125, 1, 100, 3);
+        super(gp, "NormalZombie", 125, 4, 100, 3);
         description = "NormalZombie adalah zombie yang tidak memiliki atribut.";
         entityDamage = getAttackDamage();
         direction = "left";
