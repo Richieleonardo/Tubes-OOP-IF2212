@@ -18,7 +18,7 @@ TODO : IMPLEMENT abstract PLANT yang extend Entity.
  */
 
 //DESIGN PATTERN PROTOTYPE
-public class Entity implements Cloneable {
+public class Entity {
     public GamePanel gp;
 
     public int worldX ,worldY;

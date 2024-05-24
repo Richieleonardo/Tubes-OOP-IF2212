@@ -7,7 +7,7 @@ import org.main.GamePanel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public abstract class Plant extends Entity {
+public abstract class Plant extends Entity implements Cloneable  {
     private int cost;
     private int health;
     private int attack_damage;

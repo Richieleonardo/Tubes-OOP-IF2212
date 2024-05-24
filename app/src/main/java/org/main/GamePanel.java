@@ -96,9 +96,6 @@ public class GamePanel extends JPanel implements Runnable{
 //        assetSetter.setObject();
 //        assetSetter.setPlant(plant);
 //        assetSetter.setPlant(new Sunflower(this), 15, 6);
-//        assetSetter.setPlant(new Threepeater(this), 18, 7);
-//        assetSetter.setPlant(new Cabbagepult(this), 17, 7);
-//        assetSetter.setZombie(new NormalZombie(this), 16, 7);
         gameState = titleState;
     }
 
