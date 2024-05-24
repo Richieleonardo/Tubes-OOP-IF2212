@@ -44,7 +44,7 @@ public class Kernelpult extends Plant {
                 if (zombie != null) {
                     if (zombie.worldY == this.worldY) {
                         int distance = zombie.worldX - this.worldX;
-                        if (distance <= getRange()) {
+                        if (distance <= getRange() && distance >= 0 ) {
                             if (projectile.alive == false) {
                                 SecureRandom rand = new SecureRandom();
                                 int lucky = rand.nextInt(10);

@@ -37,7 +37,7 @@ public class Repeater extends Plant {
                 if (zombie != null) {
                     if (zombie.worldY == this.worldY) {
                         int distance = zombie.worldX - this.worldX;
-                        if (distance <= getRange()) {
+                        if (distance <= getRange() && distance >= 0) {
                             if (projectile.alive == false) {
                                 projectile.set(worldX + 12, worldY, direction, true, this);
                                 gp.projectileList.add(projectile);

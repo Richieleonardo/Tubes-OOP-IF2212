@@ -40,7 +40,7 @@ public class Threepeater extends Plant {
                 if (zombie != null) {
                     if (zombie.worldY == this.worldY || zombie.worldY-48 == this.worldY || zombie.worldY+48 == this.worldY) {
                         int distance = zombie.worldX - worldX;
-                        if (distance <= getRange() || getRange() == -1) {
+                        if (distance <= getRange() && distance >= 0) {
                             if (projectile.alive == false) {
                                 projectile.set(worldX, worldY, direction, true, this);
 

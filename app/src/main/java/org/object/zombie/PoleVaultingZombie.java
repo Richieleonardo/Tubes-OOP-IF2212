@@ -35,7 +35,7 @@ public class PoleVaultingZombie extends Zombie implements Jump{
 //            tickCounter = 0;        }
     }
     public void jump(){
-        this.worldX -=48;
+        this.worldX -=60;
         //    super.attackPlant();
     }
     @Override
@@ -48,9 +48,13 @@ public class PoleVaultingZombie extends Zombie implements Jump{
         int Index = gp.collisionChecker.checkEntity(this, gp.plant);
         if(canAttack){
             if (!hasJumped) {
-                jump();
-                attackPlant(Index);
-                hasJumped = true;
+                if (collisionOn) {
+                    jump();
+                    attackPlant(Index);
+                    hasJumped = true;
+                } else {
+                    attackPlant(Index);
+                }
             }
             else{
                 attackPlant(Index);
