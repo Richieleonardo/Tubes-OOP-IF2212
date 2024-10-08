@@ -6,8 +6,8 @@ Kelompok 5
 
 - Bihurin Salsabila Firdaus / 18222015   
 - Richie Leonardo           / 18222071    
-- Alvin Fadhilas Akmal      / 18222079        
-- Harry Truman Salim        / 18222081
+- Alvin Fadhilah Akmal      / 18222079        
+- Harry Truman Suhalim        / 18222081
 
 
 ## Authors
